@@ -111,7 +111,7 @@ extra = (
     ".tsj-in{position:relative;width:100%;overflow-x:clip;isolation:isolate;text-align:left}"
     ".tsj-ov{position:static;height:0;background:none}"
     ".tsj-in .aura-wrap{position:absolute;inset:0;z-index:-1;pointer-events:none}"
-    ".tsj-in .aura-wrap .aura{position:sticky;top:0;inset:auto;width:100%;height:100vh;z-index:auto}"
+    ".tsj-in .aura-wrap .aura{position:sticky;top:0;inset:auto;width:100%;height:100vh;max-height:2000px;z-index:auto}"
     ".tsj-ov #confetti{position:fixed;inset:0;pointer-events:none;z-index:200}"
 )
 # the site's title block sits above the component, so the hero starts closer to the top
