@@ -514,6 +514,7 @@ em{font-style:italic}
 .phone .tabs button{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;background:#f2f2f5;font-size:calc(14px*var(--fs))}
 .phone .tabs button.on{background:#1471e0;color:#fff}
 .phone .chat{display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid #eee;cursor:pointer;width:100%;text-align:left;align-items:center}
+.phone .av.ph{background-size:cover!important;background-position:center;color:transparent!important}
 .phone .av{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;font-size:16px}
 .phone .chat .nm{display:flex;justify-content:space-between;font-weight:700;font-size:calc(16px*var(--fs))}
 .phone .chat .nm span{font-weight:400;color:#888;font-size:calc(13px*var(--fs))}
@@ -1660,7 +1661,7 @@ em{font-style:italic}
           <!-- CHAT -->
           <div class="scr" data-scr="chat">
             <div style="height:54px;flex:none"></div>
-            <div class="hdr"><button class="bk" data-back><svg width="12" height="20" viewBox="0 0 12 20" fill="none" stroke-width="2.4"><path d="M10 2L2 10l8 8"/></svg><span class="av" style="width:30px;height:30px;font-size:12px;background:#c07a3a" id="chatAv">R</span><span id="chatName" data-go="profile" style="cursor:pointer">Ramesh</span></button><button class="tt" data-tt>TT</button></div>
+            <div class="hdr"><button class="bk" data-back><svg width="12" height="20" viewBox="0 0 12 20" fill="none" stroke-width="2.4"><path d="M10 2L2 10l8 8"/></svg><span class="av ph" style="width:30px;height:30px;font-size:12px;background-image:url(assets/av-ramesh.jpg)" id="chatAv">R</span><span id="chatName" data-go="profile" style="cursor:pointer">Ramesh</span></button><button class="tt" data-tt>TT</button></div>
             <div class="body"><div class="bubbles" id="bubbles"></div></div>
             <div class="quick" id="quick"><button>Acknowledge</button><button>Ask status update</button><button>Send alert</button><button>Share location</button></div>
             <form class="composer" id="composer"><input id="msgIn" placeholder="Message" aria-label="Message" autocomplete="off"><button class="mic" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
@@ -1671,7 +1672,7 @@ em{font-style:italic}
             <div style="height:54px;flex:none"></div>
             <div class="hdr"><button class="bk" data-back><svg width="12" height="20" viewBox="0 0 12 20" fill="none" stroke-width="2.4"><path d="M10 2L2 10l8 8"/></svg>Volunteer Profile</button><button class="tt" data-tt>TT</button></div>
             <div class="body"><div class="pf">
-              <div class="top"><span class="av" style="background:#c07a3a">RS</span><div><div class="nm2">Ramesh Sharma</div><div class="sub2">32, Male</div></div></div>
+              <div class="top"><span class="av ph" style="background-image:url(assets/av-ramesh.jpg)">RS</span><div><div class="nm2">Ramesh Sharma</div><div class="sub2">32, Male</div></div></div>
               <span class="loc">📍 Zone A, near river front</span>
               <div class="energy"><div style="font-size:14px">Energy Level</div><div class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="ends"><span>Uncomfortable</span><span>Comfortable</span></div></div>
               <div class="acts"><button data-go="chat">💬 Start a chat</button><button data-toast="Update requested from Ramesh">⟳ Request Update</button></div>
@@ -1703,7 +1704,7 @@ em{font-style:italic}
                 <div class="ttl">Crowd Handling</div>
                 <div class="task" style="padding:0;border:0;cursor:default"><div class="tg"><span>📍 Zone A</span><span>👥 4</span></div><div class="bt" style="color:#888"><span>15:00 Today</span><span style="color:#1d1d22;border-right:2px solid #1471e0;padding-right:6px">Mid</span></div></div>
                 <div style="font-size:16px;margin-top:16px;display:flex;justify-content:space-between">AI recommended allocation <span>👤🔍</span></div>
-                <div class="people"><div><span class="av" style="background:#8a5a8a">K</span>Kavita</div><div><span class="av" style="background:#b0704a">P</span>Priya</div><div><span class="av" style="background:#6b7a8a">R</span>Rahul</div><div><span class="av" style="background:#4a6a9a">AG</span>Amit Gupta</div></div>
+                <div class="people"><div><span class="av ph" style="background-image:url(assets/av-kavita.jpg)">K</span>Kavita</div><div><span class="av ph" style="background-image:url(assets/av-priya.jpg)">P</span>Priya</div><div><span class="av ph" style="background-image:url(assets/av-rahul.jpg)">R</span>Rahul</div><div><span class="av ph" style="background-image:url(assets/av-amit.jpg)">AG</span>Amit Gupta</div></div>
                 <button class="btn f" style="width:100%;margin-top:20px" id="ntCreate">Create task</button>
               </div>
             </div></div>
@@ -2293,20 +2294,22 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
       <div class="lab">Additional Information</div><div class="txt">${k.info}</div>
       <div class="lab">Location</div><div class="mapbox"><svg viewBox="0 0 353 170" style="position:absolute;inset:0;width:100%;height:100%"><path d="M160 60 L205 40 L240 75 L235 125 L185 140 Z" fill="rgba(20,113,224,.15)" stroke="#1471e0" stroke-width="3"/></svg></div>
       <div class="lab">Assigned Volunteers</div>
-      <button class="vrow" data-go="profile"><span class="av" style="background:#c07a3a">RS</span>Ramesh Sharma<span style="margin-left:auto;color:#888;font-size:13px">Zone A</span></button>
-      <button class="vrow" data-chat="4"><span class="av" style="background:#9a5f8f">N</span>Neha<span style="margin-left:auto;color:#888;font-size:13px">Zone A</span></button>
-      <button class="vrow" data-chat="2"><span class="av" style="background:#5f7f6a">A</span>Amit<span style="margin-left:auto;color:#888;font-size:13px">Zone B</span></button>`;
+      <button class="vrow" data-go="profile"><span class="av ph" style="background-image:url(${RR(PH.Ramesh)})">RS</span>Ramesh Sharma<span style="margin-left:auto;color:#888;font-size:13px">Zone A</span></button>
+      <button class="vrow" data-chat="4"><span class="av ph" style="background-image:url(${RR(PH.Neha)})">N</span>Neha<span style="margin-left:auto;color:#888;font-size:13px">Zone A</span></button>
+      <button class="vrow" data-chat="2"><span class="av ph" style="background-image:url(${RR(PH.Amit)})">A</span>Amit<span style="margin-left:auto;color:#888;font-size:13px">Zone B</span></button>`;
     show('taskinfo')}
 
   /* chats */
+  const PH={Ramesh:'assets/av-ramesh.jpg',Suresh:'assets/av-suresh.jpg',Amit:'assets/av-amit.jpg',Ankit:'assets/av-ankit.jpg',Neha:'assets/av-neha.jpg',Sunita:'assets/av-sunita.jpg',Kavita:'assets/av-kavita.jpg',Priya:'assets/av-priya.jpg',Rahul:'assets/av-rahul.jpg','Amit Gupta':'assets/av-amit.jpg','Ramesh Sharma':'assets/av-ramesh.jpg'};
+  const RR=window.R||(x=>x);const avs=n=>PH[n]?`background-image:url(${RR(PH[n])})`:'';
   const CH={v:[['Ramesh','10:45','Sir, Sector 4 crowd is increasing near Gate 3.','#c07a3a'],['Suresh','12:45','Lost-and-found desk set up. Two volunteers assigned.','#6a7fa8'],['Amit','10:15','Barricade alignment completed. Area is now clear.','#5f7f6a'],['Ankit','08:45','Volunteers reporting late due to traffic diversion.','#8a8a5a'],['Neha','17:45','Pilgrims asking for route to nearest drinking water.','#9a5f8f'],['Sunita','12:23','Child reunited with family at Help Desk 2.','#a8665a']],
     g:[['Zone A Volunteers','11:02','Ramesh: All calm at B2.','#40437D'],['Medical Response','10:40','Ambulance on standby at Gate C.','#d71818'],['Ghat Patrol','09:15','Night shift handover done.','#3271D7']],
     a:[['Command Center','11:20','Crowd advisory issued for Zone A.','#1d1d22'],['Government officials','Yesterday','Bathing schedule confirmed for today.','#6b5427']]};
   let ct='v';
-  function renderChats(){$('#chatList').innerHTML=CH[ct].map((c,i)=>`<button class="chat" data-chat="${ct==='v'?i:0}"><span class="av" style="background:${c[3]}">${c[0].split(' ').map(w=>w[0]).join('').slice(0,2)}</span><div style="flex:1;min-width:0"><div class="nm">${c[0]}<span>${c[1]}</span></div><div class="pv">${c[2]}</div></div></button>`).join('')}
+  function renderChats(){$('#chatList').innerHTML=CH[ct].map((c,i)=>`<button class="chat" data-chat="${ct==='v'?i:0}"><span class="av${PH[c[0]]?' ph':''}" style="background-color:${c[3]};${avs(c[0])}">${c[0].split(' ').map(w=>w[0]).join('').slice(0,2)}</span><div style="flex:1;min-width:0"><div class="nm">${c[0]}<span>${c[1]}</span></div><div class="pv">${c[2]}</div></div></button>`).join('')}
   $$('#msgTabs button').forEach(b=>b.onclick=e=>{e.stopPropagation();ct=b.dataset.t;$$('#msgTabs button').forEach(x=>x.classList.toggle('on',x===b));renderChats()});
   renderChats();
-  function openChat(i){const c=CH.v[i];$('#chatName').textContent=c[0];$('#chatAv').textContent=c[0][0];$('#chatAv').style.background=c[3];
+  function openChat(i){const c=CH.v[i];$('#chatName').textContent=c[0];$('#chatAv').textContent=c[0][0];$('#chatAv').style.backgroundColor=c[3];$('#chatAv').style.backgroundImage=PH[c[0]]?`url(${RR(PH[c[0]])})`:'';$('#chatAv').classList.toggle('ph',!!PH[c[0]]);
     const B=i===0?[['in','Sir, Sector 4 crowd is increasing near Gate 3.'],['out','Noted. Redirect pilgrims to Gate 5 and keep the lane clear. Two more volunteers are on the way.'],['in','Understood.'],['tag','⚠ GROUND UPDATE'],['out','Perfect. Situation looks stable. You can return to normal monitoring mode. Thanks for handling this well.'],['in','Wrapping up from B2. All calm here.'],['media','']]:[['in',c[2]]];
     $('#bubbles').innerHTML=B.map(([k,t])=>k==='media'?`<div class="bub in media" style="background-image:url(assets/crowd-vertical.jpg)"></div>`:`<div class="bub ${k==='tag'?'in tag':k}">${t}</div>`).join('');
     show('chat');setTimeout(()=>{const b=$('.scr[data-scr="chat"] .body',ph);b.scrollTop=b.scrollHeight},30)}
