@@ -1107,6 +1107,15 @@ em{font-style:italic}
 @media (prefers-reduced-motion:reduce){.gm{animation:none}.jump::before,.jump .ja{animation:none}}
 @media(max-width:900px){.gm{opacity:.25}}
 
+/* final-design marker: plain, no green */
+.vstatus,.vstatus.fin{background:none!important;border:0!important;padding:0!important;margin-bottom:12px;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.vstatus b,.vstatus.fin b{color:var(--ink)!important;font-size:14.5px}
+.vstatus span{color:var(--ink2)}
+.vimg.final,.vgrid .vimg.final.sel{box-shadow:0 0 0 1px var(--line)}
+.vgrid .vimg.sel{box-shadow:0 0 0 2px var(--ink)!important}
+.vimg.big.final{box-shadow:0 0 0 1px var(--line),0 18px 40px rgba(14,16,20,.12)!important}
+.fbadge{background:var(--ink)!important;font-weight:500!important;letter-spacing:0!important}
+
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
 .ai4{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -2215,7 +2224,7 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   const IMG=i=>(window.R||(x=>x))(`assets/explore-${String(i+1).padStart(2,'0')}.png`);
   $('#vGrid').innerHTML=V.map((v,i)=>`<button class="vimg${i===15?' final':''}" data-i="${i}" aria-label="${i===15?'Final selected design':'Exploration '+(i+1)}">${i===15?'<span class="fbadge">Final</span>':''}<img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}" loading="lazy"></button>`).join('');
   const FINAL=15;
-  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>✓ Final selected design</b><span>East Bay with Tan, carried into the app and the logo</span>':`<b>Exploration ${String(i+1).padStart(2,'0')} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
+  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>Final selected design</b><span>East Bay with Tan, carried into the app and the logo</span>':`<b>Exploration ${String(i+1).padStart(2,'0')} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
     const [bg,ti,mo]=V[i];$('#vHex').innerHTML=[['Background',bg],['Title',ti],['Motif',mo]].map(([n,h])=>`<span><i style="background:${h}"></i>${n} ${h.toUpperCase()}</span>`).join('')}
   $('#vGrid').addEventListener('click',e=>{const c=e.target.closest('.vimg');if(c)sel(+c.dataset.i)});$('#vBig').addEventListener('click',e=>{if(e.target.closest('.tofinal'))sel(FINAL)});sel(FINAL);
 })();
