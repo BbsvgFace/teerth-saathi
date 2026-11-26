@@ -1066,8 +1066,8 @@ em{font-style:italic}
 
 /* lanyard v3: reference strap + hardware + clear holder */
 .lanyard svg.strap{width:100%;height:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 90px);mask-image:linear-gradient(to bottom,transparent 0,#000 90px)}
-.lanyard .st-edge{fill:none;stroke:#C9580A;stroke-width:15;stroke-linejoin:round}
-.lanyard .st-body{fill:none;stroke:url(#weave);stroke-width:12.5;stroke-linejoin:round}
+.lanyard .st-edge{fill:none;stroke:#C9580A;stroke-width:13;stroke-linejoin:round}
+.lanyard .st-body{fill:none;stroke:url(#weave);stroke-width:10.5;stroke-linejoin:round}
 .idcard{transform-origin:110px 0!important;width:220px;height:auto}
 .idcard .hw{position:absolute;left:74px;top:-2px;width:72px;height:96px;pointer-events:none}
 .idcard .holder{position:absolute;left:-8px;top:80px;width:236px;padding:22px 8px 8px;border-radius:14px;
@@ -1077,6 +1077,35 @@ em{font-style:italic}
 .idcard .holder::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 38%,transparent 46%)}
 .idcard .face{position:relative!important;inset:auto!important;height:310px;border-radius:9px!important;box-shadow:none!important}
 .idcard .face .slot{display:none}
+
+/* v10 */
+.hier{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)!important;gap:clamp(28px,4vw,56px)!important}
+.hier-fig{padding:12px 0}
+.hier .lvl text{font-weight:500}
+.jump-wrap{display:flex;justify-content:center;margin-top:44px}
+.jump{position:relative;display:inline-flex;align-items:center;gap:14px;padding:10px 12px 10px 10px;border-radius:100px;background:var(--ink);color:#fff;text-decoration:none;isolation:isolate;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.jump::before{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-1;background:conic-gradient(from var(--ang,0deg),#6B5CE7,#b9b2ff,#F26A1B,#D1B47E,#6B5CE7);animation:spinb 4s linear infinite;filter:blur(.5px)}
+.jump::after{content:"";position:absolute;inset:1px;border-radius:inherit;z-index:-1;background:var(--ink)}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spinb{to{--ang:360deg}}
+.jump .jl{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.12);border-radius:100px;padding:7px 12px;color:#d8d3ff}
+.jump .jt{font-size:15px;font-weight:500}
+.jump .ja{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);font-size:16px;animation:bob2 1.8s ease-in-out infinite}
+@keyframes bob2{50%{transform:translateY(3px)}}
+.jump:hover{transform:translateY(-3px);box-shadow:0 18px 40px -10px rgba(107,92,231,.55)}
+.jump:hover .ja{background:var(--violet);color:#fff}
+@media(max-width:600px){.jump .jl{display:none}.jump .jt{font-size:14px}}
+#goals{overflow:hidden}
+.goal-motifs{position:absolute;inset:0;pointer-events:none;z-index:0}
+#goals>.wrap{z-index:1}
+.gm{position:absolute;opacity:.55;will-change:transform}
+.gm1{width:clamp(160px,19vw,270px);right:max(2vw,calc(50% - 720px));top:8%;animation:gspin 60s linear infinite}
+.gm2{width:clamp(200px,24vw,340px);left:max(-2vw,calc(50% - 780px));bottom:-6%;animation:gspin 90s linear infinite reverse}
+#goals:hover .gm{opacity:.8}
+.gm{transition:opacity .6s}
+@keyframes gspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.gm{animation:none}.jump::before,.jump .ja{animation:none}}
+@media(max-width:900px){.gm{opacity:.25}}
 
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
@@ -1291,7 +1320,7 @@ em{font-style:italic}
         <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">02</span><div><h3>Where to deploy</h3><div class="more">When an incident breaks out, there is no quick way to know who is free, close by and able to help.</div></div></button>
         <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">03</span><div><h3>Reporting ground truth</h3><div class="more">Reports reach the command centre late, duplicated or without the context needed to act on them.</div></div></button>
       </div>
-      <a class="jump reveal" href="#access">Jump to the design: Design for Accessibility <span>↓</span></a>
+      <div class="jump-wrap reveal"><a class="jump" href="#access"><span class="jl">Skip ahead</span><span class="jt">See the design: Design for Accessibility</span><span class="ja" aria-hidden="true">↓</span></a></div>
     </div>
   </div>
 </section>
@@ -1329,24 +1358,24 @@ em{font-style:italic}
 <section class="sec" id="hierarchy" data-ch="02" data-chname="Problem" data-title="Who reports to whom?">
   <div class="wrap"><div class="hier wide">
     <div class="reveal hier-fig" id="hierFig">
-      <svg viewBox="0 0 900 480" id="hierSvg" aria-label="Three nested arcs: Supervisor, Captains, Volunteers">
+      <svg viewBox="0 0 900 600" id="hierSvg" aria-label="Three nested arcs: Supervisor, Captains, Volunteers">
         <g class="lvl" data-i="0">
-          <path class="hit" d="M330 120 Q450 230 570 120 L570 60 L330 60Z"/>
-          <path class="arc" d="M370 130 Q450 210 530 130"/>
-          <circle class="dot" cx="370" cy="130" r="9"/><circle class="dot" cx="530" cy="130" r="9"/>
-          <text x="450" y="92" text-anchor="middle">Supervisor</text>
+          <path class="hit" d="M320 90 Q450 230 580 90 L580 30 L320 30Z"/>
+          <path class="arc" d="M360 110 Q450 200 540 110"/>
+          <circle class="dot" cx="360" cy="110" r="8"/><circle class="dot" cx="540" cy="110" r="8"/>
+          <text x="450" y="70" text-anchor="middle">Supervisor</text>
         </g>
         <g class="lvl" data-i="1">
-          <path class="hit" d="M220 220 Q450 420 680 220 L680 160 L220 160Z"/>
-          <path class="arc" d="M250 225 Q450 400 650 225"/>
-          <circle class="dot" cx="250" cy="225" r="9"/><circle class="dot" cx="650" cy="225" r="9"/>
-          <text x="450" y="232" text-anchor="middle">Captains</text>
+          <path class="hit" d="M200 270 Q450 470 700 270 L700 210 L200 210Z"/>
+          <path class="arc" d="M230 280 Q450 450 670 280"/>
+          <circle class="dot" cx="230" cy="280" r="8"/><circle class="dot" cx="670" cy="280" r="8"/>
+          <text x="450" y="296" text-anchor="middle">Captains</text>
         </g>
         <g class="lvl" data-i="2">
-          <path class="hit" d="M90 320 Q450 640 810 320 L810 270 L90 270Z"/>
-          <path class="arc" d="M110 325 Q450 600 790 325"/>
-          <circle class="dot" cx="110" cy="325" r="9"/><circle class="dot" cx="790" cy="325" r="9"/>
-          <text x="450" y="372" text-anchor="middle">Volunteers</text>
+          <path class="hit" d="M60 430 Q450 760 840 430 L840 380 L60 380Z"/>
+          <path class="arc" d="M80 440 Q450 720 820 440"/>
+          <circle class="dot" cx="80" cy="440" r="8"/><circle class="dot" cx="820" cy="440" r="8"/>
+          <text x="450" y="484" text-anchor="middle">Volunteers</text>
         </g>
       </svg>
       <div class="convo" id="convo" aria-live="off"></div>
@@ -1470,7 +1499,7 @@ em{font-style:italic}
       </div>
       <div class="artefacts2 reveal">
         <button data-zoom="assets/evolving-persona.jpg" data-title="Evolving Persona"><img src="assets/evolving-persona-thumb.jpg" alt="Evolving persona: Priya's basic information, bio, personality, interests, influences, goals, needs, motivations and pain points" loading="lazy"><span>Evolving Persona <em>⤢</em></span></button>
-        <button data-zoom="assets/wall-empathy-map.png" data-title="MindMap"><img src="assets/wall-empathy-map.png" alt="Mind map board" loading="lazy"><span>MindMap <em>⤢</em></span></button>
+        <button data-zoom="assets/wall-empathy-map.png" data-title="Empathy map"><img src="assets/wall-empathy-map.png" alt="Empathy map board" loading="lazy"><span>Empathy map <em>⤢</em></span></button>
       </div>
     </div>
   </div>
@@ -1478,6 +1507,7 @@ em{font-style:italic}
 
 <!-- ====================== PRODUCT GOALS ====================== -->
 <section class="sec" id="goals" data-ch="03" data-chname="Research" data-title="Product goals">
+  <div class="goal-motifs" aria-hidden="true"><img class="gm gm1" src="assets/motif-pinwheel.png" alt=""><img class="gm gm2" src="assets/motif-diamond.png" alt=""></div>
   <div class="wrap">
     <h2 class="reveal">Product goals</h2>
     <div class="goals">
@@ -1984,12 +2014,13 @@ addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',on
 /* ---------- lanyard: V strap → single strap → sleeve, ring, hook → holder ---------- */
 (function(){
   const box=$('#lanyard'),card=$('#idcard'),E=$('#stE'),B=$('#stB');
-  const W=()=>box.clientWidth,L=300,MERGE=74,SPREAD=66,OM=2*Math.PI/6,K=OM*OM,C=.9,DRIVE=.07*C*OM;
+  const W=()=>box.clientWidth,L=300,SPREAD=52,OM=2*Math.PI/6,K=OM*OM,C=.9,DRIVE=.07*C*OM;
   let ang=.07,vel=0,drag=false,t=0,last=performance.now();
   function draw(){const ax=W()/2,ay=-60,sn=Math.sin(ang),cs=Math.cos(ang);
-    const px=ax+sn*L,py=ay+cs*L,mx=ax+sn*(L-MERGE),my=ay+cs*(L-MERGE);
+    const px=ax+sn*L,py=ay+cs*L;
     card.style.transform=`translate(${px-110}px,${py}px) rotate(${-ang*57.3}deg)`;
-    const d=`M${ax-SPREAD} ${ay} Q${(ax-SPREAD+mx)/2-4} ${(ay+my)/2} ${mx} ${my} L${px} ${py} M${ax+SPREAD} ${ay} Q${(ax+SPREAD+mx)/2+4} ${(ay+my)/2} ${mx} ${my}`;
+    const lx=px-sn*0-cs*3.5,rx=px+cs*3.5,ly=py+sn*3.5,ry=py-sn*3.5;
+    const d=`M${ax-SPREAD} ${ay} C${ax-SPREAD*.9} ${ay+L*.45} ${lx-2} ${ly-L*.35} ${lx} ${ly+4} M${ax+SPREAD} ${ay} C${ax+SPREAD*.9} ${ay+L*.45} ${rx+2} ${ry-L*.35} ${rx} ${ry+4}`;
     E.setAttribute('d',d);B.setAttribute('d',d)}
   function step(now){const dt=Math.min(.033,(now-last)/1000);last=now;t+=dt;
     if(!drag){vel+=(-K*Math.sin(ang)-C*vel+DRIVE*Math.cos(OM*t))*dt;ang+=vel*dt}
@@ -2013,15 +2044,15 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
     $('#hierWho').textContent=notes[i][0];$('#hierQ').textContent=notes[i][1]}
   // x,y in the 900×480 viewBox; side = which way the tail points
   const CONVO=[
-    [2,'Volunteer · Zone A','Crowd is building near Gate 3. Need more hands here!',225,300,'down'],
-    [1,'Captain · Zone A','Hold the lane. Sending two from B2 now.',675,300,'up'],
-    [1,'Captain · Zone A','Zone A is near capacity. Can we pull help from another zone?',235,180,'down'],
-    [0,'Supervisor','Moving 4 volunteers from Zone C. Five minutes out.',665,175,'up'],
-    [2,'Volunteer · Zone A','Help has arrived. Lane is moving again 👍',225,300,'down'],
-    [1,'Captain · Zone A','Great work. Back to normal monitoring.',675,300,'up']];
+    [2,'Volunteer · Zone A','Crowd is building near Gate 3. Need more hands here!',200,385,'down'],
+    [1,'Captain · Zone A','Hold the lane. Sending two from B2 now.',700,390,'up'],
+    [1,'Captain · Zone A','Zone A is near capacity. Can we pull help from another zone?',215,205,'down'],
+    [0,'Supervisor','Moving 4 volunteers from Zone C. Five minutes out.',690,200,'up'],
+    [2,'Volunteer · Zone A','Help has arrived. Lane is moving again 👍',200,385,'down'],
+    [1,'Captain · Zone A','Great work. Back to normal monitoring.',700,390,'up']];
   const box=$('#convo');let k=0,timer=null,paused=false,vis=false;
   function say(){const [lv,who,txt,x,y,side]=CONVO[k];set(lv);
-    const b=document.createElement('div');b.className='bub2 lv'+lv+' t-'+side;b.style.left=(x/900*100)+'%';b.style.top=(y/480*100)+'%';
+    const b=document.createElement('div');b.className='bub2 lv'+lv+' t-'+side;b.style.left=(x/900*100)+'%';b.style.top=(y/600*100)+'%';
     b.innerHTML=`<span class="who">${who}</span>${txt}`;box.appendChild(b);
     const all=$$('.bub2',box);if(all.length>2)all.slice(0,all.length-2).forEach(o=>{o.classList.add('out');setTimeout(()=>o.remove(),400)});
     k=(k+1)%CONVO.length;if(k===0)setTimeout(()=>$$('.bub2',box).forEach(o=>{o.classList.add('out');setTimeout(()=>o.remove(),400)}),2400)}
@@ -2030,6 +2061,8 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   $$('#hierSvg .lvl').forEach(g=>{g.addEventListener('mouseenter',()=>{paused=true;set(+g.dataset.i)});g.addEventListener('mouseleave',()=>paused=false);g.addEventListener('click',()=>set(+g.dataset.i))});
   $$('#hierTabs .pill').forEach(b=>b.onclick=()=>{paused=true;set(+b.dataset.i);setTimeout(()=>paused=false,6000)});
   set(2);run();
+  // keep the label type at 17px whatever the diagram's size
+  const hs=$('#hierSvg');function ts(){const k=hs.clientWidth/900||1;$$('text',hs).forEach(t=>t.style.fontSize=(17/k)+'px')}ts();addEventListener('resize',ts);
 })();
 
 /* ---------- stakeholders: orbit ---------- */
