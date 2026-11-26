@@ -2123,7 +2123,7 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
     return `<svg viewBox="0 0 130 136" aria-hidden="true">${s}</svg>`}
   function card(v,i,extra){const [bg,ti,mo,pill]=v;const light=bg==='#ffffff';
     return `<button class="vcard${light?' light':''}${extra||''}" data-i="${i}" style="background:${bg};color:${ti}">${pill?`<span class="hello" style="background:${pill};color:${pill==='#fc5d1e'?'#fff':ti}">Hello</span>`:''}<div class="ti">Kumbh Mela<br><span>(कुम्भ मेला)</span></div><div class="bd">${body}</div>${motif(mo)}</button>`}
-  const IMG=i=>`assets/explore-${String(i+1).padStart(2,'0')}.png`;
+  const IMG=i=>(window.R||(x=>x))(`assets/explore-${String(i+1).padStart(2,'0')}.png`);
   $('#vGrid').innerHTML=V.map((v,i)=>`<button class="vimg" data-i="${i}" aria-label="Exploration ${i+1}"><img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}" loading="lazy"></button>`).join('');
   function sel(i){$('#vBig').innerHTML=`<div class="vimg big"><img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
     const [bg,ti,mo]=V[i];$('#vHex').innerHTML=[['Background',bg],['Title',ti],['Motif',mo]].map(([n,h])=>`<span><i style="background:${h}"></i>${n} ${h.toUpperCase()}</span>`).join('')}
