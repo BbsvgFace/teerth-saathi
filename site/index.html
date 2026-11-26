@@ -1116,6 +1116,14 @@ em{font-style:italic}
 .vimg.big.final{box-shadow:0 0 0 1px var(--line),0 18px 40px rgba(14,16,20,.12)!important}
 .fbadge{background:var(--ink)!important;font-weight:500!important;letter-spacing:0!important}
 
+/* mockups */
+.mock{margin-top:clamp(28px,4vw,44px);margin-bottom:0;border-radius:var(--r);overflow:hidden;position:relative;background:var(--card2);box-shadow:0 1px 2px rgba(14,16,20,.05),0 18px 40px rgba(14,16,20,.10)}
+.mock img{width:100%;height:auto;display:block;cursor:zoom-in;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.mock:hover img{transform:scale(1.025)}
+.mock figcaption{position:absolute;left:14px;bottom:12px;font-size:12.5px;font-weight:500;color:#fff;background:rgba(14,16,20,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:100px;padding:5px 12px}
+.screens-head+.mock{margin-top:24px}
+.slab+.mock{margin-top:16px}
+
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
 .ai4{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -1694,6 +1702,7 @@ em{font-style:italic}
     <span class="eyebrow reveal"><span class="n">06</span>Solution and interactive prototype</span>
     <h2 class="reveal">Introducing Teerth Saathi</h2>
     <p class="lead reveal">A centralized interface which provides real-time visibility of tasks, volunteers, and crowd conditions to support fast and informed decision-making.</p>
+    <figure class="mock mock-hero wide reveal"><img src="assets/mock-studio.jpg" alt="Teerth Saathi home screen with new messages, on a phone in a purple studio scene" loading="lazy" data-zoom="assets/mock-studio.jpg" data-title="Home: new messages"><figcaption>Home: new messages</figcaption></figure>
 
     <div class="proto wide reveal" style="margin-top:40px" id="proto">
       <div class="phone-holder" id="phoneHolder">
@@ -1860,6 +1869,7 @@ em{font-style:italic}
     </div>
 
     <div class="screens-head reveal"><h3>Home screen states</h3><p>The home screen changes colour with what needs attention: messages, alerts or a priority alert.</p></div>
+    <figure class="mock wide reveal"><img src="assets/mock-water.jpg" alt="Teerth Saathi showing new alerts on a phone held by the water" loading="lazy" data-zoom="assets/mock-water.jpg" data-title="Home: new alerts, in hand"><figcaption>Home: new alerts, in hand</figcaption></figure>
     <div class="screens wide">
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-msg.jpg" alt="Home: you have new messages" loading="lazy" width="393" height="852"></div><figcaption>New messages</figcaption></figure>
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-alerts.jpg" alt="Home: you have new alerts" loading="lazy" width="393" height="852"></div><figcaption>New alerts</figcaption></figure>
@@ -1890,6 +1900,7 @@ em{font-style:italic}
         <p>The alert takes over the whole screen with the source, the incident and the zone, and two choices: assign a task or ignore.</p>
       </div>
     </div>
+    <figure class="mock wide reveal"><img src="assets/mock-surge.jpg" alt="Full-screen Crowd Surge alert for Zone A on a phone being pulled from a pocket" loading="lazy" data-zoom="assets/mock-surge.jpg" data-title="Priority alert: Crowd Surge, Zone A"><figcaption>Priority alert: Crowd Surge, Zone A</figcaption></figure>
     <div class="slab reveal">
       <div class="shot"><div class="devf"><video src="assets/clip-profile.mp4" data-fallback="assets/clip-profile.webp" poster="assets/clip-profile-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype recording: from a chat with Ramesh to his profile showing energy level, skills and limitations"></video></div></div>
       <div class="tx">
@@ -1901,6 +1912,7 @@ em{font-style:italic}
       </div>
     </div>
 
+    <figure class="mock wide reveal"><img src="assets/mock-chat-profile.jpg" alt="Two phones side by side: a chat with Ramesh and his volunteer profile" loading="lazy" data-zoom="assets/mock-chat-profile.jpg" data-title="Chat and volunteer profile"><figcaption>Chat and volunteer profile</figcaption></figure>
     <h3 class="reveal sub-h">Volunteer profile and wellness</h3>
     <div class="wellness">
       <div class="wcard reveal"><span class="step">Wellness</span><h4>Energy level</h4><p>Tracked over time based on the number of tasks, stress level and duty time.</p></div>
