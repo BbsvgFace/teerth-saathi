@@ -1038,6 +1038,32 @@ em{font-style:italic}
 @media(max-width:900px){.sites4{grid-template-columns:1fr 1fr}.sites4>div:nth-child(3){border-left:0;padding-left:0}.pgrid{grid-template-columns:1fr}.pcardx{grid-row:auto}.pblock .sliders{grid-template-columns:1fr}.artefacts2{grid-template-columns:1fr}}
 @media(max-width:700px){.bub2{max-width:170px;font-size:12px}}
 
+/* v8 */
+.jump{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:12px 20px;border-radius:100px;background:var(--ink);color:#fff;text-decoration:none;font-size:14.5px;font-weight:500;transition:background .25s,box-shadow .25s,transform .25s}
+.jump span{transition:transform .25s}
+.jump:hover{background:var(--violet);box-shadow:0 10px 26px rgba(107,92,231,.35);transform:translateY(-2px)}
+.jump:hover span{transform:translateY(3px)}
+.screens-head{margin-top:clamp(80px,10vw,128px);padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.screens-head p{font-size:15.5px}
+.screens{margin-top:28px!important}
+.vstatus{display:flex;flex-direction:column;gap:2px;margin-bottom:12px;padding:10px 14px;border-radius:12px;background:var(--card2);border:1px solid var(--line)}
+.vstatus b{font-size:14px;font-weight:600;color:var(--ink2)}
+.vstatus span{font-size:13px;color:var(--ink2)}
+.vstatus.fin{background:#E9F6EC;border-color:#CBE9D3}
+.vstatus.fin b{color:#1E6B36}
+.tofinal{font:inherit;color:var(--violet);text-decoration:underline;padding:0}
+.vimg{position:relative}
+.vimg.final{box-shadow:0 0 0 2px #2E9B4E}
+.vgrid .vimg.final.sel{box-shadow:0 0 0 3px #2E9B4E}
+.vimg.big.final{box-shadow:0 0 0 3px #2E9B4E,0 18px 40px rgba(14,16,20,.12)}
+.fbadge{position:absolute;right:6px;top:6px;z-index:1;background:#2E9B4E;color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.04em;border-radius:100px;padding:2px 8px}
+.devf img{display:block;width:100%;height:100%;object-fit:cover}
+/* design system: never upscale beyond native size */
+.ds .blk img{width:auto;max-width:100%;height:auto;margin-inline:auto;image-rendering:auto}
+.ds .pair{align-items:flex-start;justify-content:center}
+.ds .pair img{flex:0 1 auto;max-width:calc(50% - 7px)}
+.ds .c img{max-width:min(100%,435px)}
+
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
 .ai4{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -1133,7 +1159,7 @@ em{font-style:italic}
 <section class="meta-sec" data-phase="Brief">
   <div class="wrap">
     <dl class="meta reveal">
-      <div><dt>Role</dt><dd>UX research, User interface, Cognitive behavior study, UX ideation</dd></div>
+      <div><dt>Role</dt><dd>Design and visual system, UX research</dd></div>
       <div><dt>Context</dt><dd>Salesforce Hackathon, IIT Kanpur. A 2-day design challenge</dd></div>
       <div><dt>Tools</dt><dd>Figma, Photoshop</dd></div>
       <div><dt>Outcome</dt><dd>A conceptual volunteer coordination platform supporting incident reporting, task allocation, crowd monitoring, and multi-level emergency escalation.</dd></div>
@@ -1236,10 +1262,11 @@ em{font-style:italic}
     <h2 class="reveal">Problem statement</h2>
       <p class="lead reveal">Mass gatherings like the Kumbh Mela create high crowd density, where delayed risk detection and poor coordination between volunteers and authorities increase the likelihood of crowd disasters.</p>
       <div class="problem-cards">
-        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">01</span><div><h3>Seeing the ground reality</h3><div class="more">Draft: a captain can't see what is happening two zones away, only what their own volunteers report.</div></div></button>
-        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">02</span><div><h3>Where to deploy</h3><div class="more">Draft: when an incident breaks out, there is no quick way to know who is free, close by and able to help.</div></div></button>
-        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">03</span><div><h3>Reporting ground truth</h3><div class="more">Draft: reports reach the command centre late, duplicated or without the context needed to act on them.</div></div></button>
+        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">01</span><div><h3>Seeing the ground reality</h3><div class="more">A captain can't see what is happening two zones away, only what their own volunteers report.</div></div></button>
+        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">02</span><div><h3>Where to deploy</h3><div class="more">When an incident breaks out, there is no quick way to know who is free, close by and able to help.</div></div></button>
+        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">03</span><div><h3>Reporting ground truth</h3><div class="more">Reports reach the command centre late, duplicated or without the context needed to act on them.</div></div></button>
       </div>
+      <a class="jump reveal" href="#access">Jump to the design: Design for Accessibility <span>↓</span></a>
     </div>
   </div>
 </section>
@@ -1548,7 +1575,7 @@ em{font-style:italic}
       <div class="vprev reveal" style="position:sticky;top:90px">
         <div id="vBig"></div>
         <div class="hexes" id="vHex"></div>
-        <p class="caption">Click any of the 16 explorations to preview it large.</p>
+        <p class="caption">16 directions in total: 15 explorations and the final selected design (marked Final). Click any to compare.</p>
       </div>
       <div class="vgrid reveal" id="vGrid"></div>
     </div>
@@ -1766,6 +1793,7 @@ em{font-style:italic}
       </div>
     </div>
 
+    <div class="screens-head reveal"><h3>Home screen states</h3><p>The home screen changes colour with what needs attention: messages, alerts or a priority alert.</p></div>
     <div class="screens wide">
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-msg.jpg" alt="Home: you have new messages" loading="lazy" width="393" height="852"></div><figcaption>New messages</figcaption></figure>
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-alerts.jpg" alt="Home: you have new alerts" loading="lazy" width="393" height="852"></div><figcaption>New alerts</figcaption></figure>
@@ -1789,7 +1817,7 @@ em{font-style:italic}
     </div>
 
     <div class="slab reveal">
-      <div class="shot"><div class="devf"><video src="assets/clip-alert.mp4" poster="assets/clip-alert-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype recording: a crowd-surge alert takes over the screen, the captain assigns a task and AI suggests four volunteers"></video></div></div>
+      <div class="shot"><div class="devf"><video src="assets/clip-alert.mp4" data-fallback="assets/clip-alert.webp" poster="assets/clip-alert-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype recording: a crowd-surge alert takes over the screen, the captain assigns a task and AI suggests four volunteers"></video></div></div>
       <div class="tx">
         <span class="step">Priority alerts</span>
         <h3>Priority Tasks play Alert over other apps to notify volunteers efficiently</h3>
@@ -1797,7 +1825,7 @@ em{font-style:italic}
       </div>
     </div>
     <div class="slab reveal">
-      <div class="shot"><div class="devf"><video src="assets/clip-profile.mp4" poster="assets/clip-profile-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype recording: from a chat with Ramesh to his profile showing energy level, skills and limitations"></video></div></div>
+      <div class="shot"><div class="devf"><video src="assets/clip-profile.mp4" data-fallback="assets/clip-profile.webp" poster="assets/clip-profile-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype recording: from a chat with Ramesh to his profile showing energy level, skills and limitations"></video></div></div>
       <div class="tx">
         <span class="step">Energy level</span>
         <h3>Tracking energy level over time based on number of tasks, stress level and Duty time.</h3>
@@ -2124,10 +2152,11 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   function card(v,i,extra){const [bg,ti,mo,pill]=v;const light=bg==='#ffffff';
     return `<button class="vcard${light?' light':''}${extra||''}" data-i="${i}" style="background:${bg};color:${ti}">${pill?`<span class="hello" style="background:${pill};color:${pill==='#fc5d1e'?'#fff':ti}">Hello</span>`:''}<div class="ti">Kumbh Mela<br><span>(कुम्भ मेला)</span></div><div class="bd">${body}</div>${motif(mo)}</button>`}
   const IMG=i=>(window.R||(x=>x))(`assets/explore-${String(i+1).padStart(2,'0')}.png`);
-  $('#vGrid').innerHTML=V.map((v,i)=>`<button class="vimg" data-i="${i}" aria-label="Exploration ${i+1}"><img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}" loading="lazy"></button>`).join('');
-  function sel(i){$('#vBig').innerHTML=`<div class="vimg big"><img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
+  $('#vGrid').innerHTML=V.map((v,i)=>`<button class="vimg${i===15?' final':''}" data-i="${i}" aria-label="${i===15?'Final selected design':'Exploration '+(i+1)}">${i===15?'<span class="fbadge">Final</span>':''}<img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}" loading="lazy"></button>`).join('');
+  const FINAL=15;
+  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>✓ Final selected design</b><span>East Bay with Tan, carried into the app and the logo</span>':`<b>Exploration ${String(i+1).padStart(2,'0')} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
     const [bg,ti,mo]=V[i];$('#vHex').innerHTML=[['Background',bg],['Title',ti],['Motif',mo]].map(([n,h])=>`<span><i style="background:${h}"></i>${n} ${h.toUpperCase()}</span>`).join('')}
-  $('#vGrid').addEventListener('click',e=>{const c=e.target.closest('.vimg');if(c)sel(+c.dataset.i)});sel(15);
+  $('#vGrid').addEventListener('click',e=>{const c=e.target.closest('.vimg');if(c)sel(+c.dataset.i)});$('#vBig').addEventListener('click',e=>{if(e.target.closest('.tofinal'))sel(FINAL)});sel(FINAL);
 })();
 
 
@@ -2212,8 +2241,12 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
 });
 
 
-/* prototype clips: play when visible */
-(function(){const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else v.pause()}),{threshold:.25});$$('.devf video').forEach(v=>vo.observe(v))})();
+/* prototype clips: autoplay, with an animated-image fallback if the browser blocks video autoplay */
+(function(){const RR=window.R||(x=>x);
+  function swap(v){if(!v.isConnected||v.dataset.swapped)return;v.dataset.swapped=1;const im=document.createElement('img');im.src=RR(v.dataset.fallback);im.alt=v.getAttribute('aria-label')||'';v.replaceWith(im)}
+  $$('.devf video').forEach(v=>{v.muted=true;v.defaultMuted=true;v.playsInline=true;
+    const go=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>swap(v))};
+    new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){go();setTimeout(()=>{if(v.isConnected&&(v.paused||v.currentTime<.05))swap(v)},1800)}}),{threshold:.2}).observe(v)})})();
 
 /* wireframes: vertical scroll drives the track sideways */
 (function(){const sec=$('#wireframes'),tr=$('#hsTrack'),bar=$('#hsBar');
