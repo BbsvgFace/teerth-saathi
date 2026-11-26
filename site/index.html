@@ -165,9 +165,9 @@ em{font-style:italic}
 .lanyard svg.strap{position:absolute;inset:0;overflow:visible;pointer-events:none}
 .idcard{position:absolute;left:0;top:0;width:220px;height:310px;transform-origin:110px -14px;cursor:grab;user-select:none;-webkit-user-select:none}
 .idcard:active{cursor:grabbing}
-.idcard .clip{position:absolute;left:50%;top:-30px;width:34px;height:40px;margin-left:-17px;border-radius:8px 8px 6px 6px;background:linear-gradient(#5b5b66,#2c2c34);box-shadow:inset 0 2px 0 rgba(255,255,255,.2)}
+.idcard .clip{position:absolute;left:50%;top:-22px;width:26px;height:30px;margin-left:-13px;border-radius:6px;background:#3a3a44}
 .idcard .clip::after{content:"";position:absolute;left:9px;top:8px;width:16px;height:6px;border-radius:3px;background:#ececf1}
-.idcard .face{position:absolute;inset:0;border-radius:16px;background:var(--eastbay);color:#fff;overflow:hidden;box-shadow:0 30px 50px -10px rgba(30,30,60,.45),0 0 0 1px rgba(255,255,255,.06) inset;padding:18px 18px 16px;display:flex;flex-direction:column}
+.idcard .face{position:absolute;inset:0;border-radius:14px;background:var(--eastbay);color:#fff;overflow:hidden;box-shadow:0 14px 28px -12px rgba(30,30,60,.35);padding:18px 18px 16px;display:flex;flex-direction:column}
 .idcard .slot{width:46px;height:8px;border-radius:4px;background:#ececf1;margin:0 auto 14px;opacity:.95}
 .idcard .row{display:flex;align-items:center;justify-content:space-between}
 .idcard .brandmark{display:flex;align-items:center;gap:8px;font-family:var(--head);font-size:13px;font-weight:500}
@@ -972,6 +972,71 @@ em{font-style:italic}
 /* confetti */
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:200}
 
+/* v7 tweaks */
+.sites4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:36px;border-top:1px solid var(--line)}
+.sites4>div{padding:14px 18px 4px 0}
+.sites4>div+div{padding-left:18px;border-left:1px solid var(--line)}
+.sites4 b{display:block;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.sites4 span{font-size:13.5px;line-height:1.5;color:var(--ink2)}
+.cbox:nth-child(1){background:#F1EFFD;border-color:#E3DFFA}
+.cbox:nth-child(2){background:#FBF3E6;border-color:#F1E4CC}
+.cbox:nth-child(1) li::before{background:var(--violet)}
+.cbox:nth-child(2) li::before{background:#C9A15A}
+.cbox li{border-top-color:rgba(14,16,20,.07)}
+.quote-line{background:none!important;border:0!important;padding:0!important;font-size:clamp(22px,2.4vw,28px)!important;line-height:1.35!important;font-weight:500!important;letter-spacing:-.018em!important;color:var(--ink)!important;margin-top:40px!important;max-width:30ch!important}
+.hier-fig{position:relative}
+.convo{position:absolute;inset:0;pointer-events:none}
+.bub2{position:absolute;transform:translate(-50%,-50%) scale(.6);opacity:0;max-width:230px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 13px 11px;font-size:13.5px;line-height:1.42;color:var(--ink);box-shadow:0 10px 26px rgba(14,16,20,.12);animation:bubIn .45s cubic-bezier(.2,.9,.3,1.25) forwards}
+.bub2 .who{display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.bub2.lv0 .who{color:#2B2466}.bub2.lv1 .who{color:var(--violet)}.bub2.lv2 .who{color:#C66A1E}
+.bub2.lv0{background:#F1EFFD;border-color:#E3DFFA}
+.bub2.lv2{background:#FFF6EC;border-color:#F6E2CB}
+.bub2::after{content:"";position:absolute;left:28px;width:12px;height:12px;background:inherit;border:inherit;border-top:0;border-left:0;transform:rotate(45deg)}
+.bub2.t-down::after{bottom:-7px}
+.bub2.t-up::after{top:-7px;transform:rotate(225deg)}
+.bub2.out{animation:bubOut .35s ease forwards}
+@keyframes bubIn{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bubOut{from{opacity:1;transform:translate(-50%,-50%) scale(1)}to{opacity:0;transform:translate(-50%,-60%) scale(.96)}}
+.orbit-fig{width:min(760px,100%)!important}
+.orbitwrap .sh-controls{margin:0;justify-content:center;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+/* persona */
+.pgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;margin-top:28px;align-items:start}
+.pcardx{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;grid-row:span 2}
+.pphoto{background:linear-gradient(160deg,#e9e7fc,#f4ecdd);aspect-ratio:1/1;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.pphoto img{width:100%;height:100%;object-fit:cover;object-position:center 12%}
+.pid{padding:20px 22px 22px}
+.pid .name{font-size:clamp(24px,2.6vw,32px);font-weight:600;letter-spacing:-.022em;color:var(--eastbay)}
+.pfacts{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin-top:14px}
+.pfacts dt{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.pfacts dd{font-size:15px;color:var(--ink);margin-top:2px}
+.pside{display:flex;flex-direction:column;gap:16px}
+.pblock{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px}
+.pblock h4{font-size:16px;font-weight:600;margin-bottom:12px}
+.pblock h4 b{color:var(--violet)}
+.quotes{display:flex;flex-direction:column;gap:8px}
+.quotes blockquote{background:#F4F2FE;border-radius:14px 14px 14px 4px;padding:11px 14px;font-size:15.5px;line-height:1.5;color:var(--ink);border:0;margin:0}
+.quotes blockquote:nth-child(2){align-self:flex-end;border-radius:14px 14px 4px 14px;background:#FBF3E6}
+.pblock .desire{margin-top:0}
+.pblock .sliders{margin-top:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+.pblock .sl{margin-bottom:6px}
+.artefacts2{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.artefacts2 button{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;cursor:zoom-in;transition:transform .25s,box-shadow .25s;text-align:left}
+.artefacts2 button:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,16,20,.08)}
+.artefacts2 img{width:100%;height:220px;object-fit:contain;background:var(--card2);border-radius:12px}
+.artefacts2 span{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-top:10px}
+.artefacts2 em{font-style:normal;color:var(--ink2)}
+/* goals hover */
+.goal{position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s,background .35s;cursor:default;overflow:hidden}
+.goal::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--violet),#b9b2ff);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.goal:hover{transform:translateY(-6px);border-color:#d6d2f8;background:#fff;box-shadow:0 20px 40px -12px rgba(107,92,231,.28)}
+.goal:hover::after{transform:scaleX(1)}
+.goal .n{transition:color .3s}
+.goal:hover .n{color:var(--violet)}
+.goal h3{transition:color .3s}
+.goal:hover h3{color:#2B2466}
+@media(max-width:900px){.sites4{grid-template-columns:1fr 1fr}.sites4>div:nth-child(3){border-left:0;padding-left:0}.pgrid{grid-template-columns:1fr}.pcardx{grid-row:auto}.pblock .sliders{grid-template-columns:1fr}.artefacts2{grid-template-columns:1fr}}
+@media(max-width:700px){.bub2{max-width:170px;font-size:12px}}
+
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
 .ai4{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -1149,12 +1214,11 @@ em{font-style:italic}
         <div class="c">The Salesforce Hackathon gave us 48 hours to go from a brief to a tested prototype. The clock runs down as you scroll.</div>
       </div>
       <div class="lanyard" id="lanyard">
-        <svg class="strap" id="strap"><path id="strapPath0" d="" stroke="#B8460C" stroke-width="18" fill="none" stroke-linecap="round"/><path id="strapPath" d="" stroke="#F26A1B" stroke-width="15" fill="none" stroke-linecap="round"/><path id="strapPath2" d="" stroke="#FFC08F" stroke-width="4" fill="none" stroke-linecap="round" opacity=".75" transform="translate(-3.5 0)"/><path id="strapPath3" d="" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round" opacity=".55" transform="translate(-4.5 0)"/></svg>
+        <svg class="strap" id="strap"><path id="strapPath0" d="" stroke="#D9561A" stroke-width="13" fill="none" stroke-linecap="butt"/><path id="strapPath" d="" stroke="#F47A2E" stroke-width="10" fill="none" stroke-linecap="butt"/><path id="strapPath2" d="" stroke="#FFB27A" stroke-width="2" fill="none" opacity=".7" transform="translate(-2.5 0)"/></svg>
         <div class="idcard" id="idcard">
           <div class="clip"></div>
           <div class="face">
-            <img class="motifbg" src="assets/motif-courtyard.png" alt="">
-            <div class="slot"></div>
+                        <div class="slot"></div>
             <div class="row"><div class="brandmark"><img src="assets/logo-icon.png" alt="">Teerth Saathi</div><span style="font-family:var(--deva);font-size:13px">तीर्थ साथी</span></div>
             <div class="role">VOLUNTEER CAPTAIN</div>
             <div class="photo" style="background-image:url(assets/persona.png)"></div>
@@ -1190,14 +1254,14 @@ em{font-style:italic}
       </div>
       <div class="reveal" style="align-self:end">
         <p>The Kumbh Mela is held across four principal locations—Prayagraj, Haridwar, Nashik and Ujjain—with the timing tied to religious and astronomical traditions.</p>
-        <div class="sites" id="sites">
-          <button class="pill on" data-r="Ganga, Yamuna and the mythical Saraswati: the Triveni Sangam">Prayagraj</button>
-          <button class="pill" data-r="On the Ganga, where it leaves the Himalayan foothills">Haridwar</button>
-          <button class="pill" data-r="On the Godavari">Nashik</button>
-          <button class="pill" data-r="On the Shipra">Ujjain</button>
-        </div>
-        <div class="site-info" id="siteInfo">Ganga, Yamuna and the mythical Saraswati: the Triveni Sangam</div>
+
       </div>
+    </div>
+    <div class="sites4 reveal">
+      <div><b>Prayagraj</b><span>Ganga, Yamuna and the mythical Saraswati: the Triveni Sangam</span></div>
+      <div><b>Haridwar</b><span>On the Ganga, where it leaves the Himalayan foothills</span></div>
+      <div><b>Nashik</b><span>On the Godavari</span></div>
+      <div><b>Ujjain</b><span>On the Shipra</span></div>
     </div>
     <div class="bigstats" id="bigstats">
       <div><div class="lab">2025 Project attendance</div><div class="n"><span data-count="400">0</span>M</div><div class="s">Jan 2025</div><div class="barv"><i data-w="100"></i></div></div>
@@ -1211,7 +1275,7 @@ em{font-style:italic}
 <!-- ====================== WHO REPORTS TO WHOM ====================== -->
 <section class="sec" id="hierarchy" data-ch="02" data-chname="Problem" data-title="Who reports to whom?">
   <div class="wrap"><div class="hier wide">
-    <div class="reveal">
+    <div class="reveal hier-fig" id="hierFig">
       <svg viewBox="0 0 900 480" id="hierSvg" aria-label="Three nested arcs: Supervisor, Captains, Volunteers">
         <g class="lvl" data-i="0">
           <path class="hit" d="M330 120 Q450 230 570 120 L570 60 L330 60Z"/>
@@ -1232,6 +1296,7 @@ em{font-style:italic}
           <text x="450" y="372" text-anchor="middle">Volunteers</text>
         </g>
       </svg>
+      <div class="convo" id="convo" aria-live="off"></div>
     </div>
     <div class="reveal">
       <h2>Who reports to whom?</h2>
@@ -1266,7 +1331,7 @@ em{font-style:italic}
     <div style="margin-top:110px" class="reveal">
       <span class="eyebrow plain">On the wall</span>
       <h3 style="font-family:var(--head)">Making sense of it, one sticky note at a time</h3>
-      <p class="muted" style="font-size:15px">Hover to pause. Click any board to zoom into the notes.</p>
+      
     </div>
     <div class="marquee wide" id="wallMq"><div class="mq-track">
       <button class="tile mq-tile" data-zoom="assets/wall-priority-matrix.png" data-title="Incident priority matrix"><div class="im"><img src="assets/wall-priority-matrix.png" alt="Sticky-note matrix of incident types by priority and severity" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Incident priority matrix</h4><p>Medical, crowd, weather, security and lost &amp; found incidents, ranked from high to low frequency.</p></button>
@@ -1289,18 +1354,19 @@ em{font-style:italic}
   <div class="wrap">
     <span class="eyebrow reveal"><span class="n">03</span>Research</span>
     <h2 class="reveal">Stakeholders</h2>
-    <div class="sh-controls reveal" id="shCtrl">
+    
+    <div class="orbitwrap wide reveal" id="sh">
+      <div class="orbit-fig">
+        <svg id="orbitSvg" viewBox="-260 -260 520 520" aria-label="Stakeholders arranged in three rings around the Volunteer Captain"></svg>
+        <div class="orbit-tip" id="orbitTip"></div>
+      </div>
+      <div class="sh-controls" id="shCtrl">
       <button class="pill on" data-t="all">All 30</button>
       <button class="pill" data-t="1">Primary</button>
       <button class="pill" data-t="2">Secondary</button>
       <button class="pill" data-t="3">Tertiary</button>
       <span class="hint" style="margin-left:8px">The Volunteer Captain sits at the centre: everyone else is one, two or three steps away</span>
     </div>
-    <div class="orbitwrap wide reveal" id="sh">
-      <div class="orbit-fig">
-        <svg id="orbitSvg" viewBox="-260 -260 520 520" aria-label="Stakeholders arranged in three rings around the Volunteer Captain"></svg>
-        <div class="orbit-tip" id="orbitTip"></div>
-      </div>
       <div class="orbit-list" id="tiers"></div>
     </div>
   </div>
@@ -1310,41 +1376,46 @@ em{font-style:italic}
 <section class="sec alt" id="persona" data-ch="03" data-chname="Research" data-title="Persona & empathy map">
   <div class="wrap">
     <h2 class="reveal">Persona &amp; Empathy map</h2>
-    <div class="persona wide">
-      <div class="reveal">
-        <div class="saybox">
-          <h4><b>What</b> does she say?</h4>
-          <blockquote>“Keeping track of hotspots and crowd dense areas is very stressful”</blockquote>
-          <blockquote>“How do I even remember my ongoing tasks while giving out new ones??”</blockquote>
-          <blockquote>“I wish I could help out everyone and be at every place I’m needed.”</blockquote>
+    <div class="pgrid wide">
+      <div class="pcardx reveal">
+        <div class="pphoto"><img src="assets/persona.png" alt="Persona portrait: a woman in a blue kurta with an orange volunteer lanyard, holding a phone" loading="lazy"></div>
+        <div class="pid">
+          <div class="name">Priya Ghoshal</div>
+          <dl class="pfacts">
+            <div><dt>Age</dt><dd>34 years old</dd></div>
+            <div><dt>Occupation</dt><dd>Developer / NGO coordinator</dd></div>
+            <div><dt>Location</dt><dd>Nasik</dd></div>
+            <div><dt>Marital Status</dt><dd>Married</dd></div>
+          </dl>
         </div>
-        <div class="saybox" style="margin-top:34px">
+      </div>
+      <div class="pside">
+        <div class="pblock reveal">
+          <h4><b>What</b> does she say?</h4>
+          <div class="quotes">
+            <blockquote>“Keeping track of hotspots and crowd dense areas is very stressful”</blockquote>
+            <blockquote>“How do I even remember my ongoing tasks while giving out new ones??”</blockquote>
+            <blockquote>“I wish I could help out everyone and be at every place I’m needed.”</blockquote>
+          </div>
+        </div>
+        <div class="pblock reveal">
           <h4><b>What</b> does she desire?</h4>
           <div class="desire"><span>Minimal escalations</span><span>A stress free Kumbh experience</span></div>
         </div>
-        <div style="margin-top:40px">
-          <div class="name">Priya Ghoshal</div>
-          <ul>
-            <li><b>Age</b> - 34 years old</li>
-            <li><b>Occupation</b> - Developer / NGO coordinator</li>
-            <li><b>Location</b> - Nasik</li>
-            <li><b>Marital Status</b> - Married</li>
-          </ul>
+        <div class="pblock reveal">
+          <h4>Personality</h4>
+          <div class="sliders" id="sliders">
+            <div class="sl"><div class="ends"><span>Introvert</span><span>Extrovert</span></div><div class="track"><i class="knob" data-v="73"></i></div></div>
+            <div class="sl"><div class="ends"><span>Analytical</span><span>Creative</span></div><div class="track"><i class="knob" data-v="27"></i></div></div>
+            <div class="sl"><div class="ends"><span>Busy</span><span>Time rich</span></div><div class="track"><i class="knob" data-v="14"></i></div></div>
+            <div class="sl"><div class="ends"><span>Messy</span><span>Organised</span></div><div class="track"><i class="knob" data-v="68"></i></div></div>
+            <div class="sl"><div class="ends"><span>Safe</span><span>Risky</span></div><div class="track"><i class="knob" data-v="24"></i></div></div>
+          </div>
         </div>
       </div>
-      <div class="photo reveal"><img src="assets/persona.png" alt="Persona portrait: a woman in a blue kurta with an orange volunteer lanyard, holding a phone" loading="lazy"></div>
-      <div class="reveal">
-        <div class="artefacts">
-          <button data-zoom="assets/evolving-persona.png" data-title="Evolving Persona"><img src="assets/evolving-persona.png" alt="Evolving persona sheet" loading="lazy"><span>Evolving Persona</span></button>
-          <button data-zoom="assets/wall-empathy-map.png" data-title="MindMap"><img src="assets/wall-empathy-map.png" alt="Mind map board" loading="lazy"><span>MindMap</span></button>
-        </div>
-        <div class="sliders" id="sliders">
-          <div class="sl"><div class="ends"><span>Introvert</span><span>Extrovert</span></div><div class="track"><i class="knob" data-v="73"></i></div></div>
-          <div class="sl"><div class="ends"><span>Analytical</span><span>Creative</span></div><div class="track"><i class="knob" data-v="27"></i></div></div>
-          <div class="sl"><div class="ends"><span>Busy</span><span>Time rich</span></div><div class="track"><i class="knob" data-v="14"></i></div></div>
-          <div class="sl"><div class="ends"><span>Messy</span><span>Organised</span></div><div class="track"><i class="knob" data-v="68"></i></div></div>
-          <div class="sl"><div class="ends"><span>Safe</span><span>Risky</span></div><div class="track"><i class="knob" data-v="24"></i></div></div>
-        </div>
+      <div class="artefacts2 reveal">
+        <button data-zoom="assets/evolving-persona.png" data-title="Evolving Persona"><img src="assets/evolving-persona.png" alt="Evolving persona sheet" loading="lazy"><span>Evolving Persona <em>⤢</em></span></button>
+        <button data-zoom="assets/wall-empathy-map.png" data-title="MindMap"><img src="assets/wall-empathy-map.png" alt="Mind map board" loading="lazy"><span>MindMap <em>⤢</em></span></button>
       </div>
     </div>
   </div>
@@ -1854,59 +1925,54 @@ function onScroll(){
 }
 addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
 
-/* ---------- lanyard: slow idle swing, still draggable ---------- */
+/* ---------- lanyard: rigid, slow swing, still draggable ---------- */
 (function(){
-  const box=$('#lanyard'),card=$('#idcard'),path=$('#strapPath'),path2=$('#strapPath2'),path0=$('#strapPath0'),path3=$('#strapPath3');
-  const W=()=>box.clientWidth, L=230;
-  const OMEGA=2*Math.PI/5.2;            // one swing every ~5 s
-  const K=OMEGA*OMEGA, C=.55, DRIVE=.13*C*OMEGA; // steady amplitude ≈ 0.13 rad (~7°)
-  let ang=.13,vel=0,drag=false,len=L,lenV=0,t=0;
-  function anchor(){return {x:W()/2,y:-10}}
-  function draw(){
-    const a=anchor(),p={x:a.x+Math.sin(ang)*len,y:a.y+Math.cos(ang)*len};
-    card.style.transform=`translate(${p.x-110}px,${p.y+14}px) rotate(${-ang*0.9*57.3}deg)`;
-    const mx=(a.x+p.x)/2+Math.sin(ang)*-12,my=(a.y+p.y)/2;
-    const d=`M${a.x-14} ${a.y} Q${mx-6} ${my} ${p.x} ${p.y-8} M${a.x+14} ${a.y} Q${mx+6} ${my} ${p.x} ${p.y-8}`;
-    path.setAttribute('d',d);path2.setAttribute('d',d);path0.setAttribute('d',d);path3.setAttribute('d',d);
-  }
-  let last=performance.now();
-  function step(now){
-    const dt=Math.min(.033,(now-last)/1000);last=now;t+=dt;
-    if(!drag){
-      const acc=-K*Math.sin(ang)-C*vel+DRIVE*Math.cos(OMEGA*t);
-      vel+=acc*dt;ang+=vel*dt;
-      lenV+=(L-len)*40*dt;lenV*=Math.pow(.03,dt);len+=lenV*dt*4;
-    }
-    draw();requestAnimationFrame(step);
-  }
+  const box=$('#lanyard'),card=$('#idcard'),ps=['#strapPath0','#strapPath','#strapPath2'].map(x=>$(x));
+  const W=()=>box.clientWidth,L=230,OM=2*Math.PI/6,K=OM*OM,C=.9,DRIVE=.07*C*OM;
+  let ang=.07,vel=0,drag=false,t=0,last=performance.now();
+  function draw(){const ax=W()/2,ay=-10,px=ax+Math.sin(ang)*L,py=ay+Math.cos(ang)*L;
+    card.style.transform=`translate(${px-110}px,${py+14}px) rotate(${-ang*57.3}deg)`;
+    // two straight straps meeting at the clip
+    const d=`M${ax-16} ${ay} L${px} ${py-6} M${ax+16} ${ay} L${px} ${py-6}`;ps.forEach(p=>p&&p.setAttribute('d',d))}
+  function step(now){const dt=Math.min(.033,(now-last)/1000);last=now;t+=dt;
+    if(!drag){vel+=(-K*Math.sin(ang)-C*vel+DRIVE*Math.cos(OM*t))*dt;ang+=vel*dt}
+    draw();requestAnimationFrame(step)}
   card.addEventListener('pointerdown',e=>{drag=true;card.setPointerCapture(e.pointerId);e.preventDefault()});
-  card.addEventListener('pointermove',e=>{
-    if(!drag)return;const r=box.getBoundingClientRect(),a=anchor();
-    const x=e.clientX-r.left-a.x,y=e.clientY-r.top-a.y;
-    const na=Math.atan2(x,Math.max(30,y));vel=(na-ang)*20;ang=na;
-    len=Math.min(L*1.2,Math.max(L*.85,Math.hypot(x,y)-60));
-  });
+  card.addEventListener('pointermove',e=>{if(!drag)return;const r=box.getBoundingClientRect();
+    const na=Math.max(-.6,Math.min(.6,Math.atan2(e.clientX-r.left-W()/2,Math.max(60,e.clientY-r.top+10))));vel=(na-ang)*14;ang=na});
   const up=()=>{drag=false};card.addEventListener('pointerup',up);card.addEventListener('pointercancel',up);
-  if(reduce){ang=.05;draw()}else requestAnimationFrame(step);
+  if(reduce){ang=.03;draw()}else requestAnimationFrame(step);
 })();
 
 /* ---------- problem cards ---------- */
 $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.toggle('open');c.setAttribute('aria-expanded',o)}));
 
-/* ---------- sites ---------- */
-$$('#sites .pill').forEach(b=>b.onclick=()=>{$$('#sites .pill').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#siteInfo').textContent=b.dataset.r});
 
-/* ---------- hierarchy ---------- */
+/* ---------- hierarchy + conversation between the layers ---------- */
 (function(){
   const notes=[['Supervisor','A supervisor may receive multiple requests without sufficient context to assess which requires immediate intervention.'],['Captains','A captain may understand the needs of their own zone but lack visibility into surrounding areas'],['Volunteers','A volunteer may recognize an emerging incident without knowing whether help is available nearby.']];
-  let cur=2,auto=true;
-  function set(i,user){cur=i;if(user)auto=false;
-    $$('#hierSvg .lvl').forEach(g=>g.classList.toggle('on',+g.dataset.i===i));
+  function set(i){$$('#hierSvg .lvl').forEach(g=>g.classList.toggle('on',+g.dataset.i===i));
     $$('#hierTabs .pill').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
-    $('#hierWho').textContent=notes[i][0];$('#hierQ').textContent=notes[i][1];}
-  $$('#hierSvg .lvl').forEach(g=>{g.addEventListener('mouseenter',()=>set(+g.dataset.i,true));g.addEventListener('click',()=>set(+g.dataset.i,true))});
-  $$('#hierTabs .pill').forEach(b=>b.onclick=()=>set(+b.dataset.i,true));
-  set(2); setInterval(()=>{if(auto&&!reduce)set((cur+2)%3)},3800);
+    $('#hierWho').textContent=notes[i][0];$('#hierQ').textContent=notes[i][1]}
+  // x,y in the 900×480 viewBox; side = which way the tail points
+  const CONVO=[
+    [2,'Volunteer · Zone A','Crowd is building near Gate 3. Need more hands here!',225,300,'down'],
+    [1,'Captain · Zone A','Hold the lane. Sending two from B2 now.',675,300,'up'],
+    [1,'Captain · Zone A','Zone A is near capacity. Can we pull help from another zone?',235,180,'down'],
+    [0,'Supervisor','Moving 4 volunteers from Zone C. Five minutes out.',665,175,'up'],
+    [2,'Volunteer · Zone A','Help has arrived. Lane is moving again 👍',225,300,'down'],
+    [1,'Captain · Zone A','Great work. Back to normal monitoring.',675,300,'up']];
+  const box=$('#convo');let k=0,timer=null,paused=false,vis=false;
+  function say(){const [lv,who,txt,x,y,side]=CONVO[k];set(lv);
+    const b=document.createElement('div');b.className='bub2 lv'+lv+' t-'+side;b.style.left=(x/900*100)+'%';b.style.top=(y/480*100)+'%';
+    b.innerHTML=`<span class="who">${who}</span>${txt}`;box.appendChild(b);
+    const all=$$('.bub2',box);if(all.length>2)all.slice(0,all.length-2).forEach(o=>{o.classList.add('out');setTimeout(()=>o.remove(),400)});
+    k=(k+1)%CONVO.length;if(k===0)setTimeout(()=>$$('.bub2',box).forEach(o=>{o.classList.add('out');setTimeout(()=>o.remove(),400)}),2400)}
+  function run(){clearInterval(timer);if(reduce){set(2);return}timer=setInterval(()=>{if(vis&&!paused)say()},2600)}
+  new IntersectionObserver(es=>es.forEach(e=>{vis=e.isIntersecting;if(vis&&!box.children.length)say()}),{threshold:.35}).observe($('#hierFig'));
+  $$('#hierSvg .lvl').forEach(g=>{g.addEventListener('mouseenter',()=>{paused=true;set(+g.dataset.i)});g.addEventListener('mouseleave',()=>paused=false);g.addEventListener('click',()=>set(+g.dataset.i))});
+  $$('#hierTabs .pill').forEach(b=>b.onclick=()=>{paused=true;set(+b.dataset.i);setTimeout(()=>paused=false,6000)});
+  set(2);run();
 })();
 
 /* ---------- stakeholders: orbit ---------- */
@@ -1956,7 +2022,7 @@ $$('#sites .pill').forEach(b=>b.onclick=()=>{$$('#sites .pill').forEach(x=>x.cla
       ['Messages',[['Volunteers',[['Individual chats']]],['Groups',[['Volunteer group']]],['Authorities',[['Command Center'],['Government officials']]]]],
       ['Settings']]],
     ['Alerts',[['Notification']]],['New Task'],['Daily Update',[['Volunteer Present'],['Task Remaining']]],['Weekly Performance'],['Dynamic Alerts']]];
-  const CW=93,BW=84,BH=38,RH=78,SH=46,IND=14;
+  const CW=106,BW=90,BH=38,RH=96,SH=52,IND=14;
   let id=0,all=[];
   function mk(n,d,par){const o={name:n[0],d,par,id:id++,kids:(n[1]||[]).map(()=>null)};o.kids=(n[1]||[]).map(k=>mk(k,d+1,o));all.push(o);return o}
   const root=mk(IA,0,null);
