@@ -1124,6 +1124,10 @@ em{font-style:italic}
 .screens-head+.mock{margin-top:24px}
 .slab+.mock{margin-top:16px}
 
+.mock-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.mock-pair .mock{margin:0!important}
+@media(max-width:700px){.mock-pair{grid-template-columns:1fr}}
+
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
 .ai4{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -1702,7 +1706,6 @@ em{font-style:italic}
     <span class="eyebrow reveal"><span class="n">06</span>Solution and interactive prototype</span>
     <h2 class="reveal">Introducing Teerth Saathi</h2>
     <p class="lead reveal">A centralized interface which provides real-time visibility of tasks, volunteers, and crowd conditions to support fast and informed decision-making.</p>
-    <figure class="mock mock-hero wide reveal"><img src="assets/mock-studio.jpg" alt="Teerth Saathi home screen with new messages, on a phone in a purple studio scene" loading="lazy" data-zoom="assets/mock-studio.jpg" data-title="Home: new messages"><figcaption>Home: new messages</figcaption></figure>
 
     <div class="proto wide reveal" style="margin-top:40px" id="proto">
       <div class="phone-holder" id="phoneHolder">
@@ -1869,7 +1872,7 @@ em{font-style:italic}
     </div>
 
     <div class="screens-head reveal"><h3>Home screen states</h3><p>The home screen changes colour with what needs attention: messages, alerts or a priority alert.</p></div>
-    <figure class="mock wide reveal"><img src="assets/mock-water.jpg" alt="Teerth Saathi showing new alerts on a phone held by the water" loading="lazy" data-zoom="assets/mock-water.jpg" data-title="Home: new alerts, in hand"><figcaption>Home: new alerts, in hand</figcaption></figure>
+    <div class="mock-pair wide reveal"><figure class="mock"><img src="assets/mock-studio.jpg" alt="Teerth Saathi home screen with new messages, on a phone in a purple studio scene" loading="lazy" data-zoom="assets/mock-studio.jpg" data-title="Home: new messages"><figcaption>Home: new messages</figcaption></figure><figure class="mock"><img src="assets/mock-water.jpg" alt="Teerth Saathi showing new alerts on a phone held by the water" loading="lazy" data-zoom="assets/mock-water.jpg" data-title="Home: new alerts, in hand"><figcaption>Home: new alerts, in hand</figcaption></figure></div>
     <div class="screens wide">
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-msg.jpg" alt="Home: you have new messages" loading="lazy" width="393" height="852"></div><figcaption>New messages</figcaption></figure>
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-alerts.jpg" alt="Home: you have new alerts" loading="lazy" width="393" height="852"></div><figcaption>New alerts</figcaption></figure>
