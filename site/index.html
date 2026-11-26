@@ -1065,7 +1065,7 @@ em{font-style:italic}
 .ds .c img{max-width:min(100%,435px)}
 
 /* lanyard v3: reference strap + hardware + clear holder */
-.lanyard svg.strap{width:100%;height:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 90px);mask-image:linear-gradient(to bottom,transparent 0,#000 90px)}
+.lanyard svg.strap{inset:auto;left:-600px;top:-80px;width:calc(100% + 1200px);height:calc(100% + 480px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 170px);mask-image:linear-gradient(to bottom,transparent 0,#000 170px)}
 .lanyard .st-edge{fill:none;stroke:#C9580A;stroke-width:13;stroke-linejoin:round}
 .lanyard .st-body{fill:none;stroke:url(#weave);stroke-width:10.5;stroke-linejoin:round}
 .idcard{transform-origin:110px 0!important;width:220px;height:auto}
@@ -2044,14 +2044,15 @@ addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',on
     const px=ax+sn*L,py=ay+cs*L;
     card.style.transform=`translate(${px-110}px,${py}px) rotate(${-ang*57.3}deg)`;
     const lx=px-sn*0-cs*3.5,rx=px+cs*3.5,ly=py+sn*3.5,ry=py-sn*3.5;
-    const d=`M${ax-SPREAD} ${ay} C${ax-SPREAD*.9} ${ay+L*.45} ${lx-2} ${ly-L*.35} ${lx} ${ly+4} M${ax+SPREAD} ${ay} C${ax+SPREAD*.9} ${ay+L*.45} ${rx+2} ${ry-L*.35} ${rx} ${ry+4}`;
+    const OX=600,OY=80;const T=(x,y)=>`${x+OX} ${y+OY}`;
+    const d=`M${T(ax-SPREAD,ay)} C${T(ax-SPREAD*.9,ay+L*.45)} ${T(lx-2,ly-L*.35)} ${T(lx,ly+4)} M${T(ax+SPREAD,ay)} C${T(ax+SPREAD*.9,ay+L*.45)} ${T(rx+2,ry-L*.35)} ${T(rx,ry+4)}`;//${ax-SPREAD*.9} ${ay+L*.45} ${lx-2} ${ly-L*.35} ${lx} ${ly+4} M${ax+SPREAD} ${ay} C${ax+SPREAD*.9} ${ay+L*.45} ${rx+2} ${ry-L*.35} ${rx} ${ry+4}`;
     E.setAttribute('d',d);B.setAttribute('d',d)}
   function step(now){const dt=Math.min(.033,(now-last)/1000);last=now;t+=dt;
-    if(!drag){vel+=(-K*Math.sin(ang)-C*vel+DRIVE*Math.cos(OM*t))*dt;ang+=vel*dt}
+    if(!drag){vel+=(-K*Math.sin(ang)-C*vel+DRIVE*Math.cos(OM*t))*dt;vel=Math.max(-1.6,Math.min(1.6,vel));ang=Math.max(-.7,Math.min(.7,ang+vel*dt))}
     draw();requestAnimationFrame(step)}
   card.addEventListener('pointerdown',e=>{drag=true;card.setPointerCapture(e.pointerId);e.preventDefault()});
   card.addEventListener('pointermove',e=>{if(!drag)return;const r=box.getBoundingClientRect();
-    const na=Math.max(-.5,Math.min(.5,Math.atan2(e.clientX-r.left-W()/2,Math.max(60,e.clientY-r.top+60))));vel=(na-ang)*14;ang=na});
+    const na=Math.max(-.5,Math.min(.5,Math.atan2(e.clientX-r.left-W()/2,Math.max(60,e.clientY-r.top+60))));vel=Math.max(-1.6,Math.min(1.6,(na-ang)*8));ang=na});
   const up=()=>{drag=false};card.addEventListener('pointerup',up);card.addEventListener('pointercancel',up);
   if(reduce){ang=.03;draw()}else requestAnimationFrame(step);
 })();
