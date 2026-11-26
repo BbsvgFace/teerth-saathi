@@ -1064,6 +1064,20 @@ em{font-style:italic}
 .ds .pair img{flex:0 1 auto;max-width:calc(50% - 7px)}
 .ds .c img{max-width:min(100%,435px)}
 
+/* lanyard v3: reference strap + hardware + clear holder */
+.lanyard svg.strap{width:100%;height:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 90px);mask-image:linear-gradient(to bottom,transparent 0,#000 90px)}
+.lanyard .st-edge{fill:none;stroke:#C9580A;stroke-width:15;stroke-linejoin:round}
+.lanyard .st-body{fill:none;stroke:url(#weave);stroke-width:12.5;stroke-linejoin:round}
+.idcard{transform-origin:110px 0!important;width:220px;height:auto}
+.idcard .hw{position:absolute;left:74px;top:-2px;width:72px;height:96px;pointer-events:none}
+.idcard .holder{position:absolute;left:-8px;top:80px;width:236px;padding:22px 8px 8px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(240,244,250,.25) 45%,rgba(255,255,255,.45));
+  border:1px solid rgba(160,170,190,.55);box-shadow:0 18px 30px -14px rgba(30,30,60,.35),inset 0 1px 0 rgba(255,255,255,.9);-webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px)}
+.idcard .holder::before{content:"";position:absolute;left:50%;top:7px;width:34px;height:8px;margin-left:-17px;border-radius:4px;background:#ececf1;box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+.idcard .holder::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 38%,transparent 46%)}
+.idcard .face{position:relative!important;inset:auto!important;height:310px;border-radius:9px!important;box-shadow:none!important}
+.idcard .face .slot{display:none}
+
 /* features (reference slab pattern) */
 .sub-h{margin-top:clamp(44px,6vw,64px)}
 .ai4{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -1241,9 +1255,19 @@ em{font-style:italic}
         <div class="c">The Salesforce Hackathon gave us 48 hours to go from a brief to a tested prototype. The clock runs down as you scroll.</div>
       </div>
       <div class="lanyard" id="lanyard">
-        <svg class="strap" id="strap"><path id="strapPath0" d="" stroke="#D9561A" stroke-width="13" fill="none" stroke-linecap="butt"/><path id="strapPath" d="" stroke="#F47A2E" stroke-width="10" fill="none" stroke-linecap="butt"/><path id="strapPath2" d="" stroke="#FFB27A" stroke-width="2" fill="none" opacity=".7" transform="translate(-2.5 0)"/></svg>
+        <svg class="strap" id="strap" aria-hidden="true">
+          <defs><pattern id="weave" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="5" height="5" fill="#F07214"/><rect width="2.2" height="5" fill="#E2650C"/></pattern></defs>
+          <path class="st-edge" id="stE" d=""/><path class="st-body" id="stB" d=""/>
+        </svg>
         <div class="idcard" id="idcard">
-          <div class="clip"></div>
+          <svg class="hw" viewBox="0 0 60 80" aria-hidden="true">
+            <rect x="21" y="0" width="18" height="17" rx="5" fill="#1d1d22"/><rect x="23" y="2" width="5" height="13" rx="2.5" fill="#3a3a44"/>
+            <circle cx="30" cy="26" r="8" fill="none" stroke="#9aa0aa" stroke-width="3"/><circle cx="30" cy="26" r="8" fill="none" stroke="#e8ebef" stroke-width="1.2" stroke-dasharray="6 40"/>
+            <path d="M27 33 h6 v6 h-6z" fill="#b8bec7"/>
+            <path d="M30 39 v24 q0 9 -7 9 q-6 0 -6 -7 v-10" fill="none" stroke="#9aa0aa" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M30 42 l-9 9" stroke="#c9ced6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="holder">
           <div class="face">
                         <div class="slot"></div>
             <div class="row"><div class="brandmark"><img src="assets/logo-icon.png" alt="">Teerth Saathi</div><span style="font-family:var(--deva);font-size:13px">तीर्थ साथी</span></div>
@@ -1251,6 +1275,7 @@ em{font-style:italic}
             <div class="photo" style="background-image:url(assets/persona.png)"></div>
             <div class="name">Priya<br>Ghoshal</div>
             <div class="meta2"><span>Zone A · Sangam</span><span>ID 0412</span></div>
+          </div>
           </div>
         </div>
       </div>
@@ -1954,21 +1979,22 @@ function onScroll(){
 }
 addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
 
-/* ---------- lanyard: rigid, slow swing, still draggable ---------- */
+/* ---------- lanyard: V strap → single strap → sleeve, ring, hook → holder ---------- */
 (function(){
-  const box=$('#lanyard'),card=$('#idcard'),ps=['#strapPath0','#strapPath','#strapPath2'].map(x=>$(x));
-  const W=()=>box.clientWidth,L=230,OM=2*Math.PI/6,K=OM*OM,C=.9,DRIVE=.07*C*OM;
+  const box=$('#lanyard'),card=$('#idcard'),E=$('#stE'),B=$('#stB');
+  const W=()=>box.clientWidth,L=300,MERGE=74,SPREAD=66,OM=2*Math.PI/6,K=OM*OM,C=.9,DRIVE=.07*C*OM;
   let ang=.07,vel=0,drag=false,t=0,last=performance.now();
-  function draw(){const ax=W()/2,ay=-10,px=ax+Math.sin(ang)*L,py=ay+Math.cos(ang)*L;
-    card.style.transform=`translate(${px-110}px,${py+14}px) rotate(${-ang*57.3}deg)`;
-    // two straight straps meeting at the clip
-    const d=`M${ax-16} ${ay} L${px} ${py-6} M${ax+16} ${ay} L${px} ${py-6}`;ps.forEach(p=>p&&p.setAttribute('d',d))}
+  function draw(){const ax=W()/2,ay=-60,sn=Math.sin(ang),cs=Math.cos(ang);
+    const px=ax+sn*L,py=ay+cs*L,mx=ax+sn*(L-MERGE),my=ay+cs*(L-MERGE);
+    card.style.transform=`translate(${px-110}px,${py}px) rotate(${-ang*57.3}deg)`;
+    const d=`M${ax-SPREAD} ${ay} Q${(ax-SPREAD+mx)/2-4} ${(ay+my)/2} ${mx} ${my} L${px} ${py} M${ax+SPREAD} ${ay} Q${(ax+SPREAD+mx)/2+4} ${(ay+my)/2} ${mx} ${my}`;
+    E.setAttribute('d',d);B.setAttribute('d',d)}
   function step(now){const dt=Math.min(.033,(now-last)/1000);last=now;t+=dt;
     if(!drag){vel+=(-K*Math.sin(ang)-C*vel+DRIVE*Math.cos(OM*t))*dt;ang+=vel*dt}
     draw();requestAnimationFrame(step)}
   card.addEventListener('pointerdown',e=>{drag=true;card.setPointerCapture(e.pointerId);e.preventDefault()});
   card.addEventListener('pointermove',e=>{if(!drag)return;const r=box.getBoundingClientRect();
-    const na=Math.max(-.6,Math.min(.6,Math.atan2(e.clientX-r.left-W()/2,Math.max(60,e.clientY-r.top+10))));vel=(na-ang)*14;ang=na});
+    const na=Math.max(-.5,Math.min(.5,Math.atan2(e.clientX-r.left-W()/2,Math.max(60,e.clientY-r.top+60))));vel=(na-ang)*14;ang=na});
   const up=()=>{drag=false};card.addEventListener('pointerup',up);card.addEventListener('pointercancel',up);
   if(reduce){ang=.03;draw()}else requestAnimationFrame(step);
 })();
