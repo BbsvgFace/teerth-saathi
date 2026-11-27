@@ -1373,6 +1373,22 @@ mark.hl2{background:linear-gradient(transparent 55%,#e6e1fd 55%);color:var(--vio
 @keyframes twk{0%,100%{transform:none}45%{transform:scale(1.25) rotate(45deg)}55%{transform:scale(.85) rotate(60deg)}}
 @media (prefers-reduced-motion:reduce){.ai4.go .aic .aspk,.phone .nudge::after,.phone .scroll-hint svg{animation:none}}
 strong.sb6{font-weight:600;color:var(--ink)}
+
+strong.sb6{font-weight:600;color:var(--ink)}
+.w5{font-weight:500;color:var(--ink)}
+.badges{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.badge-cap{font-size:12.5px;line-height:1.4;color:var(--ink2);max-width:26ch}
+.dk-vis{position:absolute;right:16px;top:18px;width:58%;height:64px}
+.dk-vis .v{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;gap:8px;opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s}
+.dk-vis .v.on{opacity:1;transform:none}
+.dk-vis .sw{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-size:20px;font-weight:600;font-family:"Noto Sans",sans-serif}
+.dk-vis .obtn{display:flex;align-items:center;white-space:nowrap;gap:6px;height:36px;padding:0 12px;border:1.5px solid #84bffb;color:#84bffb;border-radius:8px;font-size:13px;font-family:"Noto Sans",sans-serif}
+.dk-vis .obtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.dk-vis .ofill{height:36px;display:flex;align-items:center;white-space:nowrap;padding:0 12px;border-radius:8px;background:#84bffb;color:#0d0d0d;font-size:13px;font-family:"Noto Sans",sans-serif}
+.dk-vis .sz{align-items:baseline;gap:12px;color:rgba(255,255,255,.45);font-family:"Noto Sans",sans-serif;padding-top:18px}
+.dk-vis .sz .hl{color:#fff;font-weight:600;border-bottom:2px solid #b9b2ff;padding-bottom:2px}
+#features .sub-h{font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
+.mock.mock-sm{max-width:760px;margin-left:auto;margin-right:auto}
 </style>
 </head>
 <body>
@@ -1475,7 +1491,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
     <div class="figure reveal"><img src="assets/carrying.jpg" alt="Volunteers in white jackets carrying a pilgrim on a stretcher at night" loading="lazy"></div>
     <div class="reveal">
       <h2>Who are we aiding?</h2>
-      <p>Volunteers are among the most dynamic and essential parts of the Kumbh Mela’s operations. They take on a wide range of responsibilities, from assisting pilgrims and managing crowds to responding to emergencies, helping ensure the smooth functioning of the gathering.</p>
+      <p><strong class="sb6">Volunteers</strong> are among the most dynamic and essential parts of the Kumbh Mela’s operations. They take on a wide range of responsibilities, from assisting pilgrims and managing crowds to responding to emergencies, helping ensure the smooth functioning of the gathering.</p>
     </div>
   </div></div>
 </section>
@@ -1486,7 +1502,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
     <div class="wrap">
       <div class="count reveal">
         <div class="t" id="bigclock">48:00:00</div>
-        <div class="c">The Salesforce Hackathon gave us 48 hours to go from a brief to a tested prototype.</div>
+        <div class="c">The Salesforce Hackathon gave us <strong class="sb6">48 hours to go from a brief to a tested prototype.</strong></div>
       </div>
       <div class="lanyard" id="lanyard">
         <svg class="strap" id="strap" aria-hidden="true">
@@ -1538,7 +1554,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
     <div class="stage-row">
       <div class="reveal">
         <h2>Setting the stage</h2>
-        <p>The Kumbh Mela brings together an enormous number of pilgrims, volunteers and authorities within a temporary and constantly changing environment. As crowds grow denser, even a small incident can demand an immediate, coordinated response.</p>
+        <p>The Kumbh Mela brings together an enormous number of pilgrims, volunteers and authorities within a temporary and <strong class="sb6">constantly changing environment.</strong> As crowds grow denser, even a small incident can demand an immediate, coordinated response.</p>
       </div>
       <figure class="montage reveal">
         <div class="mvid"><video src="assets/montage.mp4" poster="assets/montage-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Montage of footage from the Kumbh Mela: dense crowds at barricades, aerial views of the tent city and processions of sadhus"></video>
@@ -1591,7 +1607,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
     </div>
     <div class="reveal">
       <h2>Who reports to whom?</h2>
-      <p>Pilgrims and volunteers occupy the ground level of the system. Volunteer captains coordinate teams and respond to local incidents. Supervisors and command-centre authorities oversee broader operational needs, while medical, security and disaster-response teams provide specialized support.</p>
+      <p>Pilgrims and <strong class="sb6">volunteers</strong> occupy the ground level of the system. <strong class="sb6">Volunteer captains</strong> coordinate teams and respond to local incidents. <strong class="sb6">Supervisors</strong> and command-centre authorities oversee broader operational needs, while medical, security and disaster-response teams provide specialized support.</p>
       <div class="hier-tabs" id="hierTabs">
         <button class="pill" data-i="0">Supervisor</button><button class="pill" data-i="1">Captains</button><button class="pill on" data-i="2">Volunteers</button>
       </div>
@@ -1719,9 +1735,9 @@ strong.sb6{font-weight:600;color:var(--ink)}
   <div class="wrap">
     <h2 class="reveal">Product goals</h2>
     <div class="goals">
-      <div class="goal reveal"><div class="n">1</div><h3>Create a Task System</h3><p>Structure and prioritize volunteer responsibilities for clear &amp; dynamic task assignment, executable even under peak crowd pressure.</p></div>
-      <div class="goal reveal"><div class="n">2</div><h3>Real-time Location</h3><p>Enable live visibility of volunteers, crowd density, &amp; critical zones to support safe, fast &amp; informed decision-making &amp; response.</p></div>
-      <div class="goal reveal"><div class="n">3</div><h3>Efficient Communication</h3><p>Ensure clear, reliable, and role-based communication across volunteers &amp; authorities to reduce confusion, prevent overload.</p></div>
+      <div class="goal reveal"><div class="n">1</div><h3>Create a Task System</h3><p><strong class="sb6">Structure and prioritize</strong> volunteer responsibilities for clear &amp; <strong class="sb6">dynamic task assignment</strong>, executable even under peak crowd pressure.</p></div>
+      <div class="goal reveal"><div class="n">2</div><h3>Real-time Location</h3><p>Enable <strong class="sb6">live visibility of volunteers, crowd density, &amp; critical zones</strong> to support safe, fast &amp; informed decision-making &amp; response.</p></div>
+      <div class="goal reveal"><div class="n">3</div><h3>Efficient Communication</h3><p>Ensure <strong class="sb6">clear, reliable, and role-based communication</strong> across volunteers &amp; authorities to reduce confusion, prevent overload.</p></div>
     </div>
   </div>
 </section>
@@ -1769,7 +1785,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
       <!-- wordmark tile: types itself, English ⇄ Devanagari -->
       <div class="bt bt-word reveal">
         <span class="bt-k">Typeface · Noto Sans / Noto Sans Devanagari</span>
-        <span class="bt-note">Noto is free and covers almost every script, so English, Hindi and regional languages look consistent.</span>
+        <span class="bt-note">Noto is free and <strong class="sb6">covers almost every script</strong>, so English, Hindi and regional languages look consistent.</span>
         <div class="wordmark" id="wordmark" aria-label="Teerth Saathi, तीर्थ साथी"></div>
       </div>
       <!-- logo tile -->
@@ -1780,7 +1796,11 @@ strong.sb6{font-weight:600;color:var(--ink)}
       <!-- contrast tile (dark, cycles) -->
       <div class="bt bt-dark reveal">
         <div class="dk-num"><b id="dkNum">7:1</b><span id="dkLab">Text contrast</span></div>
-        <svg class="dk-chart" viewBox="0 0 160 52" preserveAspectRatio="none" aria-hidden="true"><path id="dkPath" d="M0 46 C30 44 50 40 70 30 S110 12 160 6"/></svg>
+        <div class="dk-vis" aria-hidden="true">
+          <div class="v on"><span class="sw" style="background:#40437D;color:#fff">Aa</span><span class="sw" style="background:#fff;color:#40437D">Aa</span></div>
+          <div class="v"><span class="obtn"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1112 0v5l2 2H4zM10 20a2 2 0 004 0"/></svg>Alerts</span><span class="ofill">+ New Task</span></div>
+          <div class="v sz"><span style="font-size:12px">Aa</span><span class="hl" style="font-size:16px">Aa</span><span style="font-size:21px">Aa</span></div>
+        </div>
       </div>
       <!-- main card -->
       <div class="bt bt-main reveal">
@@ -1789,7 +1809,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
           <h3>Calm under pressure</h3>
           <p>A calm, accessible visual system designed to reduce cognitive load and support quick decision-making in high-pressure environments. The mark is two joined hands, with the name in English and Devanagari.</p>
           <div class="badges">
-            <div class="badge-w"><span class="w3">W3C</span><span class="wc" style="background:#fec84c">WCAG<br>2.1 AAA</span></div>
+            <div class="badge-w"><span class="w3">W3C</span><span class="wc" style="background:#fec84c">WCAG<br>2.1 AAA</span></div><span class="badge-cap">Accessibility: designed to the W3C’s Web Content Accessibility Guidelines, level AAA</span>
           </div>
         </div>
         <div class="bm-photo"><img src="assets/carrying.jpg" alt="Volunteers carrying a pilgrim on a stretcher at night" loading="lazy"></div>
@@ -1849,7 +1869,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
 <section class="sec alt" id="system" data-ch="5" data-chname="Design" data-title="Design system">
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px" class="reveal">
-      <div><h2>Design system</h2><p>Atomic design was used to create a scalable and consistent component system that allows faster design, easy maintenance, and seamless collaboration with development.</p></div>
+      <div><h2>Design system</h2><p><strong class="sb6">Atomic design</strong> was used to create a scalable and consistent component system that allows faster design, easy maintenance, and seamless collaboration with development.</p></div>
       
     </div>
     <div class="ds wide" style="margin-top:30px">
@@ -1864,7 +1884,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
 <section class="sec" id="workflow" data-ch="5" data-chname="Design" data-title="Workflow under stress">
   <div class="wrap">
     <h2 class="reveal">Workflow for a volunteer under stress</h2>
-    <p class="reveal">The flow runs across three roles. Orange notes mark the pain points at each step and blue notes the response the design gives.</p>
+    <p class="reveal"><strong class="sb6">The flow runs across three roles.</strong> Orange notes mark the pain points at each step and blue notes the response the design gives.</p>
     <div class="map-shell wide reveal" style="margin-top:28px">
       <div class="zp" id="wfZoom" aria-label="Zoomable workflow diagram. Drag to pan, scroll or pinch to zoom.">
         <div class="zc"><img src="assets/workflow.png" alt="Workflow diagram across Volunteer, Volunteer Captain and Supervisor Volunteer lanes, with pain points and design responses"></div>
@@ -2063,7 +2083,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
       </div>
     </div>
 
-    <div class="screens-head reveal"><h3>Home screen states</h3><p>The home screen changes colour with what needs attention: messages, alerts or a priority alert.</p></div>
+    <div class="screens-head reveal"><h3>Home screen states</h3><p>The home screen changes colour <span class="w5">with what needs attention: messages</span>, alerts or a priority alert.</p></div>
     <div class="mock-pair wide reveal"><figure class="mock"><img src="assets/mock-studio.jpg" alt="Teerth Saathi home screen with new messages, on a phone in a purple studio scene" loading="lazy" data-zoom="assets/mock-studio.jpg" data-title="Home: new messages"></figure><figure class="mock"><img src="assets/mock-water.jpg" alt="Teerth Saathi showing new alerts on a phone held by the water" loading="lazy" data-zoom="assets/mock-water.jpg" data-title="Home: new alerts, in hand"></figure></div>
     <div class="screens wide">
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-msg.jpg" alt="Home: you have new messages" loading="lazy" width="393" height="852"></div><figcaption>New messages</figcaption></figure>
@@ -2086,10 +2106,10 @@ strong.sb6{font-weight:600;color:var(--ink)}
       <h3 class="sub-h"><span class="ai-word">AI Features</span></h3>
     </div>
     <div class="ai4" id="ai4">
-      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">1</span><h4>Create task in natural language</h4></div>
-      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">2</span><h4>AI based auto volunteer allocation</h4></div>
-      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">3</span><h4>Crowd prediction and action</h4></div>
-      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">4</span><h4>Volunteer wellness</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><h4>Create task in natural language</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><h4>AI based auto volunteer allocation</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><h4>Crowd prediction and action</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><h4>Volunteer wellness</h4></div>
     </div>
 
     <div class="slab reveal">
@@ -2112,7 +2132,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
       </div>
     </div>
 
-    <figure class="mock wide reveal"><img src="assets/mock-chat-profile.jpg" alt="Two phones side by side: a chat with Ramesh and his volunteer profile" loading="lazy" data-zoom="assets/mock-chat-profile.jpg" data-title="Chat and volunteer profile"></figure>
+    <figure class="mock mock-sm reveal"><img src="assets/mock-chat-profile.jpg" alt="Two phones side by side: a chat with Ramesh and his volunteer profile" loading="lazy" data-zoom="assets/mock-chat-profile.jpg" data-title="Chat and volunteer profile"></figure>
     <h3 class="reveal sub-h">Volunteer profile and wellness</h3>
     <div class="wellness">
       <div class="wcard reveal"><span class="step">Wellness</span><h4>Energy level</h4><p>Tracked over time based on the number of tasks, stress level and duty time.</p></div>
@@ -2135,7 +2155,6 @@ strong.sb6{font-weight:600;color:var(--ink)}
 <section class="sec" id="refs" data-ch="6" data-chname="Solution" data-title="Reference videos">
   <div class="wrap">
     <h2 class="reveal">Reference videos</h2>
-    <p class="reveal">A few more films on the scale of the Kumbh and the work of running it.</p>
     <div class="ytgrid wide">
       <figure class="ytcard reveal">
         <div class="yt" data-yt="NtX9BF1Sl80" data-title="Biggest Human Gathering in the World (Kumbh Mela 2019)"><div class="yt-in"></div></div>
@@ -2431,9 +2450,8 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   // logo swap
   const lg=$$('.logo-swap img');let li=0;setInterval(()=>{if(!on())return;lg[li].classList.remove('on');li=(li+1)%lg.length;lg[li].classList.add('on')},3000);
   // dark contrast tile
-  const DK=[['7:1','Text contrast','M0 46 C30 44 50 40 70 30 S110 12 160 6'],['4.52:1','Object contrast','M0 40 C25 38 45 24 70 28 S120 20 160 14'],['16 px','Minimum text size','M0 44 C40 44 60 30 90 26 S130 22 160 20']];let di=0;
-  setInterval(()=>{if(!on())return;di=(di+1)%DK.length;const n=$('#dkNum'),l=$('#dkLab'),pth=$('#dkPath');n.classList.remove('in');void n.offsetWidth;n.textContent=DK[di][0];l.textContent=DK[di][1];n.classList.add('in');pth.setAttribute('d',DK[di][2]);pth.classList.remove('draw');void pth.getBoundingClientRect();pth.classList.add('draw')},3400);
-  $('#dkPath').classList.add('draw');
+  const DK=[['7:1','Text contrast'],['4.52:1','Object contrast'],['16 px','Minimum text size']];let di=0;const dkv=$$('.dk-vis .v');
+  setInterval(()=>{if(!on())return;di=(di+1)%DK.length;const n=$('#dkNum'),l=$('#dkLab');n.classList.remove('in');void n.offsetWidth;n.textContent=DK[di][0];l.textContent=DK[di][1];n.classList.add('in');dkv.forEach((v,i)=>v.classList.toggle('on',i===di))},3400);
   // motifs cycle
   const mi=$$('.mstage img'),md=$$('#mDots i');let mk=0;
   function showM(k){mi[mk].classList.remove('on');md[mk].classList.remove('on');mk=k;mi[mk].classList.add('on');md[mk].classList.add('on');$('#mName').textContent=mi[mk].dataset.m}
