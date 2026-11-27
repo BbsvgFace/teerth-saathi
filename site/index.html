@@ -548,7 +548,7 @@ em{font-style:italic}
 .phone .task .tg span{background:#f2f2f5;border-radius:6px;padding:2px 7px;display:flex;align-items:center;gap:4px}
 .phone .task .tg span svg{width:14px;height:14px;stroke:#1471e0;fill:none;stroke-width:2}
 .phone .task .tg .tm{margin-left:auto;background:none;color:#888}
-.phone .task .bt{display:flex;justify-content:space-between;margin-top:12px;font-size:calc(15px*var(--fs))}
+.phone .task .bt{display:flex;justify-content:space-between;margin-top:12px;font-size:calc(15px*var(--fs));position:static;border-radius:0;overflow:visible;background:none;border:0;padding:0;box-shadow:none}
 .phone .task .bt b{font-weight:600}
 .phone .task::after{content:"";position:absolute;right:0;top:12px;bottom:12px;width:8px;background:var(--pc,transparent)}
 .st-done{color:#2e9b4e}.st-run{color:#1471e0}.st-not{color:#888}
@@ -1230,6 +1230,84 @@ em{font-style:italic}
 /* ending: full-bleed mockup */
 .ending{margin:0;padding:0;width:100%;line-height:0;overflow:hidden}
 .ending img{display:block;width:100%;height:auto}
+
+/* ---------- prototype: status bar over scrolled content ---------- */
+.phone .sb{transition:background-color .2s,box-shadow .2s}
+.phone .sb.solid{background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.phone.dark .sb.solid{background:rgba(13,13,13,.86);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+/* ---------- prototype: dark mode (from the dark screens in the Figma file) ---------- */
+.phone .mode{width:34px;height:34px;display:grid;place-items:center;border-radius:8px}
+.phone .mode svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.phone .mode .i-sun{display:none}
+.phone.dark .mode .i-moon{display:none}.phone.dark .mode .i-sun{display:block}
+.phone .scr,.phone .sheet,.phone .nav,.phone .ov,.phone .alert{transition:background-color .35s,color .35s,border-color .35s}
+.phone.dark{background:#0d0d0d;color:#fff}
+.phone.dark .scr,.phone.dark .alert{background:#0d0d0d}
+.phone.dark .sb{color:#fff}
+.phone.dark .sb [fill="#111"]{fill:#fff}.phone.dark .sb [stroke="#999"]{stroke:#8a8a8a}.phone.dark .sb [fill="#999"]{fill:#8a8a8a}
+.phone.dark .homebar{background:#f2f2f2}
+.phone.dark .hdr .bk{color:#fff}.phone.dark .hdr .bk svg{stroke:#84bffb}
+.phone.dark .tt.on{background:#04407b;color:#84bffb}
+.phone.dark .nav{background:#404040;border-top-color:#404040}
+.phone.dark .nav button{color:#e6e6e6}.phone.dark .nav button svg{stroke:#e6e6e6}
+.phone.dark .nav button.on{color:#84bffb}.phone.dark .nav button.on svg{stroke:#84bffb}.phone.dark .nav button.on::before{background:#84bffb}
+.phone.dark .hero2{background:#111213!important}
+.phone.dark .hfx i{opacity:.9}.phone.dark .hfx b{opacity:.12}
+.phone.dark .hero2 .sm{color:#a9a9a9}
+.phone.dark .sheet{background:#0d0d0d}
+.phone.dark .btn.o{border-color:#84bffb;color:#84bffb}
+.phone.dark .btn.f{background:#84bffb;color:#0d0d0d}
+.phone.dark .ov{background:#404040}
+.phone.dark .ov .k,.phone.dark .ov .v small{color:#e2e2e2}
+.phone.dark .ring circle:first-child{stroke:#666}.phone.dark .ring circle+circle{stroke:#84bffb}
+.phone.dark .li{border-bottom-color:#2e2e2e}.phone.dark .li .ago{color:#a9a9a9}
+.phone.dark .tabs button{background:#404040;color:#fff}.phone.dark .tabs button.on{background:#84bffb;color:#0d0d0d}
+.phone.dark .chat{border-bottom-color:#2e2e2e}
+.phone.dark .chat .nm span,.phone.dark .chat .pv{color:#a9a9a9}
+.phone.dark .bubbles{background:#0d0d0d}
+.phone.dark .bub.in,.phone.dark .bub.tag{background:#595959;color:#fff}
+.phone.dark .bub.out{background:#84bffb;color:#0d0d0d}
+.phone.dark .quick{background:#0d0d0d;border-top-color:#2e2e2e}
+.phone.dark .quick button{border-color:#36506b;color:#84bffb}
+.phone.dark .composer{background:#0d0d0d}
+.phone.dark .composer input{background:#404040;border-color:#404040;color:#fff}
+.phone.dark .composer input::placeholder{color:#bdbdbd}
+.phone.dark .composer .mic{background:#84bffb}.phone.dark .composer .mic svg{stroke:#0d0d0d}
+.phone.dark .cal{border-bottom-color:#595959}
+.phone.dark .cal .d{color:#e2e2e2}.phone.dark .cal .past{color:#777}
+.phone.dark .cal .sel .n{border-color:#53a6f9;background:#04407b;color:#fff}
+.phone.dark .filters button{border-color:#555;color:#e2e2e2}
+.phone.dark .filters button.on{background:#84bffb;border-color:#84bffb;color:#0d0d0d}
+.phone.dark .task{border-bottom-color:#595959}
+.phone.dark .task .tg span{background:#404040;color:#fff}
+.phone.dark .task .tg span svg{stroke:#84bffb}
+.phone.dark .task .tg b[style]{color:#84bffb!important}
+.phone.dark .task .tg .tm{background:none;color:#e2e2e2}
+.phone.dark .st-done{color:#6fcf87}.phone.dark .st-run{color:#53a6f9}.phone.dark .st-not{color:#e2e2e2}
+.phone.dark .ti .txt{color:#cfcfcf}
+.phone.dark .acts button{background:#404040;border-color:#5a5a5a;color:#fff}
+.phone.dark .acts button.f{background:#84bffb;border-color:#84bffb;color:#0d0d0d}
+.phone.dark .vrow{border-bottom-color:#2e2e2e}
+.phone.dark .alert .src span,.phone.dark .alert .srcn{color:#a9a9a9}
+.phone.dark .alert .ab .i{background:#404040;color:#fff}
+.phone.dark .nt>div:first-child{color:#bdbdbd!important}
+.phone.dark .nt textarea{background:#1c1c1c;border-color:#404040;color:#fff}
+.phone.dark .nt .bt{color:#bdbdbd!important}.phone.dark .nt .bt span[style]{color:#fff!important;border-right-color:#84bffb!important}
+.phone.dark .loader i{background:#84bffb}
+.phone.dark .mapv .ev{background:#2a2a2a;color:#fff}.phone.dark .mapv .ev::after{background:#2a2a2a}
+.phone.dark .maptabs{background:#0d0d0d;border-top-color:#2e2e2e}
+.phone.dark .maptabs button{color:#fff}.phone.dark .maptabs button.on{background:#404040}
+.phone.dark .legendm{background:rgba(28,28,28,.92);color:#fff}
+.phone.dark .pf .sub2{color:#bdbdbd}
+.phone.dark .pf .loc{background:#404040;color:#fff}
+.phone.dark .energy{background:#404040}
+.phone.dark .energy .segs i{background:#5a5a5a}.phone.dark .energy .segs i.on{background:#84bffb}
+.phone.dark .energy .ends{color:#cfcfcf}
+.phone.dark .skl span{background:#e6f2fe;color:#2f7fd3}
+.phone.dark .toast{background:#f2f2f2;color:#111}
+.phone.dark .set .opt{border-bottom-color:#2e2e2e}
+.phone.dark .set .opt span[style]{color:#a9a9a9!important}
+.phone.dark .switch{background:#555}.phone.dark .switch.on{background:#84bffb}
 </style>
 </head>
 <body>
@@ -1768,7 +1846,7 @@ em{font-style:italic}
           <div class="scr on" data-scr="home">
             <div class="body">
               <div class="hero2" id="homeHero"><div class="hfx" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
-                <div class="hdr"><span>Teerth Saathi</span><span style="display:flex;gap:6px;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d1d22" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><button class="tt" data-tt>TT</button></span></div>
+                <div class="hdr"><span>Teerth Saathi</span><span style="display:flex;gap:6px;align-items:center"><button class="mode" id="modeTg" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button class="tt" data-tt>TT</button></span></div>
                 <div class="msg" id="homeMsg"></div>
               </div>
               <div class="sheet">
@@ -1873,6 +1951,7 @@ em{font-style:italic}
             <div class="hdr"><span>Settings</span><button class="tt" data-tt>TT</button></div>
             <div class="body"><div class="set">
               <div class="opt">Large text (Easy Mode)<button class="switch" id="swBig" aria-label="Large text"></button></div>
+              <div class="opt">Dark mode<button class="switch" id="swDark" aria-label="Dark mode"></button></div>
               <div class="opt">Priority alerts over other apps<button class="switch on" aria-label="Priority alerts"></button></div>
               <div class="opt">Battery saver<button class="switch on" aria-label="Battery saver"></button></div>
               <div class="opt">Language<span style="color:#888">English · हिंदी</span></div>
@@ -1906,6 +1985,7 @@ em{font-style:italic}
         <div class="callout"><span class="ico">!</span><p><b>Priority alerts</b> take over the screen, even over other apps. Try "Crowd surge".</p></div>
         <div class="callout"><span class="ico">✦</span><p><b>New Task</b> turns a plain sentence into a structured task with an AI-suggested team.</p></div>
         <div class="callout"><span class="ico">◎</span><p><b>Live Tracking</b> opens the zone map: crowd density, volunteers and events.</p></div>
+        <div class="callout"><span class="ico">☾</span><p><b>Dark mode</b> for night shifts at the ghats. Tap the moon on the home screen.</p></div>
       </div>
       <div class="proto-ctrl">
 
@@ -1915,6 +1995,11 @@ em{font-style:italic}
           <button class="pill" data-s="alerts">New alerts</button>
           <button class="pill" data-s="priority">Priority alert</button>
           <button class="pill" data-s="clear">All clear</button>
+        </div>
+        <div class="lbl">Appearance</div>
+        <div class="ctrls" id="modeCtrls">
+          <button class="pill on" data-mode="light">☀ Light</button>
+          <button class="pill" data-mode="dark">☾ Dark</button>
         </div>
         <div class="lbl">Simulate</div>
         <div class="ctrls">
@@ -2496,7 +2581,7 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
     const tabOf={home:'home',alerts:'home',newtask:'home',map:'home',tasks:'tasks',taskinfo:'tasks',messages:'messages',chat:'messages',profile:'messages',settings:'settings'};
     $$('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===tabOf[id]));
     $('#nav').style.display=(id==='chat')?'none':'grid';
-    const s=$(`.scr[data-scr="${id}"] .body`,ph);if(s)s.scrollTop=0}
+    const s=$(`.scr[data-scr="${id}"] .body`,ph);if(s)s.scrollTop=0;if(typeof sbCheck==='function')sbCheck()}
   function back(){stack.pop();show(stack[stack.length-1]||'home',false)}
   ph.addEventListener('click',e=>{
     const t=e.target.closest('[data-tt]');if(t){const on=ph.classList.toggle('big');$$('[data-tt]',ph).forEach(x=>x.classList.toggle('on',on));$('#swBig').classList.toggle('on',on);return}
@@ -2508,6 +2593,16 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
     const ts=e.target.closest('[data-toast]');if(ts){toast(ts.dataset.toast);return}
   });
   $('#swBig').onclick=e=>{e.stopPropagation();const on=ph.classList.toggle('big');e.currentTarget.classList.toggle('on',on);$$('[data-tt]',ph).forEach(x=>x.classList.toggle('on',on))};
+  /* dark mode: the moon on home, the Settings switch and the Appearance pills all drive the same state */
+  function setDark(on){ph.classList.toggle('dark',on);const m=$('#modeTg');m.setAttribute('aria-pressed',on);m.setAttribute('aria-label',on?'Switch to light mode':'Switch to dark mode');
+    $('#swDark').classList.toggle('on',on);$$('#modeCtrls .pill').forEach(b=>b.classList.toggle('on',(b.dataset.mode==='dark')===on));setState(curState)}
+  $('#modeTg').onclick=e=>{e.stopPropagation();setDark(!ph.classList.contains('dark'))};
+  $('#swDark').onclick=e=>{e.stopPropagation();setDark(!ph.classList.contains('dark'))};
+  $$('#modeCtrls .pill').forEach(b=>b.onclick=()=>setDark(b.dataset.mode==='dark'));
+  /* status bar: solid once content scrolls under it, so the clock and icons never sit on top of the header */
+  const sbar=$('.sb',ph);
+  function sbCheck(){const b=$('.scr.on .body',ph);sbar.classList.toggle('solid',!!b&&b.scrollTop>2)}
+  $$('.scr .body',ph).forEach(b=>b.addEventListener('scroll',sbCheck,{passive:true}));
   function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2200)}
 
   /* home states */
@@ -2516,8 +2611,12 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
     priority:['linear-gradient(160deg,#fff 10%,#f2c0c0 55%,#fbe1e1)','Priority Alert<br>waiting','View details','#c62020','priority'],
     clear:['linear-gradient(160deg,#fff 10%,#d3ecd3 55%,#eef8ee)','Awesome!','','#2e7d32','']};
   const HC={msg:['#8fb6f5','#b9d2fb','#5b8fe8'],alerts:['#f3b48a','#f8d2b8','#ea8c55'],priority:['#ee9a9a','#f6c6c6','#e06464'],clear:['#9fd6a3','#cbeacc','#6cc073']};
-  function setState(k){const s=ST[k],h=$('#homeHero');h.style.setProperty('--c1',HC[k][0]);h.style.setProperty('--c2',HC[k][1]);h.style.setProperty('--c3',HC[k][2]);
-    $('#homeMsg').innerHTML=s[1]+(k==='clear'?'<div class="sm">Nothing new came up.<br>You’re all sorted.</div>':`<button class="go" style="color:${s[3]}" data-st="${s[4]}">${s[2]}</button>`);
+  /* dark mode: the same states, as deep glows on near-black (from the dark screens in Figma) */
+  const HCD={msg:['#2b3a4d','#1f2a37','#34506f'],alerts:['#5b3416','#3a2718','#7a4615'],priority:['#5c1d1f','#3b191a','#7c2326'],clear:['#1d4a2b','#173322','#256b3b']};
+  const GOD={msg:'#84bffb',alerts:'#f2a46a',priority:'#ff8a8a',clear:''};
+  let curState='msg';
+  function setState(k){curState=k;const s=ST[k],h=$('#homeHero'),dk=ph.classList.contains('dark'),C=(dk?HCD:HC)[k];h.style.setProperty('--c1',C[0]);h.style.setProperty('--c2',C[1]);h.style.setProperty('--c3',C[2]);
+    $('#homeMsg').innerHTML=s[1]+(k==='clear'?'<div class="sm">Nothing new came up.<br>You’re all sorted.</div>':`<button class="go" style="color:${dk?GOD[k]:s[3]}" data-st="${s[4]}">${s[2]}</button>`);
     $$('#stateCtrls .pill').forEach(b=>b.classList.toggle('on',b.dataset.s===k))}
   $('#homeMsg').addEventListener('click',e=>{const b=e.target.closest('[data-st]');if(!b)return;e.stopPropagation();const v=b.dataset.st;if(v==='priority')surge();else if(v==='messages'){stack.length=0;show('messages')}else show(v)});
   $$('#stateCtrls .pill').forEach(b=>b.onclick=()=>{setState(b.dataset.s);stack.length=0;stack.push('home');show('home',false)});
