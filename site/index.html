@@ -1320,6 +1320,9 @@ em{font-style:italic}
 .mtog.on .mt-sw{background:#1d2230}
 .mtog.on .mt-sw i{transform:translateX(24px);background:#0d0d0d}
 .mtog.on .s{opacity:0}.mtog.on .m{opacity:1}
+.proto-ctrl .cgrp{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.proto-ctrl .cgrp .ctrls{margin-right:0}
+.proto-ctrl{column-gap:26px}
 </style>
 </head>
 <body>
@@ -2001,21 +2004,21 @@ em{font-style:italic}
       </div>
       <div class="proto-ctrl">
 
-        <div class="lbl">Home state</div>
+        <div class="cgrp"><div class="lbl">Home state</div>
         <div class="ctrls" id="stateCtrls">
           <button class="pill on" data-s="msg">New messages</button>
           <button class="pill" data-s="alerts">New alerts</button>
           <button class="pill" data-s="priority">Priority alert</button>
           <button class="pill" data-s="clear">All clear</button>
-        </div>
-        <div class="lbl">Appearance</div>
+        </div></div>
+        <div class="cgrp"><div class="lbl">Appearance</div>
         <div class="ctrls" id="modeCtrls">
           <button class="mtog" id="modePill" type="button" aria-label="Switch to dark mode"><span class="mt-lbl">Dark mode</span><span class="mt-sw" aria-hidden="true"><i><svg class="s" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg><svg class="m" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg></i></span></button>
-        </div>
-        <div class="lbl">Simulate</div>
+        </div></div>
+        <div class="cgrp"><div class="lbl">Simulate</div>
         <div class="ctrls">
           <button class="pill" id="simSurge">⚠ Crowd surge in Zone A</button>
-        </div>
+        </div></div>
       </div>
     </div>
 
