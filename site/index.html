@@ -884,7 +884,7 @@ em{font-style:italic}
 .mq-track{display:flex;gap:22px;width:max-content;padding:16px 0 26px;animation:mq 60s linear infinite}
 .marquee:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(calc(-50% - 11px))}}
-.mq-tile{width:340px}
+.mq-tile{width:340px;cursor:default}
 @media (prefers-reduced-motion:reduce){.mq-track{animation:none}.marquee{overflow-x:auto}}
 
 /* stakeholders orbit (own design) */
@@ -1231,12 +1231,12 @@ em{font-style:italic}
 <nav class="topnav" id="topbar"><div class="in">
   <a class="lg" href="https://bhargavramch.com">Bhargav Ram</a>
   <div class="lk" id="navlk">
-    <a href="#kumbh" data-ch="01">Context</a>
-    <a href="#problem" data-ch="02">Problem</a>
-    <a href="#stakeholders" data-ch="03">Research</a>
-    <a href="#ia" data-ch="04">Ideation</a>
-    <a href="#access" data-ch="05">Design</a>
-    <a href="#product" data-ch="06">Solution</a>
+    <a href="#kumbh" data-ch="1">Context</a>
+    <a href="#problem" data-ch="2">Problem</a>
+    <a href="#stakeholders" data-ch="3">Research</a>
+    <a href="#ia" data-ch="4">Ideation</a>
+    <a href="#access" data-ch="5">Design</a>
+    <a href="#product" data-ch="6">Solution</a>
   </div>
   <a class="nb" href="#proto">Try the prototype</a>
 </div></nav>
@@ -1282,12 +1282,12 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== KUMBH MELA ====================== -->
-<section class="sec" id="kumbh" data-ch="01" data-chname="Context" data-first="1" data-title="Kumbh Mela">
+<section class="sec" id="kumbh" data-ch="1" data-chname="Context" data-first="1" data-title="Kumbh Mela">
   <div class="wrap">
     <div class="figure photo-wide wide reveal"><img src="assets/kumbh-crowd.jpg" alt="Dense crowd of pilgrims at the riverbank with boats and flags in morning mist" loading="lazy"></div>
     <div class="cols-text">
       <div class="reveal">
-        <span class="eyebrow"><span class="n">01</span>Context</span>
+        <span class="eyebrow"><span class="n">1</span>Context</span>
     <h2>Kumbh Mela</h2>
         <p>The Kumbh Mela is one of the world's largest recurring religious pilgrimages. Rooted in centuries of Hindu tradition, it brings together millions of devotees to participate in sacred bathing rituals, spiritual gatherings and religious processions.</p>
       </div>
@@ -1304,7 +1304,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== INTRODUCTION ====================== -->
-<section class="sec alt" id="intro" data-ch="01" data-chname="Context" data-title="What is happening?">
+<section class="sec alt" id="intro" data-ch="1" data-chname="Context" data-title="What is happening?">
   <div class="wrap">
     <h2 class="reveal">What is happening?</h2>
     <div class="cols-text">
@@ -1326,7 +1326,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== WHO ARE WE AIDING ====================== -->
-<section class="sec" id="aiding" data-ch="01" data-chname="Context" data-title="Who are we aiding?">
+<section class="sec" id="aiding" data-ch="1" data-chname="Context" data-title="Who are we aiding?">
   <div class="wrap"><div class="aiding wide">
     <div class="figure reveal"><img src="assets/carrying.jpg" alt="Volunteers in white jackets carrying a pilgrim on a stretcher at night" loading="lazy"></div>
     <div class="reveal">
@@ -1337,7 +1337,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== PROBLEM ====================== -->
-<section id="problem" data-ch="02" data-chname="Problem" data-first="1" data-title="Problem statement">
+<section id="problem" data-ch="2" data-chname="Problem" data-first="1" data-title="Problem statement">
   <div class="band">
     <div class="wrap">
       <div class="count reveal">
@@ -1373,13 +1373,13 @@ em{font-style:italic}
   </div>
   <div class="sec" id="problem-text" style="padding-top:clamp(48px,6vw,80px)">
     <div class="wrap">
-      <span class="eyebrow reveal"><span class="n">02</span>Problem</span>
+      <span class="eyebrow reveal"><span class="n">2</span>Problem</span>
     <h2 class="reveal">Problem statement</h2>
       <p class="lead reveal">Mass gatherings like the Kumbh Mela create high crowd density, where delayed risk detection and poor coordination between volunteers and authorities increase the likelihood of crowd disasters.</p>
       <div class="problem-cards">
-        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">01</span><div><h3>Seeing the ground reality</h3><div class="more">A captain can't see what is happening two zones away, only what their own volunteers report.</div></div></button>
-        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">02</span><div><h3>Where to deploy</h3><div class="more">When an incident breaks out, there is no quick way to know who is free, close by and able to help.</div></div></button>
-        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">03</span><div><h3>Reporting ground truth</h3><div class="more">Reports reach the command centre late, duplicated or without the context needed to act on them.</div></div></button>
+        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">1</span><div><h3>Seeing the ground reality</h3><div class="more">A captain can't see what is happening two zones away, only what their own volunteers report.</div></div></button>
+        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">2</span><div><h3>Where to deploy</h3><div class="more">When an incident breaks out, there is no quick way to know who is free, close by and able to help.</div></div></button>
+        <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">3</span><div><h3>Reporting ground truth</h3><div class="more">Reports reach the command centre late, duplicated or without the context needed to act on them.</div></div></button>
       </div>
       <div class="jump-wrap reveal"><a class="jump" href="#access"><span class="jl">Skip ahead</span><span class="jt">See the design: Design for Accessibility</span><span class="ja" aria-hidden="true">↓</span></a></div>
     </div>
@@ -1387,7 +1387,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== SETTING THE STAGE ====================== -->
-<section class="sec alt" id="stage" data-ch="02" data-chname="Problem" data-title="Setting the stage">
+<section class="sec alt" id="stage" data-ch="2" data-chname="Problem" data-title="Setting the stage">
   <div class="wrap">
     <div class="stage3d wide"><div class="plane" id="plane" style="background-image:url(assets/aerial.jpg)" role="img" aria-label="Aerial view of the crowd and boats along the river"></div></div>
     <div class="stage-row">
@@ -1419,7 +1419,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== WHO REPORTS TO WHOM ====================== -->
-<section class="sec" id="hierarchy" data-ch="02" data-chname="Problem" data-title="Who reports to whom?">
+<section class="sec" id="hierarchy" data-ch="2" data-chname="Problem" data-title="Who reports to whom?">
   <div class="wrap"><div class="hier wide">
     <div class="reveal hier-fig" id="hierFig">
       <svg viewBox="0 0 900 600" id="hierSvg" aria-label="Three nested arcs: Supervisor, Captains, Volunteers">
@@ -1459,7 +1459,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== CONSTRAINTS ====================== -->
-<section class="sec alt" id="constraints" data-ch="02" data-chname="Problem" data-title="Studying the constraints">
+<section class="sec alt" id="constraints" data-ch="2" data-chname="Problem" data-title="Studying the constraints">
   <div class="wrap">
     <h2 class="reveal">Studying the Constraints</h2>
     <div class="constraints">
@@ -1480,25 +1480,25 @@ em{font-style:italic}
       
     </div>
     <div class="marquee wide" id="wallMq"><div class="mq-track">
-      <button class="tile mq-tile" data-zoom="assets/wall-priority-matrix.png" data-title="Incident priority matrix"><div class="im"><img src="assets/wall-priority-matrix.png" alt="Sticky-note matrix of incident types by priority and severity" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Incident priority matrix</h4><p>Medical, crowd, weather, security and lost &amp; found incidents, ranked from high to low frequency.</p></button>
-      <button class="tile mq-tile" data-zoom="assets/wall-impact-frequency.png" data-title="Impact × frequency"><div class="im"><img src="assets/wall-impact-frequency.png" alt="Impact versus frequency chart of sticky notes on a red board" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Impact × frequency</h4><p>Feature ideas plotted by how often they matter and how much.</p></button>
-      <button class="tile mq-tile" data-zoom="assets/wall-stakeholder-map.png" data-title="Stakeholder map"><div class="im"><img src="assets/wall-stakeholder-map.png" alt="Concentric stakeholder map with primary, secondary and tertiary rings" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Stakeholder map</h4><p>Primary, secondary and tertiary actors, plus the actions between them.</p></button>
-      <button class="tile mq-tile" data-zoom="assets/wall-empathy-map.png" data-title="Empathy map"><div class="im"><img src="assets/wall-empathy-map.png" alt="Empathy map on a green board around a drawn head" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Empathy map</h4><p>What the captain sees, hears, says, does and needs.</p></button>
-      <button class="tile mq-tile" data-zoom="assets/wall-scenario-mapping.png" data-title="Scenario mapping"><div class="im"><img src="assets/wall-scenario-mapping.png" alt="Scenario mapping board with planned, command-centre and emergency columns" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Scenario mapping</h4><p>Planned, command-centre and emergency scenarios against the three core problems.</p></button>
+      <div class="tile mq-tile"><div class="im"><img src="assets/wall-priority-matrix.png" alt="Sticky-note matrix of incident types by priority and severity" loading="lazy"></div><h4>Incident priority matrix</h4><p>Medical, crowd, weather, security and lost &amp; found incidents, ranked from high to low frequency.</p></div>
+      <div class="tile mq-tile"><div class="im"><img src="assets/wall-impact-frequency.png" alt="Impact versus frequency chart of sticky notes on a red board" loading="lazy"></div><h4>Impact × frequency</h4><p>Feature ideas plotted by how often they matter and how much.</p></div>
+      <div class="tile mq-tile"><div class="im"><img src="assets/wall-stakeholder-map.png" alt="Concentric stakeholder map with primary, secondary and tertiary rings" loading="lazy"></div><h4>Stakeholder map</h4><p>Primary, secondary and tertiary actors, plus the actions between them.</p></div>
+      <div class="tile mq-tile"><div class="im"><img src="assets/wall-empathy-map.png" alt="Empathy map on a green board around a drawn head" loading="lazy"></div><h4>Empathy map</h4><p>What the captain sees, hears, says, does and needs.</p></div>
+      <div class="tile mq-tile"><div class="im"><img src="assets/wall-scenario-mapping.png" alt="Scenario mapping board with planned, command-centre and emergency columns" loading="lazy"></div><h4>Scenario mapping</h4><p>Planned, command-centre and emergency scenarios against the three core problems.</p></div>
     
-      <button class="tile mq-tile" aria-hidden="true" tabindex="-1" data-zoom="assets/wall-priority-matrix.png" data-title="Incident priority matrix"><div class="im"><img src="assets/wall-priority-matrix.png" alt="Sticky-note matrix of incident types by priority and severity" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Incident priority matrix</h4><p>Medical, crowd, weather, security and lost &amp; found incidents, ranked from high to low frequency.</p></button>
-      <button class="tile mq-tile" aria-hidden="true" tabindex="-1" data-zoom="assets/wall-impact-frequency.png" data-title="Impact × frequency"><div class="im"><img src="assets/wall-impact-frequency.png" alt="Impact versus frequency chart of sticky notes on a red board" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Impact × frequency</h4><p>Feature ideas plotted by how often they matter and how much.</p></button>
-      <button class="tile mq-tile" aria-hidden="true" tabindex="-1" data-zoom="assets/wall-stakeholder-map.png" data-title="Stakeholder map"><div class="im"><img src="assets/wall-stakeholder-map.png" alt="Concentric stakeholder map with primary, secondary and tertiary rings" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Stakeholder map</h4><p>Primary, secondary and tertiary actors, plus the actions between them.</p></button>
-      <button class="tile mq-tile" aria-hidden="true" tabindex="-1" data-zoom="assets/wall-empathy-map.png" data-title="Empathy map"><div class="im"><img src="assets/wall-empathy-map.png" alt="Empathy map on a green board around a drawn head" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Empathy map</h4><p>What the captain sees, hears, says, does and needs.</p></button>
-      <button class="tile mq-tile" aria-hidden="true" tabindex="-1" data-zoom="assets/wall-scenario-mapping.png" data-title="Scenario mapping"><div class="im"><img src="assets/wall-scenario-mapping.png" alt="Scenario mapping board with planned, command-centre and emergency columns" loading="lazy"><span class="zoomico">⤢ zoom</span></div><h4>Scenario mapping</h4><p>Planned, command-centre and emergency scenarios against the three core problems.</p></button>
+      <div class="tile mq-tile" aria-hidden="true"><div class="im"><img src="assets/wall-priority-matrix.png" alt="Sticky-note matrix of incident types by priority and severity" loading="lazy"></div><h4>Incident priority matrix</h4><p>Medical, crowd, weather, security and lost &amp; found incidents, ranked from high to low frequency.</p></div>
+      <div class="tile mq-tile" aria-hidden="true"><div class="im"><img src="assets/wall-impact-frequency.png" alt="Impact versus frequency chart of sticky notes on a red board" loading="lazy"></div><h4>Impact × frequency</h4><p>Feature ideas plotted by how often they matter and how much.</p></div>
+      <div class="tile mq-tile" aria-hidden="true"><div class="im"><img src="assets/wall-stakeholder-map.png" alt="Concentric stakeholder map with primary, secondary and tertiary rings" loading="lazy"></div><h4>Stakeholder map</h4><p>Primary, secondary and tertiary actors, plus the actions between them.</p></div>
+      <div class="tile mq-tile" aria-hidden="true"><div class="im"><img src="assets/wall-empathy-map.png" alt="Empathy map on a green board around a drawn head" loading="lazy"></div><h4>Empathy map</h4><p>What the captain sees, hears, says, does and needs.</p></div>
+      <div class="tile mq-tile" aria-hidden="true"><div class="im"><img src="assets/wall-scenario-mapping.png" alt="Scenario mapping board with planned, command-centre and emergency columns" loading="lazy"></div><h4>Scenario mapping</h4><p>Planned, command-centre and emergency scenarios against the three core problems.</p></div>
     </div></div>
   </div>
 </section>
 
 <!-- ====================== STAKEHOLDERS ====================== -->
-<section class="sec" id="stakeholders" data-ch="03" data-chname="Research" data-first="1" data-title="Stakeholders">
+<section class="sec" id="stakeholders" data-ch="3" data-chname="Research" data-first="1" data-title="Stakeholders">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="n">03</span>Research</span>
+    <span class="eyebrow reveal"><span class="n">3</span>Research</span>
     <h2 class="reveal">Stakeholders</h2>
     
     <div class="orbitwrap wide reveal" id="sh">
@@ -1519,7 +1519,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== PERSONA ====================== -->
-<section class="sec alt" id="persona" data-ch="03" data-chname="Research" data-title="Persona & empathy map">
+<section class="sec alt" id="persona" data-ch="3" data-chname="Research" data-title="Persona & empathy map">
   <div class="wrap">
     <h2 class="reveal">Persona &amp; Empathy map</h2>
     <div class="pgrid wide">
@@ -1570,23 +1570,23 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== PRODUCT GOALS ====================== -->
-<section class="sec" id="goals" data-ch="03" data-chname="Research" data-title="Product goals">
+<section class="sec" id="goals" data-ch="3" data-chname="Research" data-title="Product goals">
   <div class="goal-motifs" aria-hidden="true"><img class="gm gm1" src="assets/motif-pinwheel.png" alt=""><img class="gm gm2" src="assets/motif-diamond.png" alt=""></div>
   <div class="wrap">
     <h2 class="reveal">Product goals</h2>
     <div class="goals">
-      <div class="goal reveal"><div class="n">01</div><h3>Create a Task System</h3><p>Structure and prioritize volunteer responsibilities for clear &amp; dynamic task assignment, executable even under peak crowd pressure.</p></div>
-      <div class="goal reveal"><div class="n">02</div><h3>Real-time Location</h3><p>Enable live visibility of volunteers, crowd density, &amp; critical zones to support safe, fast &amp; informed decision-making &amp; response.</p></div>
-      <div class="goal reveal"><div class="n">03</div><h3>Efficient Communication</h3><p>Ensure clear, reliable, and role-based communication across volunteers &amp; authorities to reduce confusion, prevent overload.</p></div>
+      <div class="goal reveal"><div class="n">1</div><h3>Create a Task System</h3><p>Structure and prioritize volunteer responsibilities for clear &amp; dynamic task assignment, executable even under peak crowd pressure.</p></div>
+      <div class="goal reveal"><div class="n">2</div><h3>Real-time Location</h3><p>Enable live visibility of volunteers, crowd density, &amp; critical zones to support safe, fast &amp; informed decision-making &amp; response.</p></div>
+      <div class="goal reveal"><div class="n">3</div><h3>Efficient Communication</h3><p>Ensure clear, reliable, and role-based communication across volunteers &amp; authorities to reduce confusion, prevent overload.</p></div>
     </div>
     <p class="quote-line reveal">The system must function under conditions that make ordinary digital interactions difficult.</p>
   </div>
 </section>
 
 <!-- ====================== IA ====================== -->
-<section class="sec alt" id="ia" data-ch="04" data-chname="Ideation" data-first="1" data-title="Information architecture">
+<section class="sec alt" id="ia" data-ch="4" data-chname="Ideation" data-first="1" data-title="Information architecture">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="n">04</span>Ideation</span>
+    <span class="eyebrow reveal"><span class="n">4</span>Ideation</span>
     <h2 class="reveal">Information architecture</h2>
     <p>Home leads to five top-level areas. Everything a captain needs during an incident sits three taps or fewer below the navigation bar.</p>
     <div class="ia-shell wide reveal">
@@ -1601,7 +1601,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== WIREFRAMES (pinned, scroll moves sideways) ====================== -->
-<section class="hscroll" id="wireframes" data-ch="04" data-chname="Ideation" data-title="Wireframing & paper prototyping">
+<section class="hscroll" id="wireframes" data-ch="4" data-chname="Ideation" data-title="Wireframing & paper prototyping">
   <div class="hs-pin">
     <div class="wrap hs-head">
       <h2>Wireframing &amp; paper prototyping</h2>
@@ -1619,9 +1619,9 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== ACCESSIBILITY (bento) ====================== -->
-<section class="sec alt" id="access" data-ch="05" data-chname="Design" data-first="1" data-title="Design for accessibility">
+<section class="sec alt" id="access" data-ch="5" data-chname="Design" data-first="1" data-title="Design for accessibility">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="n">05</span>Design</span>
+    <span class="eyebrow reveal"><span class="n">5</span>Design</span>
     <h2 class="reveal">Design for Accessibility</h2>
     <div class="bento2 wide" id="bento">
       <!-- wordmark tile: types itself, English ⇄ Devanagari -->
@@ -1689,7 +1689,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== VISUAL EXPLORATIONS ====================== -->
-<section class="sec" id="explore" data-ch="05" data-chname="Design" data-title="Visual design explorations">
+<section class="sec" id="explore" data-ch="5" data-chname="Design" data-title="Visual design explorations">
   <div class="wrap">
     <h2 class="reveal">Visual design explorations</h2>
     <div class="vis wide">
@@ -1704,7 +1704,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== DESIGN SYSTEM ====================== -->
-<section class="sec alt" id="system" data-ch="05" data-chname="Design" data-title="Design system">
+<section class="sec alt" id="system" data-ch="5" data-chname="Design" data-title="Design system">
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px" class="reveal">
       <div><h2>Design system</h2><p>Atomic design was used to create a scalable and consistent component system that allows faster design, easy maintenance, and seamless collaboration with development.</p></div>
@@ -1719,7 +1719,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== WORKFLOW MAP ====================== -->
-<section class="sec" id="workflow" data-ch="05" data-chname="Design" data-title="Workflow under stress">
+<section class="sec" id="workflow" data-ch="5" data-chname="Design" data-title="Workflow under stress">
   <div class="wrap">
     <h2 class="reveal">Workflow for a volunteer under stress</h2>
     <p class="reveal">The flow runs across three roles. Orange notes mark the pain points at each step and blue notes the response the design gives.</p>
@@ -1744,9 +1744,9 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== INTRODUCING ====================== -->
-<section class="sec alt" id="product" data-ch="06" data-chname="Solution" data-first="1" data-title="Introducing Teerth Saathi">
+<section class="sec alt" id="product" data-ch="6" data-chname="Solution" data-first="1" data-title="Introducing Teerth Saathi">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="n">06</span>Solution and interactive prototype</span>
+    <span class="eyebrow reveal"><span class="n">6</span>Solution and interactive prototype</span>
     <h2 class="reveal">Introducing Teerth Saathi</h2>
     <p class="lead reveal">A centralized interface which provides real-time visibility of tasks, volunteers, and crowd conditions to support fast and informed decision-making.</p>
 
@@ -1925,17 +1925,17 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== FEATURES ====================== -->
-<section class="sec" id="features" data-ch="06" data-chname="Solution">
+<section class="sec" id="features" data-ch="6" data-chname="Solution">
   <div class="wrap">
     <h2 class="reveal">Features</h2>
     <p class="reveal">A centralized interface which provides real-time visibility of tasks, volunteers, and crowd conditions to support fast and informed decision-making.</p>
 
     <h3 class="reveal sub-h">AI Features</h3>
     <div class="ai4">
-      <div class="aic reveal"><span class="ai-n">01</span><h4>Create task in natural language</h4></div>
-      <div class="aic reveal"><span class="ai-n">02</span><h4>AI based auto volunteer allocation</h4></div>
-      <div class="aic reveal"><span class="ai-n">03</span><h4>Crowd prediction and action</h4></div>
-      <div class="aic reveal"><span class="ai-n">04</span><h4>Volunteer wellness</h4></div>
+      <div class="aic reveal"><span class="ai-n">1</span><h4>Create task in natural language</h4></div>
+      <div class="aic reveal"><span class="ai-n">2</span><h4>AI based auto volunteer allocation</h4></div>
+      <div class="aic reveal"><span class="ai-n">3</span><h4>Crowd prediction and action</h4></div>
+      <div class="aic reveal"><span class="ai-n">4</span><h4>Volunteer wellness</h4></div>
     </div>
 
     <div class="slab reveal">
@@ -1970,7 +1970,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== USER TESTING ====================== -->
-<section class="sec alt" id="testing" data-ch="06" data-chname="Solution" data-title="User testing">
+<section class="sec alt" id="testing" data-ch="6" data-chname="Solution" data-title="User testing">
   <div class="wrap">
     <h2 class="reveal">User testing</h2>
     <div class="testing wide reveal"><img src="assets/testing.jpg" alt="Six photos of participants testing the prototype on a phone" data-zoom="assets/testing.jpg" data-title="User testing"></div>
@@ -1978,7 +1978,7 @@ em{font-style:italic}
 </section>
 
 <!-- ====================== REFERENCE VIDEOS ====================== -->
-<section class="sec" id="refs" data-ch="06" data-chname="Solution" data-title="Reference videos">
+<section class="sec" id="refs" data-ch="6" data-chname="Solution" data-title="Reference videos">
   <div class="wrap">
     <h2 class="reveal">Reference videos</h2>
     <p class="reveal">A few more films on the scale of the Kumbh and the work of running it.</p>
@@ -2305,7 +2305,7 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   const IMG=i=>(window.R||(x=>x))(`assets/explore-${String(i+1).padStart(2,'0')}.png`);
   $('#vGrid').innerHTML=V.map((v,i)=>`<button class="vimg${i===15?' final':''}" data-i="${i}" aria-label="${i===15?'Final selected design':'Exploration '+(i+1)}">${i===15?'<span class="fbadge">Final</span>':''}<img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}" loading="lazy"></button>`).join('');
   const FINAL=15;
-  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>Final selected design</b><span>East Bay with Tan, carried into the app and the logo</span>':`<b>Exploration ${String(i+1).padStart(2,'0')} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
+  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>Final selected design</b><span>East Bay with Tan, carried into the app and the logo</span>':`<b>Exploration ${i+1} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
     const [bg,ti,mo]=V[i];$('#vHex').innerHTML=[['Background',bg],['Title',ti],['Motif',mo]].map(([n,h])=>`<span><i style="background:${h}"></i>${n} ${h.toUpperCase()}</span>`).join('')}
   $('#vGrid').addEventListener('click',e=>{const c=e.target.closest('.vimg');if(c)sel(+c.dataset.i)});$('#vBig').addEventListener('click',e=>{if(e.target.closest('.tofinal'))sel(FINAL)});sel(FINAL);
 })();
@@ -2363,7 +2363,7 @@ const PAIRS=[
   ['Volunteer Captain','Both captains may be overloaded, creating uncertainty','Explicit response flow and automatic availability check',.502,.12],
   ['Supervisor Volunteer','SV might face many fragmented requests','Only grouped, failed-local alerts escalate with clear priority tags',.655,.72],
   ['Supervisor Volunteer','Hard to identify spare capacity across zones in crisis','System highlights low-load zones and suggests reallocation options',.80,.72]];
-$('#pairs').innerHTML=PAIRS.map((p,i)=>`<button class="pairx reveal in" data-i="${i}"><span class="who">${String(i+1).padStart(2,'0')} · ${p[0]}</span><span class="pp">${p[1]}</span><span class="rr">${p[2]}</span><span class="go">Find it on the map →</span></button>`).join('');
+$('#pairs').innerHTML=PAIRS.map((p,i)=>`<button class="pairx reveal in" data-i="${i}"><span class="who">${i+1} · ${p[0]}</span><span class="pp">${p[1]}</span><span class="rr">${p[2]}</span><span class="go">Find it on the map →</span></button>`).join('');
 $$('#pairs .pairx').forEach(b=>b.onclick=()=>{const p=PAIRS[+b.dataset.i];wf.goTo(p[3],p[4],4.2);$('#wfZoom').scrollIntoView({behavior:'smooth',block:'center'})});
 
 /* lightbox */
