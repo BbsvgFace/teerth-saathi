@@ -1389,6 +1389,56 @@ strong.sb6{font-weight:600;color:var(--ink)}
 .dk-vis .sz .hl{color:#fff;font-weight:600;border-bottom:2px solid #b9b2ff;padding-bottom:2px}
 #features .sub-h{font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
 .mock.mock-sm{max-width:760px;margin-left:auto;margin-right:auto}
+
+/* ---------- prototype full screen ---------- */
+.fsb{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:9px 18px;font-size:14px;font-weight:600;background:var(--violet);color:#fff;box-shadow:0 8px 22px rgba(107,92,231,.3);transition:transform .2s,box-shadow .2s}
+.fsb:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(107,92,231,.4)}
+.fsb svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pfs{position:fixed;inset:0;z-index:120;display:none;flex-direction:column;background:radial-gradient(120% 80% at 50% 0%,#2b2466 0%,#121318 70%)}
+.pfs.on{display:flex}
+.pfs-top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;color:#fff;flex:none}
+.pfs-t{font-size:14px;font-weight:600;opacity:.85}
+.pfs-x{background:rgba(255,255,255,.14);color:#fff;border-radius:100px;padding:8px 14px;font-size:14px;font-weight:600}
+.pfs-x:hover{background:rgba(255,255,255,.24)}
+.pfs-stage{position:relative;margin:auto;flex:none}
+.pfs-stage .phone{transform-origin:0 0}
+@media (max-width:640px){
+  .pfs{background:#000}
+  .pfs-top{padding:8px 12px}
+  .pfs-stage .phone{border-radius:0;box-shadow:none}
+}
+/* ---------- responsive fixes (phones and tablets) ---------- */
+.ia-list{display:none}
+@media (max-width:900px){
+  .hier{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+  .hier-tabs{flex-wrap:wrap}
+  .hier-note .q{font-size:17px}
+}
+@media (max-width:640px){
+  .band{height:790px}
+  .lanyard{top:215px}
+  #wfZoom{height:320px}
+  .ia-scroll{display:none}
+  .ia-list{display:block;font-size:14px}
+  .ia-list ul{list-style:none;margin:0;padding:0}
+  .ia-list li{margin:0}
+  .ia-list ul ul{margin-left:14px;padding-left:12px;border-left:1px solid #dfe1e8}
+  .ia-list details>summary{list-style:none;cursor:pointer}
+  .ia-list details>summary::-webkit-details-marker{display:none}
+  .ia-list .iln{display:inline-flex;align-items:center;gap:8px;margin:4px 0;padding:7px 12px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--card2);border:1px solid var(--line);text-align:left}
+  .ia-list .iln small{font-size:11px;font-weight:600;color:var(--ink2);background:rgba(0,0,0,.05);border-radius:6px;padding:1px 6px}
+  .ia-list .iln.l1{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
+  .ia-list .iln.l2{background:#e9e7fc;border-color:#d6d2f8;color:#2b2466;font-weight:600}
+  .ia-list .iln.l3{background:#fff;border-color:#cfd2dc}
+  .ia-list .iln.l4{color:var(--ink2)}
+  .ia-list .iln.on{background:var(--violet);border-color:var(--violet);color:#fff}
+  .ia-list .iln.on small{color:#fff;background:rgba(255,255,255,.2)}
+  .ia-list details>summary .iln::after{content:"▾";font-size:10px;opacity:.6;transition:transform .2s}
+  .ia-list details:not([open])>summary .iln::after{transform:rotate(-90deg)}
+  .ia-list .root>.iln{margin-bottom:6px}
+  .proto-ctrl .cgrp:first-child{width:100%}
+  .fsb{width:100%;justify-content:center;padding:12px 18px}
+}
 </style>
 </head>
 <body>
@@ -2064,7 +2114,7 @@ strong.sb6{font-weight:600;color:var(--ink)}
         <div class="callout"><span class="ico">◎</span><p><b>Live Tracking</b> opens the zone map: crowd density, volunteers and events.</p></div>
       </div>
       <div class="proto-ctrl">
-
+        <div class="cgrp"><button class="fsb" type="button" data-fs aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Open full screen</button></div>
         <div class="cgrp"><div class="lbl">Home state</div>
         <div class="ctrls" id="stateCtrls">
           <button class="pill on" data-s="msg">New messages</button>
@@ -2185,6 +2235,12 @@ strong.sb6{font-weight:600;color:var(--ink)}
 <div class="timer" id="timer"><span class="t" id="tT">48:00:00</span><span class="ph" id="tP">Brief</span><span class="bar"><i id="tB"></i></span><button id="tocBtn" aria-expanded="false">Contents</button></div>
 <nav class="toc" id="toc" aria-label="Sections"></nav>
 
+
+<!-- prototype, full screen -->
+<div class="pfs" id="protoFs" role="dialog" aria-modal="true" aria-label="Teerth Saathi prototype, full screen">
+  <div class="pfs-top"><span class="pfs-t">Teerth Saathi prototype</span><button type="button" class="pfs-x" id="pfsClose">Close ✕</button></div>
+  <div class="pfs-stage" id="pfsStage"></div>
+</div>
 
 <!-- lightbox -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
@@ -2436,6 +2492,15 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   // fit: scale the chart down if the container is narrower than the chart, but never below 0.72 (then scroll)
   const sc=el.parentElement;function fit(){const k=Math.max(.72,Math.min(1,sc.clientWidth/W));el.style.transform=`scale(${k})`;el.parentElement.style.height=(H*k+4)+'px';el.style.marginRight=(W*k-W)+'px'}
   fit();addEventListener('resize',fit);
+  /* phones: the wide chart becomes an indented, collapsible list with the same tap-to-trace */
+  const lst=document.createElement('div');lst.className='ia-list';
+  const lvOf=o=>o.d===0?1:o.d===1?2:isLeaf(o)?4:3;
+  function li(o){const b=`<button class="iln l${lvOf(o)}" data-i="${o.id}">${o.name}${o.kids.length&&o.d>0?`<small>${o.kids.length}</small>`:''}</button>`;
+    if(!o.kids.length)return `<li>${b}</li>`;
+    if(o.d===0)return `<li class="root">${b}<ul>${o.kids.map(li).join('')}</ul></li>`;
+    return `<li><details${o.d===1?' open':''}><summary>${b}</summary><ul>${o.kids.map(li).join('')}</ul></details></li>`}
+  lst.innerHTML=`<ul>${li(root)}</ul>`;sc.after(lst);
+  lst.addEventListener('click',e=>{const b=e.target.closest('.iln');if(!b)return;$$('.iln',lst).forEach(x=>x.classList.toggle('on',x===b));trace(byId[b.dataset.i])});
 })();
 
 /* ---------- accessibility bento ---------- */
@@ -2577,6 +2642,18 @@ document.addEventListener('click',e=>{const z=e.target.closest('[data-zoom]');if
   new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){g.classList.add('go');o.disconnect()}},{threshold:.3}).observe(g);
 })();
 
+/* prototype: full screen (desktop and phones). The same phone moves into the overlay, so state is kept. */
+(function(){const ph=$('#phone'),holder=$('#phoneHolder'),fs=$('#protoFs'),stage=$('#pfsStage');if(!fs)return;
+  function fit(){const top=$('.pfs-top',fs).offsetHeight;const vw=innerWidth,vh=innerHeight-top;const small=vw<640;
+    const k=Math.min((vw-(small?0:48))/393,(vh-(small?0:40))/852);stage.style.width=(393*k)+'px';stage.style.height=(852*k)+'px';ph.style.transform=`scale(${k})`}
+  function open(){fs.classList.add('on');stage.appendChild(ph);fit();document.body.style.overflow='hidden';$('#pfsClose').focus()}
+  function close(){fs.classList.remove('on');holder.insertBefore(ph,holder.firstChild);document.body.style.overflow='';dispatchEvent(new Event('resize'))}
+  $$('[data-fs]').forEach(b=>b.addEventListener('click',open));
+  $('#pfsClose').addEventListener('click',close);
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&fs.classList.contains('on'))close()});
+  addEventListener('resize',()=>{if(fs.classList.contains('on'))fit()});
+})();
+
 /* drag strips */
 $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
   s.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=s.scrollLeft});
@@ -2668,7 +2745,7 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
    ========================================================= */
 (function(){
   const ph=$('#phone'),holder=$('#phoneHolder');
-  function scale(){const w=Math.min(360,holder.parentElement.clientWidth-20);const k=w/393;holder.style.width=w+'px';holder.style.height=(852*k)+'px';ph.style.transform=`scale(${k})`}
+  function scale(){if(ph.parentElement!==holder)return;const w=Math.min(360,holder.parentElement.clientWidth-20);const k=w/393;holder.style.width=w+'px';holder.style.height=(852*k)+'px';ph.style.transform=`scale(${k})`}
   scale();addEventListener('resize',scale);
   const stack=['home'];
   function show(id,push=true){$$('.scr',ph).forEach(s=>s.classList.toggle('on',s.dataset.scr===id));if(push&&stack[stack.length-1]!==id)stack.push(id);
