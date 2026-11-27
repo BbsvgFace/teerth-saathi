@@ -101,9 +101,9 @@ em{font-style:italic}
 .timer{position:fixed;left:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:100px;padding:8px 8px 8px 18px;font-size:14px;box-shadow:0 10px 30px rgba(14,16,20,.2);opacity:0;pointer-events:none;transform-origin:0 0;transition:opacity .25s}
 .timer.show{opacity:1;pointer-events:auto}
 .timer .t{font-variant-numeric:tabular-nums;font-size:16px;font-weight:500;letter-spacing:.01em;min-width:76px}
-.timer .ph{color:#b9b2ff;font-size:13px}
+.timer .ph{font-size:13px;font-weight:500;background:linear-gradient(90deg,#f6f4ff,#c4bbff 50%,#968bf6);-webkit-background-clip:text;background-clip:text;color:transparent}
 .timer .bar{width:64px;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden}
-.timer .bar i{display:block;height:100%;background:#b9b2ff;width:0}
+.timer .bar i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#f6f4ff,#c4bbff 50%,#968bf6);background-size:64px 100%}
 .timer button{background:rgba(255,255,255,.12);border-radius:100px;padding:6px 12px;color:#fff;font-size:13px}
 .toc{position:fixed;left:18px;bottom:72px;z-index:61;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;width:280px;max-height:70vh;overflow:auto;box-shadow:0 20px 50px rgba(14,16,20,.14);display:none}
 .toc.open{display:block}
@@ -690,10 +690,15 @@ em{font-style:italic}
 .band .count .t{font-size:clamp(52px,8vw,112px);font-weight:500;letter-spacing:-.04em;color:var(--ink)}
 .lanyard{right:12%;height:520px}
 .problem-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
-.pcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 19px;min-height:190px}
+.pcard{background:#F0F0F7;border:1px solid #DEDFEE;border-radius:18px;padding:20px 19px;min-height:190px;color:var(--eastbay)}
+.pcard h3{color:var(--eastbay)}
+.pcard .plus{opacity:.8}
+.pcard:hover{background:#E8E8F3;border-color:#CFD1E6}
 .pcard h3{font-size:18px}
-.pcard .no{font-size:12.5px;font-weight:600;letter-spacing:.1em;color:var(--ink2)}
-.pcard.open{background:var(--ink)}
+.pcard .no{font-size:12.5px;font-weight:600;letter-spacing:.1em;color:#7678A6}
+.pcard.open{background:var(--eastbay);border-color:var(--eastbay);color:#fff;box-shadow:0 14px 34px rgba(64,67,125,.28)}
+.pcard.open h3{color:#fff}
+.pcard.open .no{color:var(--tan)}
 .pcard .more{font-size:15px}
 /* stats/stage */
 .bigstats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;border-top:0;padding-top:0;margin-top:40px}
