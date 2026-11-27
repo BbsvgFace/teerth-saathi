@@ -110,9 +110,9 @@ extra = (
     ".tsj-in .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}"
     ".tsj-in{position:relative;width:100%;overflow-x:clip;text-align:left}"
     ".tsj-ov{position:static;height:0;background:none}"
-    ".tsj-in .aura-wrap{position:absolute;inset:0;pointer-events:none}"
-    ".tsj-in>main{position:relative}"
-    ".tsj-in .aura-wrap .aura{position:sticky;top:0;inset:auto;width:100%;height:100vh;max-height:2000px;z-index:auto}"
+    ".tsj-in .aura-wrap{position:absolute;inset:0;z-index:0;pointer-events:none}"
+    ".tsj-in>main{position:relative;z-index:0}"
+    ".tsj-in .aura-wrap .aura{inset:auto;position:sticky;top:0;width:100%;height:100vh;max-height:2000px;z-index:auto}"
     ".tsj-ov #confetti{position:fixed;inset:0;pointer-events:none;z-index:200}"
 )
 # the site's title block sits above the component, so the hero starts closer to the top
@@ -194,6 +194,29 @@ PRE = r"""
     ov.addEventListener("click", jump, { signal: ac.signal })
     root.querySelectorAll("video").forEach((v: any) => { v.muted = true; v.defaultMuted = true })
     if (onCanvas) root.querySelectorAll(".reveal").forEach((el: any) => el.classList.add("in"))
+    // position:sticky dies when any Framer wrapper above the component has overflow hidden/auto.
+    // When that happens, move the aura and the pinned wireframe strip with transforms instead.
+    const stickyBroken = (() => {
+        for (let e = root.parentElement; e && e !== D.body && e !== D.documentElement; e = e.parentElement) {
+            const cs = W.getComputedStyle(e)
+            if (/hidden|auto|scroll/.test(cs.overflowX + " " + cs.overflowY)) return true
+        }
+        return false
+    })()
+    if (stickyBroken) {
+        const pairs = ([[".aura-wrap .aura", ".aura-wrap"], [".hs-pin", "#wireframes"]] as any[])
+            .map(([a, b]) => [root.querySelector(a), root.querySelector(b)])
+            .filter(([a, b]) => a && b)
+        pairs.forEach(([el]) => { el.style.position = "relative"; el.style.top = "0px"; el.style.willChange = "transform" })
+        const place = () => pairs.forEach(([el, box]) => {
+            const r = box.getBoundingClientRect()
+            const y = Math.max(0, Math.min(-r.top, box.offsetHeight - el.offsetHeight))
+            el.style.transform = "translate3d(0," + y + "px,0)"
+        })
+        W.addEventListener("scroll", place, { passive: true, signal: ac.signal })
+        W.addEventListener("resize", place, { signal: ac.signal })
+        place()
+    }
 """.replace("__BASE__", BASE)
 
 POST = r"""
