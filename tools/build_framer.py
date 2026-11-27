@@ -167,6 +167,7 @@ PRE = r"""
     const clearInterval = (id: any) => W.clearInterval(id)
     class IntersectionObserver extends W.IntersectionObserver { constructor(cb: any, o?: any) { super(cb, o); obs.push(this) } }
     class ResizeObserver extends W.ResizeObserver { constructor(cb: any) { super(cb); obs.push(this) } }
+    class MutationObserver extends W.MutationObserver { constructor(cb: any) { super(cb); obs.push(this) } }
     const document: any = {
         // the timer runs 48h -> 0 over the case study itself, not the whole Framer page
         documentElement: { get scrollHeight() { return root.getBoundingClientRect().bottom + W.scrollY }, classList: root.classList, style: root.style },
