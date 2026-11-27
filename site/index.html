@@ -1221,6 +1221,15 @@ em{font-style:italic}
 .montage.paused .mplay .i-pause{display:none}
 @media (max-width:900px){.ytgrid{grid-template-columns:minmax(0,1fr)}.stage-row{grid-template-columns:minmax(0,1fr);gap:28px}}
 @media (max-width:640px){.yt.mini .yt-in{right:12px;bottom:76px;width:min(300px,calc(100vw - 24px))}}
+
+/* small floating mockup under "Skip ahead" */
+.pfloat{width:min(220px,52vw);margin:44px auto 0}
+.pfloat img{display:block;width:100%;height:auto;filter:drop-shadow(0 26px 30px rgba(40,36,90,.18));animation:pfloat 6s ease-in-out infinite}
+@keyframes pfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.pfloat img{animation:none}}
+/* ending: full-bleed mockup */
+.ending{margin:0;padding:0;width:100%;line-height:0;overflow:hidden}
+.ending img{display:block;width:100%;height:auto}
 </style>
 </head>
 <body>
@@ -1381,6 +1390,7 @@ em{font-style:italic}
         <button class="pcard reveal" aria-expanded="false"><span class="plus">+</span><span class="no">3</span><div><h3>Reporting ground truth</h3><div class="more">Reports reach the command centre late, duplicated or without the context needed to act on them.</div></div></button>
       </div>
       <div class="jump-wrap reveal"><a class="jump" href="#access"><span class="jl">Skip ahead</span><span class="jt">See the design: Design for Accessibility</span><span class="ja" aria-hidden="true">↓</span></a></div>
+      <figure class="pfloat reveal"><img src="assets/mock-pair-float.webp" alt="Two phones running Teerth Saathi: a crowd-surge alert from the command and control centre behind the home screen with new messages, volunteer counts and live tracking" width="760" height="1358" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -1996,6 +2006,11 @@ em{font-style:italic}
       </figure>
     </div>
   </div>
+</section>
+
+<!-- ====================== ENDING ====================== -->
+<section class="ending" aria-label="Teerth Saathi">
+  <img src="assets/mock-chair.jpg" alt="Teerth Saathi home screen on a phone resting on a purple chair" width="2400" height="1795" loading="lazy">
 </section>
 
 </main>
