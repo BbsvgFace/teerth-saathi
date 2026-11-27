@@ -1185,6 +1185,37 @@ em{font-style:italic}
   .htile{width:78vw}
   .hero{padding-top:108px}
 }
+
+/* ---------- YouTube embeds (play on click, no autoplay) + miniplayer ---------- */
+.ytfeat{margin-top:56px}
+.yt{position:relative;aspect-ratio:16/9;border-radius:var(--r);background:#0e1014}
+.yt-in{position:absolute;inset:0;border-radius:inherit;overflow:hidden;box-shadow:0 1px 2px rgba(14,16,20,.05),0 18px 40px rgba(14,16,20,.12)}
+.yt-in iframe{display:block;width:100%;height:100%;border:0}
+.yt-bar{display:none}
+.yt-cap{display:flex;flex-direction:column;gap:2px;margin-top:14px;font-size:14px;line-height:1.45}
+.yt-cap b{font-weight:600;color:var(--ink)}
+.yt-cap span{font-size:13px;color:var(--ink2)}
+.yt.mini .yt-in{position:fixed;inset:auto;right:20px;bottom:20px;width:min(400px,calc(100vw - 40px));height:auto;z-index:90;display:flex;flex-direction:column;background:#14161b;border-radius:14px;box-shadow:0 24px 60px rgba(14,16,20,.38);animation:ytpop .32s cubic-bezier(.2,.8,.2,1)}
+.yt.mini .yt-in iframe{height:auto;aspect-ratio:16/9}
+.yt.mini .yt-bar{display:flex;align-items:center;gap:6px;height:38px;padding:0 6px 0 14px;color:#fff;font-size:12.5px}
+.yt-bar .yt-t{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.86}
+.yt-bar button{height:28px;min-width:28px;padding:0 10px;border-radius:100px;background:rgba(255,255,255,.12);color:#fff;font-size:12.5px;line-height:28px}
+.yt-bar button:hover{background:rgba(255,255,255,.22)}
+.yt.mini::after{content:"Playing in the mini player";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.7);font-size:14px}
+@keyframes ytpop{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+.ytgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.ytcard .yt{border-radius:14px}
+/* montage beside "Setting the stage" */
+.stage-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:center}
+.montage .mvid{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:#0e1014;box-shadow:0 1px 2px rgba(14,16,20,.05),0 18px 40px rgba(14,16,20,.12)}
+.montage video{display:block;width:100%;height:100%;object-fit:cover}
+.mplay{position:absolute;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;background:rgba(14,16,20,.55);display:grid;place-items:center;backdrop-filter:blur(6px)}
+.mplay svg{width:16px;height:16px;fill:#fff}
+.mplay .i-play{display:none}
+.montage.paused .mplay .i-play{display:block}
+.montage.paused .mplay .i-pause{display:none}
+@media (max-width:900px){.ytgrid{grid-template-columns:minmax(0,1fr)}.stage-row{grid-template-columns:minmax(0,1fr);gap:28px}}
+@media (max-width:640px){.yt.mini .yt-in{right:12px;bottom:76px;width:min(300px,calc(100vw - 24px))}}
 </style>
 </head>
 <body>
@@ -1260,6 +1291,10 @@ em{font-style:italic}
         <p class="caption">Photo: Rahul P / Pexels</p>
       </div>
     </div>
+    <figure class="ytfeat wide reveal">
+      <div class="yt" data-yt="ksc2SXoKxaI" data-title="How India is managing Maha Kumbh, the world’s largest gathering"><div class="yt-in"></div></div>
+      <figcaption class="yt-cap"><b>How India is managing Maha Kumbh, the world’s largest gathering</b><span>Reuters · YouTube</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1350,15 +1385,18 @@ em{font-style:italic}
 <section class="sec alt" id="stage" data-ch="02" data-chname="Problem" data-title="Setting the stage">
   <div class="wrap">
     <div class="stage3d wide"><div class="plane" id="plane" style="background-image:url(assets/aerial.jpg)" role="img" aria-label="Aerial view of the crowd and boats along the river"></div></div>
-    <div class="cols-text">
+    <div class="stage-row">
       <div class="reveal">
         <h2>Setting the stage</h2>
         <p>The Kumbh Mela brings together an enormous number of pilgrims, volunteers and authorities within a temporary and constantly changing environment. As crowds grow denser, even a small incident can demand an immediate, coordinated response.</p>
-      </div>
-      <div class="reveal" style="align-self:end">
         <p>The Kumbh Mela is held across four principal locations—Prayagraj, Haridwar, Nashik and Ujjain—with the timing tied to religious and astronomical traditions.</p>
-
       </div>
+      <figure class="montage reveal">
+        <div class="mvid"><video src="assets/montage.mp4" poster="assets/montage-poster.jpg" muted loop playsinline preload="none" aria-label="Montage of footage from the Kumbh Mela: dense crowds at barricades, aerial views of the tent city and processions of sadhus"></video>
+          <button class="mplay" type="button" aria-label="Pause montage"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="i-play" d="M8 5.5v13l10.5-6.5z"/></svg></button>
+        </div>
+        <figcaption class="caption">On the ground: crowds, the tent city and processions</figcaption>
+      </figure>
     </div>
     <div class="sites4 reveal">
       <div><b>Prayagraj</b><span>Ganga, Yamuna and the mythical Saraswati: the Triveni Sangam</span></div>
@@ -1934,6 +1972,28 @@ em{font-style:italic}
   </div>
 </section>
 
+<!-- ====================== REFERENCE VIDEOS ====================== -->
+<section class="sec" id="refs" data-ch="06" data-chname="Solution" data-title="Reference videos">
+  <div class="wrap">
+    <h2 class="reveal">Reference videos</h2>
+    <p class="reveal">A few more films on the scale of the Kumbh and the work of running it.</p>
+    <div class="ytgrid wide">
+      <figure class="ytcard reveal">
+        <div class="yt" data-yt="NtX9BF1Sl80" data-title="Biggest Human Gathering in the World (Kumbh Mela 2019)"><div class="yt-in"></div></div>
+        <figcaption class="yt-cap"><b>Biggest Human Gathering in the World (Kumbh Mela 2019)</b><span>Bernardo Bacalhau · YouTube</span></figcaption>
+      </figure>
+      <figure class="ytcard reveal">
+        <div class="yt" data-yt="0_i00kVYQi0" data-title="Kumbh Mela"><div class="yt-in"></div></div>
+        <figcaption class="yt-cap" data-auto="1"><b>Kumbh Mela</b><span>YouTube</span></figcaption>
+      </figure>
+      <figure class="ytcard reveal">
+        <div class="yt" data-yt="81xGseO-r7s" data-title="Kumbh Mela: The world’s largest religious gathering"><div class="yt-in"></div></div>
+        <figcaption class="yt-cap"><b>Kumbh Mela: The world’s largest religious gathering</b><span>DW News · YouTube</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 </main>
 
 
@@ -2326,6 +2386,63 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
   addEventListener('pointerup',()=>{if(!down)return;down=false;s.classList.remove('drag');setTimeout(()=>s.classList.remove('moved'),0)});
 });
 
+
+/* YouTube embeds: play on click only. A playing video that scrolls out of view moves to a mini player. */
+(function(){
+  const boxes=$$('.yt[data-yt]'); if(!boxes.length) return;
+  const org=(location.origin&&location.origin!=='null')?'&origin='+encodeURIComponent(location.origin):'';
+  boxes.forEach(b=>{
+    const f=document.createElement('iframe');
+    f.src='https://www.youtube.com/embed/'+b.dataset.yt+'?enablejsapi=1&rel=0&playsinline=1'+org;
+    f.title=b.dataset.title||'YouTube video'; f.loading='lazy'; f.allowFullscreen=true;
+    f.allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    const bar=document.createElement('div'); bar.className='yt-bar';
+    bar.innerHTML='<span class="yt-t"></span><button type="button" class="yt-back">Back to video</button><button type="button" class="yt-x" aria-label="Close mini player">✕</button>';
+    bar.querySelector('.yt-t').textContent=b.dataset.title||'';
+    const inn=b.querySelector('.yt-in'); inn.appendChild(bar); inn.appendChild(f);
+    b._vis=true; b._st=-1;
+    bar.querySelector('.yt-back').onclick=()=>{unmini(b);b.scrollIntoView({behavior:'smooth',block:'center'})};
+    bar.querySelector('.yt-x').onclick=()=>{b._closed=true;try{b._p.pauseVideo()}catch(e){}unmini(b)};
+  });
+  function mini(b){boxes.forEach(o=>o!==b&&unmini(o));b.classList.add('mini')}
+  function unmini(b){b.classList.remove('mini')}
+  function check(b){ if(b._vis){unmini(b);b._closed=false;return}
+    if(b._st===1&&!b._closed) mini(b); }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{const b=e.target;b._vis=e.intersectionRatio>=.35;check(b)}),{threshold:[0,.35,.6]});
+  boxes.forEach(b=>io.observe(b));
+  function start(){
+    boxes.forEach(b=>{
+      b._p=new YT.Player(b.querySelector('iframe'),{events:{
+        onReady:e=>{const cap=b.parentElement.querySelector('.yt-cap[data-auto]');try{const d=e.target.getVideoData();
+          if(d&&d.title){b.dataset.title=d.title;b.querySelector('.yt-t').textContent=d.title;
+            if(cap){cap.querySelector('b').textContent=d.title;if(d.author)cap.querySelector('span').textContent=d.author+' · YouTube'}}}catch(_){}},
+        onStateChange:e=>{b._st=e.data;
+          if(e.data===1){b._closed=false;boxes.forEach(o=>{if(o!==b&&o._p&&o._st===1){try{o._p.pauseVideo()}catch(_){}}})}
+          if(e.data===0) unmini(b); check(b);}
+      }});
+    });
+  }
+  let asked=false;
+  function load(){ if(asked) return; asked=true;
+    if(window.YT&&window.YT.Player) return start();
+    const prev=window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady=function(){ if(prev) try{prev()}catch(_){} start(); };
+    const s=window.document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; s.async=true;
+    window.document.head.appendChild(s);
+  }
+  const near=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){near.disconnect();load()}},{rootMargin:'800px 0px'});
+  boxes.forEach(b=>near.observe(b));
+})();
+
+/* montage: muted loop that plays only while on screen; button to pause */
+(function(){
+  const fig=$('.montage'); if(!fig) return; const v=$('video',fig), btn=$('.mplay',fig);
+  v.muted=true; v.defaultMuted=true; v.playsInline=true; let user=false;
+  const go=()=>{const p=v.play(); if(p&&p.catch) p.catch(()=>fig.classList.add('paused'))};
+  new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ if(!user){fig.classList.remove('paused');go()} } else v.pause(); }),{threshold:.35}).observe(fig);
+  btn.onclick=()=>{ if(v.paused){user=false;fig.classList.remove('paused');btn.setAttribute('aria-label','Pause montage');go()} else {user=true;v.pause();fig.classList.add('paused');btn.setAttribute('aria-label','Play montage')} };
+})();
 
 /* prototype clips: autoplay, with an animated-image fallback if the browser blocks video autoplay */
 (function(){const RR=window.R||(x=>x);
