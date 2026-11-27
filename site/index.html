@@ -145,7 +145,7 @@ em{font-style:italic}
 .figure img{width:100%;height:100%;object-fit:cover}
 .photo-wide{aspect-ratio:16/9;margin-bottom:clamp(36px,5vw,56px)}
 .cols-text{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
-.pano{position:relative;margin-top:clamp(36px,5vw,56px);cursor:zoom-in;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#fff}
+.pano{position:relative;margin-top:clamp(36px,5vw,56px);cursor:crosshair;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#fff}
 .pano img{width:100%}
 .pano .lens{position:absolute;width:220px;height:220px;border-radius:50%;border:3px solid #fff;box-shadow:0 10px 40px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .2s;background-repeat:no-repeat;background-color:#fff}
 .pano:hover .lens{opacity:1}
@@ -1323,6 +1323,55 @@ em{font-style:italic}
 .proto-ctrl .cgrp{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
 .proto-ctrl .cgrp .ctrls{margin-right:0}
 .proto-ctrl{column-gap:26px}
+
+/* ---------- review round: spacing, refs, nudges, AI heading ---------- */
+.ref{font-style:italic}
+.yt-cap span{font-style:italic}
+.stats-src{margin-top:14px;max-width:none}
+mark.hl2{background:linear-gradient(transparent 55%,#e6e1fd 55%);color:var(--violet);font-weight:500;padding:0}
+#intro .intro-cols{gap:clamp(40px,6vw,80px);margin-top:28px}
+#intro .intro-cols p+p{margin-top:20px}
+#intro .intro-cols .lead{font-size:clamp(19px,1.8vw,22px);line-height:1.55}
+#intro .pano{margin-top:clamp(48px,6vw,72px)}
+.goal{padding:28px 26px 30px}
+.goal h3{margin:14px 0 10px}
+.bt-note{display:block;margin-top:6px;font-size:13px;line-height:1.45;color:var(--ink2);max-width:34ch}
+.blk.atomic h4{margin-bottom:16px}
+.blk.atomic img{display:block;margin:0 auto}
+.lanes .pill abbr{text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:6px;background:rgba(107,92,231,.12);color:var(--violet);margin-left:2px}
+.lanes .pill.on abbr{background:rgba(255,255,255,.18);color:#fff}
+/* phone nudges */
+.phone .mode{position:relative}
+.phone .nudge::after{content:"";position:absolute;inset:-4px;border-radius:inherit;border:2px solid #6b5ce7;opacity:0;animation:ndg 2s ease-out infinite;pointer-events:none}
+.phone .mode.nudge::after{border-radius:12px}
+@keyframes ndg{0%{opacity:.85;transform:scale(.9)}70%{opacity:0;transform:scale(1.25)}100%{opacity:0}}
+.phone.dark .nudge::after{border-color:#84bffb}
+.phone .mode-tip{position:absolute;right:84px;top:4px;white-space:nowrap;background:#6b5ce7;color:#fff;font-size:12px;font-weight:600;padding:5px 9px;border-radius:8px;box-shadow:0 6px 16px rgba(107,92,231,.35);transition:opacity .3s,transform .3s;pointer-events:none}
+.phone .mode-tip::after{content:"";position:absolute;right:-4px;top:50%;margin-top:-4px;width:8px;height:8px;background:inherit;transform:rotate(45deg)}
+.phone .hero2 .hdr>span:last-child{position:relative}
+.phone .mode-tip.gone,.phone .scroll-hint.gone{opacity:0;transform:translateY(6px)}
+.phone .live.nudge::after{border-radius:14px}
+.phone .scroll-hint{position:absolute;left:50%;bottom:100px;transform:translateX(-50%);z-index:7;display:flex;align-items:center;gap:6px;white-space:nowrap;background:rgba(29,29,34,.9);color:#fff;font-size:13px;font-weight:500;padding:8px 14px 8px 10px;border-radius:100px;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:opacity .35s,transform .35s;pointer-events:none}
+.phone .scroll-hint svg{width:16px;height:16px;fill:none;stroke:#b9b2ff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(3px)}}
+.phone .scroll-hint.gone{transform:translate(-50%,8px)}
+.phone .scroll-hint.off{display:none}
+/* AI features heading: sparkles that turn and grow with scroll */
+.ai-head{position:relative;display:inline-block;margin-top:clamp(40px,5vw,64px);padding:6px 40px 6px 0;--p:0}
+.ai-head .sub-h{margin:0}
+.ai-word{background:linear-gradient(100deg,var(--ink) 0%,var(--ink) 30%,#6b5ce7 45%,#c9a3ff 52%,#6b5ce7 60%,var(--ink) 75%,var(--ink) 100%);background-size:300% 100%;background-position:calc(100% - var(--p)*100%) 0;-webkit-background-clip:text;background-clip:text;color:transparent}
+.spk{position:absolute;fill:#6b5ce7;transform-origin:50% 50%;transition:transform .1s linear}
+.spk.s1{width:22px;height:22px;right:0;top:-6px;transform:rotate(calc(var(--p)*180deg)) scale(calc(.5 + var(--p)*.6))}
+.spk.s2{width:12px;height:12px;right:26px;top:-14px;fill:#b9b2ff;transform:rotate(calc(var(--p)*-240deg)) scale(calc(.4 + var(--p)*.7))}
+.spk.s3{width:10px;height:10px;right:-12px;top:22px;fill:var(--tan);transform:rotate(calc(var(--p)*300deg)) scale(calc(.3 + var(--p)*.8))}
+.aic{position:relative}
+.aic .aspk{width:20px;height:20px;fill:#6b5ce7;opacity:0;transform:scale(.2) rotate(-90deg);transition:transform .7s cubic-bezier(.3,1.6,.5,1),opacity .4s}
+.ai4.go .aic .aspk{opacity:1;transform:none;animation:twk 3.2s ease-in-out infinite}
+.ai4.go .aic:nth-child(2) .aspk{transition-delay:.12s;animation-delay:.4s}
+.ai4.go .aic:nth-child(3) .aspk{transition-delay:.24s;animation-delay:.8s}
+.ai4.go .aic:nth-child(4) .aspk{transition-delay:.36s;animation-delay:1.2s}
+@keyframes twk{0%,100%{transform:none}45%{transform:scale(1.25) rotate(45deg)}55%{transform:scale(.85) rotate(60deg)}}
+@media (prefers-reduced-motion:reduce){.ai4.go .aic .aspk,.phone .nudge::after,.phone .scroll-hint svg{animation:none}}
 </style>
 </head>
 <body>
@@ -1384,11 +1433,11 @@ em{font-style:italic}
       <div class="reveal">
         <span class="eyebrow"><span class="n">1</span>Context</span>
     <h2>Kumbh Mela</h2>
-        <p>The Kumbh Mela is one of the world's largest recurring religious pilgrimages. Rooted in centuries of Hindu tradition, it brings together millions of devotees to participate in sacred bathing rituals, spiritual gatherings and religious processions.</p>
+        <p>The Kumbh Mela is one of the <mark class="hl2">world's largest recurring religious pilgrimages</mark>. Rooted in centuries of Hindu tradition, it brings together millions of devotees to participate in sacred bathing rituals, spiritual gatherings and religious processions.</p>
       </div>
       <div class="reveal" style="align-self:end">
         <p>Ritual bathing is central to the pilgrimage, while religious processions, spiritual gatherings, charity and community activities form part of its wider cultural significance. UNESCO recognized Kumbh Mela as Intangible Cultural Heritage in 2017.</p>
-        <p class="caption">Photo: Rahul P / Pexels</p>
+        <p class="caption ref">Photo: Rahul P / Pexels</p>
       </div>
     </div>
     <figure class="ytfeat wide reveal">
@@ -1402,7 +1451,7 @@ em{font-style:italic}
 <section class="sec alt" id="intro" data-ch="1" data-chname="Context" data-title="What is happening?">
   <div class="wrap">
     <h2 class="reveal">What is happening?</h2>
-    <div class="cols-text">
+    <div class="cols-text intro-cols">
       <div class="reveal">
         <p>The Kumbh Mela takes place across four locations: Prayagraj, Haridwar, Nashik and Ujjain. Its timing follows religious and astronomical traditions, with different sites hosting gatherings at different intervals.</p>
         <p>An entire temporary city must operate across riverbanks and floodplains, supported by transportation, healthcare, sanitation, security, emergency services and thousands of people responsible for keeping it functioning.</p>
@@ -1411,12 +1460,11 @@ em{font-style:italic}
         <p class="lead">As crowds move and conditions change, the ability to identify incidents, communicate urgency and coordinate a response becomes critical.</p>
       </div>
     </div>
-    <div class="pano wide reveal" id="pano" role="button" tabindex="0" aria-label="Open the riverbank illustration in a zoomable viewer">
+    <div class="pano wide reveal" id="pano">
       <img src="assets/panorama.jpg" alt="Line illustration of a dense crowd on a riverbank bathing ghat, with boats, pontoon bridges and tents" id="panoImg">
       <div class="lens" id="lens"></div>
-      <span class="open-btn">⤢ Explore the ghat</span>
     </div>
-    <p class="caption" style="text-align:center;max-width:none">Hover to look closer, or click to open it full screen and zoom in.</p>
+    <p class="caption" style="text-align:center;max-width:none">Hover to look closer.</p>
   </div>
 </section>
 
@@ -1437,7 +1485,7 @@ em{font-style:italic}
     <div class="wrap">
       <div class="count reveal">
         <div class="t" id="bigclock">48:00:00</div>
-        <div class="c">The Salesforce Hackathon gave us 48 hours to go from a brief to a tested prototype. The clock runs down as you scroll.</div>
+        <div class="c">The Salesforce Hackathon gave us 48 hours to go from a brief to a tested prototype.</div>
       </div>
       <div class="lanyard" id="lanyard">
         <svg class="strap" id="strap" aria-hidden="true">
@@ -1490,7 +1538,6 @@ em{font-style:italic}
       <div class="reveal">
         <h2>Setting the stage</h2>
         <p>The Kumbh Mela brings together an enormous number of pilgrims, volunteers and authorities within a temporary and constantly changing environment. As crowds grow denser, even a small incident can demand an immediate, coordinated response.</p>
-        <p>The Kumbh Mela is held across four principal locations—Prayagraj, Haridwar, Nashik and Ujjain—with the timing tied to religious and astronomical traditions.</p>
       </div>
       <figure class="montage reveal">
         <div class="mvid"><video src="assets/montage.mp4" poster="assets/montage-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Montage of footage from the Kumbh Mela: dense crowds at barricades, aerial views of the tent city and processions of sadhus"></video>
@@ -1506,11 +1553,12 @@ em{font-style:italic}
       <div><b>Ujjain</b><span>On the Shipra</span></div>
     </div>
     <div class="bigstats" id="bigstats">
-      <div><div class="lab">2025 Project attendance</div><div class="n"><span data-count="400">0</span>M</div><div class="s">Jan 2025</div><div class="barv"><i data-w="100"></i></div></div>
-      <div><div class="lab">Temporary settlements</div><div class="n" data-count="4000" data-sep="1">0</div><div class="s">Hectares</div><div class="barv"><i data-w="58"></i></div></div>
-      <div><div class="lab">2025 security provision</div><div class="n"><span data-count="50000" data-sep="1">0</span>+</div><div class="s">&nbsp;</div><div class="barv"><i data-w="76"></i></div></div>
-      <div><div class="lab">PSA support equipment</div><div class="n"><span data-count="6700" data-sep="1">0</span>+</div><div class="s">&nbsp;</div><div class="barv"><i data-w="40"></i></div></div>
+      <div><div class="lab">2025 Project attendance</div><div class="n"><span data-count="400">0</span>M</div><div class="s">Jan 2025</div></div>
+      <div><div class="lab">Temporary settlements</div><div class="n" data-count="4000" data-sep="1">0</div><div class="s">Hectares</div></div>
+      <div><div class="lab">2025 security provision</div><div class="n"><span data-count="50000" data-sep="1">0</span>+</div><div class="s">&nbsp;</div></div>
+      <div><div class="lab">PSA support equipment</div><div class="n"><span data-count="6700" data-sep="1">0</span>+</div><div class="s">&nbsp;</div></div>
     </div>
+    <p class="caption ref stats-src">Sources: Reuters, 14 January 2025; Sawhney, 2022. Figures are for different years and measures, so they are not directly comparable.</p>
   </div>
 </section>
 
@@ -1572,7 +1620,6 @@ em{font-style:italic}
 
     <div style="margin-top:110px" class="reveal">
       <span class="eyebrow plain">On the wall</span>
-      <h3 style="font-family:var(--head)">Making sense of it, one sticky note at a time</h3>
       
     </div>
     <div class="marquee wide" id="wallMq"><div class="mq-track">
@@ -1675,7 +1722,6 @@ em{font-style:italic}
       <div class="goal reveal"><div class="n">2</div><h3>Real-time Location</h3><p>Enable live visibility of volunteers, crowd density, &amp; critical zones to support safe, fast &amp; informed decision-making &amp; response.</p></div>
       <div class="goal reveal"><div class="n">3</div><h3>Efficient Communication</h3><p>Ensure clear, reliable, and role-based communication across volunteers &amp; authorities to reduce confusion, prevent overload.</p></div>
     </div>
-    <p class="quote-line reveal">The system must function under conditions that make ordinary digital interactions difficult.</p>
   </div>
 </section>
 
@@ -1684,7 +1730,6 @@ em{font-style:italic}
   <div class="wrap">
     <span class="eyebrow reveal"><span class="n">4</span>Ideation</span>
     <h2 class="reveal">Information architecture</h2>
-    <p>Home leads to five top-level areas. Everything a captain needs during an incident sits three taps or fewer below the navigation bar.</p>
     <div class="ia-shell wide reveal">
       <div class="ia-bar">
         <div class="crumbs" id="crumbs">Hover or tap a screen to trace its path from Home</div>
@@ -1723,6 +1768,7 @@ em{font-style:italic}
       <!-- wordmark tile: types itself, English ⇄ Devanagari -->
       <div class="bt bt-word reveal">
         <span class="bt-k">Typeface · Noto Sans / Noto Sans Devanagari</span>
+        <span class="bt-note">Noto is free and covers almost every script, so English, Hindi and regional languages look consistent.</span>
         <div class="wordmark" id="wordmark" aria-label="Teerth Saathi, तीर्थ साथी"></div>
       </div>
       <!-- logo tile -->
@@ -1732,7 +1778,6 @@ em{font-style:italic}
       </div>
       <!-- contrast tile (dark, cycles) -->
       <div class="bt bt-dark reveal">
-        <span class="bt-k light">WCAG 2.1 AAA pass</span>
         <div class="dk-num"><b id="dkNum">7:1</b><span id="dkLab">Text contrast</span></div>
         <svg class="dk-chart" viewBox="0 0 160 52" preserveAspectRatio="none" aria-hidden="true"><path id="dkPath" d="M0 46 C30 44 50 40 70 30 S110 12 160 6"/></svg>
       </div>
@@ -1761,7 +1806,7 @@ em{font-style:italic}
       </div>
       <!-- motif tile: cycles -->
       <div class="bt bt-motif reveal" id="motifs">
-        <span class="bt-k">Motif Design</span>
+        <span class="bt-k">Motif Design</span><span class="bt-note">Inspired by saree patterns</span>
         <div class="mstage">
           <img src="assets/motif-kamal.png" alt="Kamal motif" data-m="Kamal" class="on">
           <img src="assets/motif-shine.png" alt="Shine motif" data-m="Shine">
@@ -1809,7 +1854,7 @@ em{font-style:italic}
     <div class="ds wide" style="margin-top:30px">
       <div class="blk a reveal"><h4>Exhaustive<br>Component Scoping</h4><img src="assets/ds-11.png" alt="Token collections table with light and dark colour values" data-zoom="assets/ds-11.png" data-title="Exhaustive Component Scoping"><img src="assets/ds-12.png" alt="Button component with properties panel" style="margin-top:12px" data-zoom="assets/ds-12.png" data-title="Exhaustive Component Scoping"></div>
       <div class="blk b reveal"><h4>Made for<br>Development</h4><div class="pair"><img src="assets/ds-14.png" alt="Home screen with dev mode inspection panel" data-zoom="assets/ds-14.png" data-title="Made for Development"><img src="assets/ds-13.png" alt="Tasks screen with dev mode inspection panel" data-zoom="assets/ds-13.png" data-title="Made for Development"></div></div>
-      <div class="blk c reveal" style="display:grid;grid-template-columns:1fr 1.4fr;gap:24px;align-items:center"><h4>Atomic design process</h4><img src="assets/ds-15.png" alt="Atoms to organisms: tab icon, navigation bar, task card, task list screen" data-zoom="assets/ds-15.png" data-title="Atomic design process"></div>
+      <div class="blk c atomic reveal"><h4>Atomic design process</h4><img src="assets/ds-15.png" alt="Atoms to organisms: tab icon, navigation bar, task card, task list screen" data-zoom="assets/ds-15.png" data-title="Atomic design process"></div>
     </div>
   </div>
 </section>
@@ -1827,9 +1872,9 @@ em{font-style:italic}
         <div class="zp-mini" id="wfMini"><img src="assets/workflow.png" alt=""><i></i></div>
       </div>
       <div class="lanes">
-        <button class="pill" data-lane="0">Volunteer</button>
-        <button class="pill" data-lane="1">Volunteer Captain</button>
-        <button class="pill" data-lane="2">Supervisor Volunteer</button>
+        <button class="pill" data-lane="0">Volunteer <abbr title="Volunteer">Vs</abbr></button>
+        <button class="pill" data-lane="1">Volunteer Captain <abbr title="Volunteer Captain">VC</abbr></button>
+        <button class="pill" data-lane="2">Supervisor Volunteer <abbr title="Supervisor Volunteer">SV</abbr></button>
         <span class="sp"></span>
         <div class="legend"><span><i style="background:#fbe3a4"></i>Pain point</span><span><i style="background:#e2dbff"></i>Design response</span></div>
       </div>
@@ -1855,7 +1900,7 @@ em{font-style:italic}
           <div class="scr on" data-scr="home">
             <div class="body">
               <div class="hero2" id="homeHero"><div class="hfx" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
-                <div class="hdr"><span>Teerth Saathi</span><span style="display:flex;gap:6px;align-items:center"><button class="mode" id="modeTg" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button class="tt" data-tt>TT</button></span></div>
+                <div class="hdr"><span>Teerth Saathi</span><span style="display:flex;gap:6px;align-items:center"><span class="mode-tip" id="modeTip" aria-hidden="true">Try dark mode</span><button class="mode nudge" id="modeTg" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button><button class="tt" data-tt>TT</button></span></div>
                 <div class="msg" id="homeMsg"></div>
               </div>
               <div class="sheet">
@@ -1866,10 +1911,12 @@ em{font-style:italic}
                   <div class="ov"><div class="k">Remaining tasks</div><div class="v"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#e5e5ea" stroke-width="4"/><circle cx="18" cy="18" r="14" fill="none" stroke="#1471e0" stroke-width="4" stroke-dasharray="29.3 88" transform="rotate(-90 18 18)" id="ringT"/></svg><div><b id="ovT">12</b><small id="ovTo">Out of 36</small></div></div></div>
                 </div>
                 <div class="sec2">Live Tracking</div>
-                <div class="live" data-go="map" style="background-image:url(assets/heat-sat.jpg);background-position:center 40%"><span class="l">Satellite</span><span class="r">Severely Crowded</span></div>
+                <div class="live nudge" data-go="map" style="background-image:url(assets/heat-sat.jpg);background-position:center 40%"><span class="l">Satellite</span><span class="r">Severely Crowded</span></div>
               </div>
             </div>
           </div>
+
+          <div class="scroll-hint" id="scrollHint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>Scroll down, tap Live Tracking for the map</div>
 
           <!-- ALERTS -->
           <div class="scr" data-scr="alerts">
@@ -1994,7 +2041,6 @@ em{font-style:italic}
         <div class="callout"><span class="ico">!</span><p><b>Priority alerts</b> take over the screen, even over other apps. Try "Crowd surge".</p></div>
         <div class="callout"><span class="ico">✦</span><p><b>New Task</b> turns a plain sentence into a structured task with an AI-suggested team.</p></div>
         <div class="callout"><span class="ico">◎</span><p><b>Live Tracking</b> opens the zone map: crowd density, volunteers and events.</p></div>
-        <div class="callout"><span class="ico">☾</span><p><b>Dark mode</b> for night shifts at the ghats. Tap the moon on the home screen.</p></div>
       </div>
       <div class="proto-ctrl">
 
@@ -2017,7 +2063,7 @@ em{font-style:italic}
     </div>
 
     <div class="screens-head reveal"><h3>Home screen states</h3><p>The home screen changes colour with what needs attention: messages, alerts or a priority alert.</p></div>
-    <div class="mock-pair wide reveal"><figure class="mock"><img src="assets/mock-studio.jpg" alt="Teerth Saathi home screen with new messages, on a phone in a purple studio scene" loading="lazy" data-zoom="assets/mock-studio.jpg" data-title="Home: new messages"><figcaption>Home: new messages</figcaption></figure><figure class="mock"><img src="assets/mock-water.jpg" alt="Teerth Saathi showing new alerts on a phone held by the water" loading="lazy" data-zoom="assets/mock-water.jpg" data-title="Home: new alerts, in hand"><figcaption>Home: new alerts, in hand</figcaption></figure></div>
+    <div class="mock-pair wide reveal"><figure class="mock"><img src="assets/mock-studio.jpg" alt="Teerth Saathi home screen with new messages, on a phone in a purple studio scene" loading="lazy" data-zoom="assets/mock-studio.jpg" data-title="Home: new messages"></figure><figure class="mock"><img src="assets/mock-water.jpg" alt="Teerth Saathi showing new alerts on a phone held by the water" loading="lazy" data-zoom="assets/mock-water.jpg" data-title="Home: new alerts, in hand"></figure></div>
     <div class="screens wide">
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-msg.jpg" alt="Home: you have new messages" loading="lazy" width="393" height="852"></div><figcaption>New messages</figcaption></figure>
       <figure class="reveal"><div class="devf"><img src="assets/scr-hq-alerts.jpg" alt="Home: you have new alerts" loading="lazy" width="393" height="852"></div><figcaption>New alerts</figcaption></figure>
@@ -2032,12 +2078,17 @@ em{font-style:italic}
     <h2 class="reveal">Features</h2>
     <p class="reveal">A centralized interface which provides real-time visibility of tasks, volunteers, and crowd conditions to support fast and informed decision-making.</p>
 
-    <h3 class="reveal sub-h">AI Features</h3>
-    <div class="ai4">
-      <div class="aic reveal"><span class="ai-n">1</span><h4>Create task in natural language</h4></div>
-      <div class="aic reveal"><span class="ai-n">2</span><h4>AI based auto volunteer allocation</h4></div>
-      <div class="aic reveal"><span class="ai-n">3</span><h4>Crowd prediction and action</h4></div>
-      <div class="aic reveal"><span class="ai-n">4</span><h4>Volunteer wellness</h4></div>
+    <div class="ai-head" id="aiHead">
+      <svg class="spk s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      <svg class="spk s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      <svg class="spk s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      <h3 class="sub-h"><span class="ai-word">AI Features</span></h3>
+    </div>
+    <div class="ai4" id="ai4">
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">1</span><h4>Create task in natural language</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">2</span><h4>AI based auto volunteer allocation</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">3</span><h4>Crowd prediction and action</h4></div>
+      <div class="aic reveal"><svg class="aspk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><span class="ai-n">4</span><h4>Volunteer wellness</h4></div>
     </div>
 
     <div class="slab reveal">
@@ -2048,7 +2099,7 @@ em{font-style:italic}
         <p>The alert takes over the whole screen with the source, the incident and the zone, and two choices: assign a task or ignore.</p>
       </div>
     </div>
-    <figure class="mock wide reveal"><img src="assets/mock-surge.jpg" alt="Full-screen Crowd Surge alert for Zone A on a phone being pulled from a pocket" loading="lazy" data-zoom="assets/mock-surge.jpg" data-title="Priority alert: Crowd Surge, Zone A"><figcaption>Priority alert: Crowd Surge, Zone A</figcaption></figure>
+    <figure class="mock wide reveal"><img src="assets/mock-surge.jpg" alt="Full-screen Crowd Surge alert for Zone A on a phone being pulled from a pocket" loading="lazy" data-zoom="assets/mock-surge.jpg" data-title="Priority alert: Crowd Surge, Zone A"></figure>
     <div class="slab reveal">
       <div class="shot"><div class="devf"><video src="assets/clip-profile.mp4" data-fallback="assets/clip-profile.webp" poster="assets/clip-profile-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype recording: from a chat with Ramesh to his profile showing energy level, skills and limitations"></video></div></div>
       <div class="tx">
@@ -2060,7 +2111,7 @@ em{font-style:italic}
       </div>
     </div>
 
-    <figure class="mock wide reveal"><img src="assets/mock-chat-profile.jpg" alt="Two phones side by side: a chat with Ramesh and his volunteer profile" loading="lazy" data-zoom="assets/mock-chat-profile.jpg" data-title="Chat and volunteer profile"><figcaption>Chat and volunteer profile</figcaption></figure>
+    <figure class="mock wide reveal"><img src="assets/mock-chat-profile.jpg" alt="Two phones side by side: a chat with Ramesh and his volunteer profile" loading="lazy" data-zoom="assets/mock-chat-profile.jpg" data-title="Chat and volunteer profile"></figure>
     <h3 class="reveal sub-h">Volunteer profile and wellness</h3>
     <div class="wellness">
       <div class="wcard reveal"><span class="step">Wellness</span><h4>Energy level</h4><p>Tracked over time based on the number of tasks, stress level and duty time.</p></div>
@@ -2352,7 +2403,7 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
     const left=o.stacked?o.x-BW/2:o.x-BW/2;
     return `<button class="ian l${lv}" data-i="${o.id}" style="left:${left}px;top:${o.y}px;width:${BW}px;height:${BH}px">${o.name}</button>`}).join('');
   const byId={};all.forEach(o=>byId[o.id]=o);
-  $('#iaStats').innerHTML=`<span><b>${all.length}</b> screens &amp; elements</span><span><b>${Math.max(...all.map(o=>o.d))+1}</b> levels</span>`;
+  $('#iaStats').innerHTML=`<span><b>${Math.max(...all.map(o=>o.d))+1}</b> levels</span>`;
   function trace(o){$$('.ian',el).forEach(b=>b.classList.remove('on','path','dim'));
     const path=[];let x=o;while(x){path.unshift(x);x=x.par}
     const ids=new Set(path.map(p=>p.id));
@@ -2412,7 +2463,7 @@ $$('.pcard').forEach(c=>c.addEventListener('click',()=>{const o=c.classList.togg
   const IMG=i=>(window.R||(x=>x))(`assets/explore-${String(i+1).padStart(2,'0')}.png`);
   $('#vGrid').innerHTML=V.map((v,i)=>`<button class="vimg${i===15?' final':''}" data-i="${i}" aria-label="${i===15?'Final selected design':'Exploration '+(i+1)}">${i===15?'<span class="fbadge">Final</span>':''}<img src="${IMG(i)}" alt="Kumbh Mela banner exploration ${i+1}" loading="lazy"></button>`).join('');
   const FINAL=15;
-  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>Final selected design</b><span>East Bay with Tan, carried into the app and the logo</span>':`<b>Exploration ${i+1} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
+  function sel(i){const fin=i===FINAL;$('#vBig').innerHTML=`<div class="vstatus ${fin?'fin':''}">${fin?'<b>Final selected design</b>':`<b>Exploration ${i+1} of 15</b><span>Not selected · <button class="tofinal">see the final design</button></span>`}</div><div class="vimg big${fin?' final':''}"><img src="${IMG(i)}" alt="Kumbh Mela banner ${fin?'final design':'exploration '+(i+1)}, enlarged"></div>`;$$('#vGrid .vimg').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
     const [bg,ti,mo]=V[i];$('#vHex').innerHTML=[['Background',bg],['Title',ti],['Motif',mo]].map(([n,h])=>`<span><i style="background:${h}"></i>${n} ${h.toUpperCase()}</span>`).join('')}
   $('#vGrid').addEventListener('click',e=>{const c=e.target.closest('.vimg');if(c)sel(+c.dataset.i)});$('#vBig').addEventListener('click',e=>{if(e.target.closest('.tofinal'))sel(FINAL)});sel(FINAL);
 })();
@@ -2488,8 +2539,24 @@ document.addEventListener('click',e=>{const z=e.target.closest('[data-zoom]');if
     l.style.left=(e.clientX-r.left-110)+'px';l.style.top=(e.clientY-r.top-110)+'px';
     l.style.backgroundImage=`url(${im.src})`;l.style.backgroundSize=(r.width*z)+'px '+(r.height*z)+'px';
     l.style.backgroundPosition=`${-(fx*r.width*z-110)}px ${-(fy*r.height*z-110)}px`});
-  const open=()=>openLB('assets/panorama.jpg','What is happening?','the riverbank, up close');
-  p.addEventListener('click',open);p.addEventListener('keydown',e=>{if(e.key==='Enter')open()});})();
+})();
+
+/* nudges in the phone: moon (dark mode) and Live Tracking; they fade once used */
+(function(){const tip=$('#modeTip'),mt=$('#modeTg'),hint=$('#scrollHint'),live=$('.phone .live'),home=$('.phone .scr[data-scr="home"] .body');
+  const offMode=()=>{mt.classList.remove('nudge');tip.classList.add('gone')};
+  mt.addEventListener('click',offMode);$('#modePill').addEventListener('click',offMode);$('#swDark').addEventListener('click',offMode);
+  const offLive=()=>{live.classList.remove('nudge');hint.classList.add('gone')};
+  live.addEventListener('click',offLive);
+  home.addEventListener('scroll',()=>{if(home.scrollTop>40)hint.classList.add('gone')},{passive:true});
+  /* only show the scroll hint on the home screen */
+  new MutationObserver(()=>{hint.classList.toggle('off',!$('.phone .scr[data-scr="home"]').classList.contains('on'))}).observe($('.phone .scr[data-scr="home"]'),{attributes:true,attributeFilter:['class']});
+})();
+/* AI features: sparkles turn and the title shimmers with scroll; cards light up on entry */
+(function(){const h=$('#aiHead'),g=$('#ai4');if(!h||!g)return;
+  let raf=0;const upd=()=>{raf=0;const r=h.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh-r.top)/(vh*.8)));h.style.setProperty('--p',p.toFixed(3))};
+  addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd();
+  new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){g.classList.add('go');o.disconnect()}},{threshold:.3}).observe(g);
+})();
 
 /* drag strips */
 $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
