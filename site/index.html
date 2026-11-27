@@ -1392,7 +1392,7 @@ em{font-style:italic}
         <p>The Kumbh Mela is held across four principal locations—Prayagraj, Haridwar, Nashik and Ujjain—with the timing tied to religious and astronomical traditions.</p>
       </div>
       <figure class="montage reveal">
-        <div class="mvid"><video src="assets/montage.mp4" poster="assets/montage-poster.jpg" muted loop playsinline preload="none" aria-label="Montage of footage from the Kumbh Mela: dense crowds at barricades, aerial views of the tent city and processions of sadhus"></video>
+        <div class="mvid"><video src="assets/montage.mp4" poster="assets/montage-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Montage of footage from the Kumbh Mela: dense crowds at barricades, aerial views of the tent city and processions of sadhus"></video>
           <button class="mplay" type="button" aria-label="Pause montage"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="i-play" d="M8 5.5v13l10.5-6.5z"/></svg></button>
         </div>
         <figcaption class="caption">On the ground: crowds, the tent city and processions</figcaption>
@@ -2438,9 +2438,13 @@ $$('[data-drag]').forEach(s=>{let down=false,sx=0,sl=0,moved=false;
 /* montage: muted loop that plays only while on screen; button to pause */
 (function(){
   const fig=$('.montage'); if(!fig) return; const v=$('video',fig), btn=$('.mplay',fig);
-  v.muted=true; v.defaultMuted=true; v.playsInline=true; let user=false;
-  const go=()=>{const p=v.play(); if(p&&p.catch) p.catch(()=>fig.classList.add('paused'))};
-  new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ if(!user){fig.classList.remove('paused');go()} } else v.pause(); }),{threshold:.35}).observe(fig);
+  v.muted=true; v.defaultMuted=true; v.playsInline=true; v.autoplay=true; let user=false, onScreen=true;
+  const go=()=>{ if(user) return; fig.classList.remove('paused'); const p=v.play(); if(p&&p.catch) p.catch(()=>{}) };
+  go(); v.addEventListener('canplay',()=>{ if(onScreen) go() });
+  /* if the browser refused to start it, try again on the first scroll, tap or key press */
+  const kick=()=>{ if(v.paused&&onScreen) go() };
+  ['pointerdown','keydown','touchstart','scroll'].forEach(t=>addEventListener(t,kick,{passive:true}));
+  new IntersectionObserver(es=>es.forEach(e=>{ onScreen=e.isIntersecting; if(onScreen) go(); else v.pause(); }),{threshold:.2}).observe(fig);
   btn.onclick=()=>{ if(v.paused){user=false;fig.classList.remove('paused');btn.setAttribute('aria-label','Pause montage');go()} else {user=true;v.pause();fig.classList.add('paused');btn.setAttribute('aria-label','Play montage')} };
 })();
 
